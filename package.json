@@ -1,0 +1,22 @@
+{
+  "name": "node_practice",
+  "version": "1.0.0",
+  "description": "this is a repository for learn node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "buildTS": "tsc --watch *.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JPDevM/node_practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JPDevM/node_practice/issues"
+  },
+  "homepage": "https://github.com/JPDevM/node_practice#readme"
+}
