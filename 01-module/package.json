@@ -1,0 +1,19 @@
+{
+  "name": "aprendiendo-node",
+  "version": "1.0.0",
+  "description": "Aprendiendo Node - 1er Clase",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "Modulos"
+  ],
+  "author": "Juan Pablo / Javier",
+  "license": "ISC",
+  "dependencies": {
+    "currency-codes": "^2.1.0",
+    "currency-symbol-map": "^4.0.4"
+  }
+}
