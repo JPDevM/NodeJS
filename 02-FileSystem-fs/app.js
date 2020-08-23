@@ -19,8 +19,9 @@ const fs = require('fs'); // Nativo
 		fs.writeFile() - Asíncrono
 		fs.writeFileSync() - Sincrónico
 		Se re-escribe todo el archivo
-*/ 
+*/
 
+// Ejemplo readFile() - Asíncrono que no se usa mucho
 // fs.readFile('data/users.json', 'UTF-8' , function (error, data) {
 // 	if (error) {
 // 		console.log(error);
@@ -31,23 +32,27 @@ const fs = require('fs'); // Nativo
 
 // fs.mkdirSync('./carpeta-de-prueba');
 
-// Traemos el contenido del archivo
+// Traemos el contenido del archivo.
 let users = fs.readFileSync('./data/users.json', 'UTF-8');
 
-// Convertimos el contenido a un formato que podamos trabajar
+// Convertimos el contenido a un array para poder trabajarlo.
 let usersArray = JSON.parse(users);
 
-// Nuevo usuario
+// Nuevo usuario.
 let newUser = {
-	id: 32, 
-	first_name: 'Javi', 
-	last_name: 'Herrera', 
-	email: 'javi@gmail.com', 
-	gender: 'Male'
-}
+  id: 32,
+  first_name: 'Javi',
+  last_name: 'Herrera',
+  email: 'javi@gmail.com',
+  gender: 'Male',
+};
 
+// Agregamos el Nuevo Usuario al Array con el contenido.
 usersArray.push(newUser);
 
+// Convertimos el array a formato JSON.
 let usersArrayJSON = JSON.stringify(usersArray, null, ' ');
 
+// Escribimos el documento con la nueva información.
 fs.writeFileSync('./data/users.json', usersArrayJSON);
+// writeFileSync Pisa todos los datos del archivo.

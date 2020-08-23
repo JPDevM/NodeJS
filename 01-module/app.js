@@ -13,7 +13,7 @@
 	Todos los módulos, son objetos literales que vienen con propiedades y métodos.
 
 	Para instalar módulos de otros en nuestro proyecto, es necesario tener un archivo package.json. Este archivo va tener una referencia de tódos módulos que necesita nuestro proyecto para funcionar, por eso es importante. Para crear el archivo package.json de una manera sencilla, podemos ejecutar en la terminal el comando npm init / npm init -y (-y es YES a todo)
-*/ 
+*/
 
 // Módulo Nativo
 const fs = require('fs');
@@ -26,7 +26,7 @@ console.log(users[456].first_name);
 const cc = require('currency-codes');
 const getSymbolFromCurrency = require('currency-symbol-map');
 const currencyToSymbolMap = require('currency-symbol-map/map');
-console.log(currencyToSymbolMap)
+console.log(currencyToSymbolMap);
 // console.log(cc.codes());
 
 // Módulo propio
