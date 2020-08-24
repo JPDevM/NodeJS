@@ -12,14 +12,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JPDevM/Subscription_App.git"
-  },
   "author": "JPDevM",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/JPDevM/Subscription_App/issues"
-  },
-  "homepage": "https://github.com/JPDevM/Subscription_App#readme"
+  "license": "MIT"
 }
