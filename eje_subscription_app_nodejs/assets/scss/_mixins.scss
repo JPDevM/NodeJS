@@ -1,0 +1,29 @@
+// // Mixin no paramétrico
+// @mixin boxShadowAndRadius {
+// 	box-shadow: 5px 5px 10px #000;
+// 	border-radius: 20px;
+// 	padding: 10px;
+// }
+
+// // Mixin paramétrico
+// @mixin media-breakpoint ($breakpoint) {
+// 	@media (min-width: #{$breakpoint}px) {
+// 		// Custom - Se implementa siempre
+// 		@if ($breakpoint >= 576) {
+// 			body {
+// 				background-color: red;
+// 			}
+// 		}
+// 		// Contenido
+// 		@content;
+// 	}
+// }
+
+// @mixin customStyle($padding: 10px, $bgColor: transparent, $border: (solid 1px #000), $color: #fff) {
+// 	padding: $padding;
+// 	background-color: $bgColor;
+// 	border: $border;
+// 	color: $color;
+// 	/* líneas custom CSS */
+// 	@content;
+// }

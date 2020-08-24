@@ -1,0 +1,17 @@
+{
+	"status": 200,
+	"quantity": 135,
+	"actualPage": 1,
+	"prevPage": null,
+	"nextPage": 2,
+	"data": [{
+		"name": "Jon Doe",
+		"age": 23
+	}, {
+		"name": "Jane Doe",
+		"age": 19
+	}, {
+		"name": "Susan Doe",
+		"age": 43
+	}]
+}

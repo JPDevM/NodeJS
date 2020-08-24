@@ -1,0 +1,34 @@
+const products = [
+	{
+		name: 'Zapatillas',
+		price: 245.689,
+		brand: 'New Balance'
+	},
+	{
+		name: 'Reloj',
+		price: 234567,
+		brand: 'Apple'
+	},
+	{
+		name: 'Smart TV',
+		price: 6543,
+		brand: 'Sony'
+	},
+	{
+		name: 'Macbook Pro',
+		price: 87654,
+		brand: 'Apple'
+	},
+];
+
+const todos = [
+	{
+		name: 'Study',
+	},
+	{
+		name: 'Practice',
+	},
+	{
+		name: 'Repeat from start',
+	},
+];

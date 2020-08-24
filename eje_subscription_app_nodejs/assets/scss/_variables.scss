@@ -1,0 +1,37 @@
+// Backgrounds
+$lightColor: #fff;
+$blackColor: #000;
+$flashColor: radial-gradient(
+    circle at 50% 0,
+    rgba(255, 0, 0, 0.5),
+    rgba(255, 0, 0, 0) 70.71%
+  ),
+  radial-gradient(
+    circle at 6.7% 75%,
+    rgba(0, 0, 255, 0.5),
+    rgba(0, 0, 255, 0) 70.71%
+  ),
+  radial-gradient(
+    circle at 93.3% 75%,
+    rgba(0, 255, 0, 0.5),
+    rgba(0, 255, 0, 0) 70.71%
+  );
+
+// Cards
+$lightCard: #fff;
+$blackCard: #000;
+$flashCard: radial-gradient(
+    circle at 50% 0,
+    rgba(255, 0, 0, 0.5),
+    rgba(255, 0, 0, 0) 70.71%
+  ),
+  radial-gradient(
+    circle at 6.7% 75%,
+    rgba(0, 0, 255, 0.5),
+    rgba(0, 0, 255, 0) 70.71%
+  ),
+  radial-gradient(
+    circle at 93.3% 75%,
+    rgba(0, 255, 0, 0.5),
+    rgba(0, 255, 0, 0) 70.71%
+  );

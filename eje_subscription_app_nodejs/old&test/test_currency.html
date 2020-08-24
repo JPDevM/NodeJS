@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Custom Fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&family=Indie+Flower&family=Nunito:wght@400&family=Open+Sans:wght@400&family=Raleway:wght@400&family=Roboto+Mono:wght@400&display=swap');
+  </style>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- Font Awesome 5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Custom Sass -->
+  <link rel="stylesheet" href="assets/css/style_sass.css">
+
+  <title>Subscription App</title>
+</head>
+
+<body style="font-family: 'Open Sans', sans-serif;">
+  <header>
+    <nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-text text-white">
+        Test with API
+      </span>
+    </nav>
+  </header>
+
+  <!-- Currency -->
+  <main class="container-fluid" role="main">
+    <section class="mt-2">
+      <a
+        href="https://www.it-swarm-es.tech/es/api/como-obtengo-las-tasas-de-cambio-de-moneda-traves-de-una-api-como-google-finance/969362375/">Foro
+        API Currency</a><br>
+      <a href="http://www.ecb.int/stats/exchange/eurofxref/html/index.en.html#dev"><strike>Banco Central Europeo de
+          alimentación</strike></a><br>
+
+      <a href="https://free.currencyconverterapi.com/">
+        The Free Currency Converter API</a>
+      <p class="text-white my-0">API key: bb2a59ce2fc861590ceb</p>
+      <a href="https://free.currconv.com/api/v7/convert?q=USD_PHP&compact=ultra&apiKey=bb2a59ce2fc861590ceb">Example
+        usage</a>
+
+
+      <!-- Currency Examples -->
+      <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">€</th>
+            <th scope="col">Code</th>
+            <th scope="col">Value</th>
+            <th scope="col">Last Act.</th>
+          </tr>
+        </thead>
+        <tbody id="currencyTable">
+
+        </tbody>
+      </table>
+
+      <div class="row">
+        <div id="eje1" class="col-12">
+          <p class="text-white"><u>Ejemplo 1:</u><br><small>- Sumar 3 valores, 1 en € y 2 de distintos paises. Default currency €.</small></p>
+        </div>
+        
+        <div id="eje2s" class="col-12">
+          <p class="text-white"><u>Ejemplo 2:</u><br><small>- Sumar 3 valores, 1 en € y 2 de distintos paises. Default currency U$D.</small>
+          </p>
+        </div>
+      </div>
+
+
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="row fixed-bottom bg-dark mx-0 pb-4 align-items-center">
+
+      <div class="col-7">
+        <div class="row ">
+          <div class="col-12">
+            <p class="my-0 text-white text-truncate"><strong>Average Expenses</strong></p>
+          </div>
+          <div class="col-12">
+            <p class="my-0 text-white-50 text-truncate"><small>MONTHLY</small></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <p class="text-right text-white my-0 text-truncate"><strong>279,90 €</strong></p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="assets/js/test_currency.js"></script>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

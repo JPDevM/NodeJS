@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>testApi</title>
+</head>
+
+<body>
+	<div class="container-fluid bg-dark text-white">
+		<h1>API Movies</h1>
+		<div id="movies" class="row">
+
+		</div>
+		<h1>API BCRA</h1>
+		<div id="bcra" class="row">
+			<button id="boton">Leer Api BCRA</button>
+			<div id="lista-api"></div>
+			<script>
+				// asocia al evento click del boton la funcion leerApi 
+				$("#boton").on("click", leerApi);
+
+
+				function leerApi() {
+					alert('Llamando a la API del BCRA, espere un cachito');
+
+					$.ajax({
+						url: 'http://api.estadisticasbcra.com/usd_of',
+						type: 'GET',
+						data: { d: "2020-08-10" },
+						// con la propiedad beforeSend le paso el tipo de autorizacion, en este caso será 'Bearer'  y luego el token que registré en el BCRA
+						beforeSend: function (xhr) {
+							xhr.setRequestHeader('Authorization', 'BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Mjg1ODkzMzEsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJkZXZlY2NoaUBleHhvLmVzIn0.BJW-uvSt9VX_Iz8XCq83jHXGFW90B2-wBmK1UlbzuJaELAgDZKaNwtxEzJJC_apk_Ujd_A_STjJc9D2bsQRm7A');
+						},
+
+						// si la conexion es exitosa, ejecutará la función "respuesta", definida allí mismo.
+						success: function (respuesta) {
+
+							// imprimo el valor de respuesta en la consola, para debug.
+							console.log(respuesta);
+
+							// creo una variable "listaAPI y le asigno el DIV que definí arriba, con el "id:lista-api".
+							var listaAPI = $("#lista-api");
+
+							$.each(respuesta, function (index, miembro) {
+								listaAPI.append(
+									'<div>' +
+									'<p>' + 'Fecha Cotizacion: ' + miembro.d + '<br>' +
+									'Importe: $ ' + miembro.v + '<br>' +
+									'<br>' + '______________________________________' +
+									'</div>'
+								);
+							});
+						}, //fin function respuesta
+
+						error: function () {
+							alert("Hubo un error");
+							console.log("Error al leer la API");
+						}
+
+					});
+				}
+			</script>
+		</div>
+
+		<h1>Countries Currencies</h1>
+		<div id="countries" class="row"></div>
+
+		<h1>Twitter</h1>
+		<div id="twitter" class="row"></div>
+
+		<h1>Twitter</h1>
+		<div id="twitter" class="row"></div>
+
+		<script src="../js-old&test/apiDemo.js"></script>
+	</div>
+</body>
+
+</html>
