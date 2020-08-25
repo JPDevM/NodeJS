@@ -1,4 +1,4 @@
-// setting_theme.html
+// theme
 // To-do: linea 65 terminar función que cambia el thema del preview
 
 let divBody = document.querySelector('body');

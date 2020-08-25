@@ -22,27 +22,22 @@ router.get('/test', (request, response) => {
   response.sendFile(indexPath);
 });
 
-router.get('/add_custom', (request, response) => {
+router.get('/add', (request, response) => {
+  const indexPath = path.resolve(__dirname, '../views/add_existing.htm');
+  response.sendFile(indexPath);
+});
+
+router.get('/add_new', (request, response) => {
   const indexPath = path.resolve(__dirname, '../views/add_custom.html');
   response.sendFile(indexPath);
 });
-
-router.get('/setting', (request, response) => {
-  const indexPath = path.resolve(__dirname, '../views/add_existing.html');
-  response.sendFile(indexPath);
-});
-
-// router.get('/xxx', (request, response) => {
-//   const indexPath = path.resolve(__dirname, '../views/xxx.html');
-//   response.sendFile(indexPath);
-// });
 
 router.get('/setting', (request, response) => {
   const indexPath = path.resolve(__dirname, '../views/setting/setting.html');
   response.sendFile(indexPath);
 });
 
-router.get('/setting_currency', (request, response) => {
+router.get('/currency', (request, response) => {
   const indexPath = path.resolve(
     __dirname,
     '../views/setting/setting_currency.html'
@@ -50,7 +45,7 @@ router.get('/setting_currency', (request, response) => {
   response.sendFile(indexPath);
 });
 
-router.get('/setting_font', (request, response) => {
+router.get('/font', (request, response) => {
   const indexPath = path.resolve(
     __dirname,
     '../views/setting/setting_font.html'
@@ -58,7 +53,7 @@ router.get('/setting_font', (request, response) => {
   response.sendFile(indexPath);
 });
 
-router.get('/setting_mySubscriptions_total', (request, response) => {
+router.get('/total', (request, response) => {
   const indexPath = path.resolve(
     __dirname,
     '../views/setting/setting_mySubscriptions_total.html'
@@ -66,7 +61,7 @@ router.get('/setting_mySubscriptions_total', (request, response) => {
   response.sendFile(indexPath);
 });
 
-router.get('/setting_order', (request, response) => {
+router.get('/order', (request, response) => {
   const indexPath = path.resolve(
     __dirname,
     '../views/setting/setting_order.html'
@@ -74,7 +69,7 @@ router.get('/setting_order', (request, response) => {
   response.sendFile(indexPath);
 });
 
-router.get('/setting_theme', (request, response) => {
+router.get('/theme', (request, response) => {
   const indexPath = path.resolve(
     __dirname,
     '../views/setting/setting_theme.html'

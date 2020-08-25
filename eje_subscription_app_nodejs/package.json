@@ -4,11 +4,14 @@
   "description": "Esta es la aplicación de subscripción con NodeJs",
   "main": "app.js",
   "dependencies": {
+    "core-util-is": "^1.0.2",
     "dinero.js": "^1.8.1",
     "express": "^4.17.1",
     "fs": "^0.0.1-security"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

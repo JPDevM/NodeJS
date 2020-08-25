@@ -1,4 +1,4 @@
-// setting_font.html
+// font
 
 let divBody = document.querySelector('body');
 let containerFonts = document.querySelector('#containerFonts');
