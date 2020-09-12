@@ -117,11 +117,13 @@ function addSub(parent, data) {
 }
 
 // Consume API's
-fetch('assets/js/data.json')
+fetch('http://localhost:8080/subscriptions')
   .then(function (response) {
     return response.json();
   })
   .then(function (data) {
+    console.log(data);
+    return; // revisar que la información del archivo concuerda con el código debajo.
     let activeSubscriptions = data.subscriptions;
     let popSubscriptions = data.subscriptions;
     let allSubscriptionsData = data.subscriptions;
