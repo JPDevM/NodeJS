@@ -29,7 +29,7 @@ const currencyToSymbolMap = require('currency-symbol-map/map');
 console.log(currencyToSymbolMap);
 // console.log(cc.codes());
 
-// Módulo propio
+// Mdóulo propio
 const operaciones = require('./operaciones/operaciones');
 console.log(operaciones.sumar(100, 20));
 console.log(operaciones.restar(100, 20));
