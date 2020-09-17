@@ -1,0 +1,16 @@
+{
+  "name": "repaso-node",
+  "version": "1.0.0",
+  "description": "Estamos aprendiendo un poquito más de Node.JS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./app.js"
+  },
+  "author": "Juan Pablo",
+  "license": "ISC",
+  "devDependencies": {
+    "moment": "^2.27.0"
+  },
+  "dependencies": {}
+}

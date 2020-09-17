@@ -1,4 +1,4 @@
-// setting_currency.html
+// currency
 
 let divBody = document.querySelector('body');
 let containerCurrencys = document.querySelector('#containerCurrencys');
@@ -21,7 +21,7 @@ fetch('assets/js/currency.json')
         // Guardo las variables en un nuevo objeto
         let crrncyId = 'crrncy';
         crrncyId = crrncyId.concat(currency);
-  
+
         let finalCurrency = {
           code: currency,
           id: crrncyId,
@@ -43,13 +43,16 @@ fetch('assets/js/currency.json')
       value: 1,
       actualization: actualizationDate,
       check: 'd-none',
-    }
+    };
 
     // 1.a. Insertamos el currency actual en el parent
     addCurrency(containerCurrencys, actualCurrency, 'afterbegin');
 
     // 2. Insertamos el <h1>
-    containerCurrencys.insertAdjacentHTML('afterbegin', `<h4 style="color:salmon">Tenemos ${currenciesArray.length} monedas</h4>`);
+    containerCurrencys.insertAdjacentHTML(
+      'afterbegin',
+      `<h4 style="color:salmon">Tenemos ${currenciesArray.length} monedas</h4>`
+    );
 
     // 3. En el parent insertamos el resto de currencies
     currenciesArray.forEach(function (oneCurrency) {

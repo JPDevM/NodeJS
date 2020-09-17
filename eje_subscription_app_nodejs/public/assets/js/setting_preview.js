@@ -27,13 +27,13 @@ let newPreview = `
                       </nav>
 
                       <nav id="previewMenu" class="navbar navbar-dark bg-dark">
-                        <a class="navbar-brand text-white-50" href="/setting.html">
+                        <a class="navbar-brand text-white-50" href="/setting">
                           <i class="fa fa-cog" aria-hidden="true"></i>
                         </a>
                         <span class="navbar-text text-white text-truncate">
                           My subscriptions
                         </span>
-                        <a class="navbar-brand text-white-50" href="/add_existing.html"><i class="fa fa-plus"
+                        <a class="navbar-brand text-white-50" href="/add"><i class="fa fa-plus"
                             aria-hidden="true"></i></a>
                       </nav>
 
