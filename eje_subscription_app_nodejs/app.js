@@ -1,18 +1,3 @@
-const http = require('http');
-
-const hostname = '127.0.0.1';
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hola Mundo');
-});
-
-server.listen(port, hostname, () => {
-  console.log(`El servidor se está ejecutando en http://${hostname}:${port}/`);
-});
-
 /*
   Express
 */
@@ -30,12 +15,12 @@ app.listen(8080, 'localhost');
 const fs = require('fs');
 
 // Traemos el contenido las subscripciones.
-let subs = fs.readFileSync('./assets/js/data.json', 'UTF-8');
+// let subs = fs.readFileSync('./assets/js/data.json', 'UTF-8');
 
 // Convertimos el contenido a un array para poder trabajarlo.
-let subsArray = JSON.parse(subs);
+// let subsArray = JSON.parse(subs);
 
 /*
   Dinero
 */
-const dinero = require('dinero');
+const dinero = require('dinero.js');
