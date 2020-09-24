@@ -1,0 +1,24 @@
+<%- include('../partials/head') -%>
+<body>
+	<h2>Browse</h2>
+
+	<hr>
+	<h4>El tempUser es:</h4>
+	<p><%= locals.tempUser.name %> </p>
+	<p><%= locals.tempUser.email %> </p>
+	<hr>
+	
+	<ol>
+	<% users.forEach(function (oneUser) { %>
+		<li><%= oneUser.name %></li>
+	<% }) %>
+	</ol>
+
+	<h5><%= isDayOrNight(12);  %></h5>
+	<h5><%= isDayOrNight(22);  %></h5>
+	<h5><%= isDayOrNight('lo que sea');  %></h5>
+	<h5><%= isDayOrNight(27);  %></h5>
+
+	<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis fuga nam ducimus excepturi totam, ipsam autem adipisci voluptas nisi quidem sequi accusamus beatae cupiditate delectus officiis commodi reiciendis, illum dolorum!</p>
+</body>
+</html>
