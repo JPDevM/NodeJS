@@ -5,6 +5,10 @@ function index(request, response) {
 
   // El método render() es para enviar una vista (archivo html o ejs) al browser.
   // Para poder mostrar una vista en el browser necesitamos hacer uso del método render()
+  // request.query => es exclusivo de NODE, es la manera de acceder al Query String
+  // http://localhost:3000/?nombre=Javier&edad=456&colores=[%22amarrilo%22,%20%22azul%22,%20%22rojo%22]
+  let colores = JSON.parse(request.query.colores);
+  console.log(colores);
   response.render('home');
 }
 

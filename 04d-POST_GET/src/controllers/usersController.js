@@ -51,19 +51,19 @@ module.exports = {
 		// console.log('Aca vamos a mostrar la data que vino en el formulario:');
 		// console.log(req.body);
 		// Acá va toda la lógica para almacenar la información en la DB
-		let errors = validationResult(req);
-		// console.log(errors.mapped());
-		if (errors.errors.length > 0) {
-			console.log(errors.mapped());
+		let result = validationResult(req);
+		// console.log(result);
+		if (result.errors.length > 0) {
+			console.log(result.mapped());
 			return res.render('users/add', {
-				errores: errors.mapped()
+				errores: result.mapped()
 			});
 		}
 
 		return res.send('Se va a crear un usuario');
 	},
 	delete: (req, res) => {
-		return res.send('Delete');
+		return res.send('Delete al ID: ' + req.params.id);
 	},
 	login: (req, res) => {
 		return res.send('Estás en el LOGIN');

@@ -9,8 +9,13 @@
 	<hr>
 	
 	<ol>
-	<% users.forEach(function (oneUser) { %>
-		<li><%= oneUser.name %></li>
+	<% users.forEach(function (oneUser, index) { %>
+		<li>
+			<%= oneUser.name %>
+			<form action="/usuarios/<%= index %>?_method=DELETE" method="POST">
+				<button type="submit">Borrar este usuario</button>
+			</form>
+		</li>
 	<% }) %>
 	</ol>
 

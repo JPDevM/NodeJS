@@ -41,6 +41,20 @@ app.listen(3000, function () {
 			Sacamos afuera los headers 
 */
 
+// Middleware para poder usar otros métodos HTTP distintos de GET y de POST
+const methodOverride = require('method-override');
+app.use( methodOverride('_method') );
+/*
+	La librería method-override nos va a permitir pisar el método GET o POST por cualquiera de estos:
+
+	- PUT
+	- PATCH
+	- DELETE
+
+	En la ruta / action del formulario hacemos esto:
+	<form action="/usuarios/1?_method=PUT" method="POST">
+*/
+
 // Para que Express sepa manejar la información de los formularios
 app.use( express.urlencoded({ extended: false }) ); // Middleware de aplicación
 

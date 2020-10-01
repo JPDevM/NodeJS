@@ -7,6 +7,9 @@ const controller = require('../controllers/usersController');
 // Middlewares
 const { body } = require('express-validator');
 const validations = [
+	body('firstName')
+		.not().isEmpty()
+		.withMessage('El nombre es obligatorio'),
 	body('email')
 		.isEmail()
 		.withMessage('El email debe ser un formato de correo válido'),
@@ -33,7 +36,7 @@ router.get('/crear', controller.add);
 router.post('/', validations, controller.create);
 
 // 7. DELETE - Borrar uno
-router.delete('/', controller.delete);
+router.delete('/:id', controller.delete);
 
 router.get('/login', controller.login);
 
