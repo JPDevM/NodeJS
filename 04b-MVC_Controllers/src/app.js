@@ -9,13 +9,11 @@ app.listen(3000, function () {
   console.log('Servidor andando en el puerto 3000');
 });
 
-// Preguntar el orden en que hicimos las cosas a Javi.
-
 /*
 	ABM => Alta, Baja, Modificación
 	CRUD => Create, Read, Update, Delete
 	BREAD => Browse, Read, Edit, Add, Delete
-*/ 
+*/
 
 /*  
 		1. Creamos los ROUTERS. 
