@@ -4,14 +4,16 @@
   "description": "Manage all subscriptions in 1 app",
   "main": "app.js",
   "dependencies": {
+    "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "moment": "^2.29.0",
-    "node": "^14.13.0",
     "nodemon": "^2.0.4"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/app.js"
   },
   "author": "JPDevM",
   "license": "MIT"
