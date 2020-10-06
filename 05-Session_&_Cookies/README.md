@@ -6,12 +6,12 @@
       │ ├─ css/
       │ ├─ images/
       │ └─ js/
-      └─ src/
-      ├─ controllers/
-      ├─ middlewares/
-      ├─ routers/
-      └─ view/
-      app.js
+      ├─ src/
+      │ ├─ controllers/
+      │ ├─ middlewares/  
+      │ ├─ routes/  
+      │ ├─ views/
+      │ └─ app.js
       package.json
       README
       LICENCE, gitignore, etc ...
