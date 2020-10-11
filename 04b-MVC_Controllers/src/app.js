@@ -17,6 +17,7 @@ app.listen(3000, function () {
 
 /*  
 		1. Creamos los ROUTERS. 
+			https://expressjs.com/es/guide/routing.html
 			Los modularizamos; staticRouter, productsRouter.  
 			Un ROUTER es una "entidad" dentro de tu aplicación
 			Ej: entidad -> users
