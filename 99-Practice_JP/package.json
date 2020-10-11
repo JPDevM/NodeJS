@@ -4,6 +4,7 @@
   "description": "Manage all subscriptions in 1 app",
   "main": "app.js",
   "dependencies": {
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "moment": "^2.29.0",
     "node": "^14.13.0",
@@ -12,7 +13,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./app.js"
+    "start": "nodemon ./src/app.js"
   },
   "author": "JPDevM",
   "license": "MIT"
