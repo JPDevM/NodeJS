@@ -17,9 +17,9 @@ const router = express.Router();
 
 
 // routing to http://localhost:3000
-// router.get('/', function (req, res) {
-//   res.send('GET request to the homepage');
-// });
+router.get('/', function (req, res) {
+  res.send('GET request to the homepage');
+});
 
 // Routing to http://localhost:3000/subscription
 
