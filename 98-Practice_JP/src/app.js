@@ -6,6 +6,10 @@ app.listen(5000, () => console.log('Server on http://localhost:5000/'));
 // Packages
 var fs = require('fs');
 
+// Template engine - views
+app.set('view engine', 'ejs');
+app.set('views', './src/views');
+
 const staticRouter = require('./routes/staticRouter');
 app.use('/', staticRouter);
 

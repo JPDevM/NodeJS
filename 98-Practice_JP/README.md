@@ -131,9 +131,7 @@
 
 - [x] MVC: Create controllers files.
 
-  <img src="/Users/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/Controllers-files.png" alt="Controllers-files" style="zoom:50%;" />
-
-  subscriptionsRouter.js (idem with staticRouter.js, promotionsRouter.js, usersRouter.js)
+<img src="/Users/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/Controllers-files.png" alt="Controllers-files" style="zoom:50%;" />
 
 - [x] MVC: Tell routes the controller method.
 
@@ -156,7 +154,7 @@
 
   > Create standard methods
 
-  subscriptionsControllers.js ~~(idem with staticControllers.js, promotionsControllers.js, usersControllers.js)~~
+  subscriptionsControllers.js (idem with staticControllers.js, promotionsControllers.js, usersControllers.js)
 
   ```js
   module.exports = {
@@ -188,4 +186,15 @@
       return response.send('The Subscriptions See page works ok');
     },
   };
+  ```
+
+- [x] MVC: Install template engine - views
+
+  > Documentation: http://expressjs.com/es/guide/using-template-engines.html
+
+  app.js
+
+  ```js
+  app.set('view engine', 'ejs');
+  app.set('views', './src/views');
   ```
