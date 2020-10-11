@@ -1,18 +1,16 @@
-//
-
 module.exports = {
-  index: function (req, res) {
-    return res.render('productos');
+  index: function (request, response) {
+    return response.render('productos');
   },
 
-  show: function (req, res) {
-    let productID = Number(req.params.id);
+  show: function (request, response) {
+    let productID = Number(request.params.id);
 
     if (isNaN(productID)) {
-      return res.send('El ID debe ser un número');
+      return response.send('El ID debe ser un número');
     }
 
-    return res.send('Llegaste al producto con id: ' + productID);
+    return response.send('Llegaste al producto con id: ' + productID);
   },
 };
 

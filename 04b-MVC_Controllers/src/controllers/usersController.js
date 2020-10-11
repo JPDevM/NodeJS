@@ -12,7 +12,7 @@ const isDayOrNight = (hour) => {
 }
 
 module.exports = {
-	browse: (req, res) => {
+	browse: (request, response) => {
 		let users = [
 			{name: 'Jhon'},
 			{name: 'Jane'},
@@ -23,32 +23,32 @@ module.exports = {
 			{name: 'Eme'},
 			{name: 'Manu'},
 		];
-		return res.render('users/browse', {
+		return response.render('users/browse', {
 			users,
 			title: 'Listado de Usuarios',
 			isDayOrNight
 		});
 	},
-	read: (req, res) => {
-		return res.render('users/read');
+	read: (request, response) => {
+		return response.render('users/read');
 	},
-	edit: (req, res) => {
+	edit: (request, response) => {
 		// Solo muestra el formulario
-		return res.render('users/edit');
+		return response.render('users/edit');
 	},
-	update: (req, res) => {
+	update: (request, response) => {
 		// Se encarga de ACTUALIZAR la información en la DB
-		return res.send('Update');
+		return response.send('Update');
 	},
-	add: (req, res) => {
+	add: (request, response) => {
 		// Solo muestra el formulario
-		return res.render('users/add');
+		return response.render('users/add');
 	},
-	create: (req, res) => {
+	create: (request, response) => {
 		// Se encarga de CREAR la información en la DB
-		return res.send('Add');
+		return response.send('Add');
 	},
-	delete: (req, res) => {
-		return res.send('Delete');
+	delete: (request, response) => {
+		return response.send('Delete');
 	},
 };

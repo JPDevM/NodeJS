@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 // https://expressjs.com/es/guide/routing.html
 
-const controller = require('../controllers/usersController');
+const controller = require('../controllers/promotionsController');
 
 // BREAD
-// Respond to http://localhost:5000/users
+// Respond to http://localhost:5000/promotions
 router.get('/', controller.browse);
 router.get('/:id/edit', controller.edit);
 router.put('/:id', controller.update);
