@@ -1,10 +1,10 @@
 module.exports = {
   browse: (request, response) => {
-		return response.send('The Promotions See All page works ok');
+    return response.render('promotions/browse');
   },
 
 	edit: (request, response) => {
-		return response.send('The Promotions Edit Form page works ok');
+    return response.render('promotions/edit');
   },
 
   update: (request, response) => {
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   add: (request, response) => {
-		return response.send('The Promotions Create Form page works ok');
+    return response.render('promotions/add');
   },
 
   create: (request, response) => {
@@ -24,6 +24,6 @@ module.exports = {
   },
 
   read: (request, response) => {
-		return response.send('The Promotions See page works ok');
+    return response.render('promotions/add');
   },
 }

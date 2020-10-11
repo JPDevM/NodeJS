@@ -198,3 +198,42 @@
   app.set('view engine', 'ejs');
   app.set('views', './src/views');
   ```
+
+- [x] MVC: Create views files.
+
+<img src="/Users/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/View-files.png" alt="View-files" style="zoom:50%;" />
+  
+  read.ejs (idem with add.ejs, browse.ejs, edit.ejs)
+
+```html
+  <%- include('../partials/head') %>
+
+  <body>
+    <h2>Read</h2>
+    <p>The Users See page works ok</p>
+  </body>
+
+  </html>
+```
+
+- [x] MVC: Tell controller to display view files instead of text.
+
+  subscriptionsController.js (idem with promotionsRouter.js, usersRouter.js)
+
+  ```js
+    browse: (request, response) => {
+      return response.render('subscriptions/browse');
+    },
+
+    edit: (request, response) => {
+      return response.render('subscriptions/edit');
+    },
+
+    add: (request, response) => {
+      return response.render('subscriptions/add');
+    },
+
+    read: (request, response) => {
+      return response.render('subscriptions/read');
+    },
+  ```

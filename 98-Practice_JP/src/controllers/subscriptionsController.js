@@ -1,10 +1,10 @@
 module.exports = {
   browse: (request, response) => {
-		return response.send('The Subscriptions See All page works ok');
+		return response.render('subscriptions/browse');
   },
 
 	edit: (request, response) => {
-		return response.send('The Subscriptions Edit Form page works ok');
+		return response.render('subscriptions/edit');
   },
 
   update: (request, response) => {
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   add: (request, response) => {
-		return response.send('The Subscriptions Create Form page works ok');
+		return response.render('subscriptions/add');
   },
 
   create: (request, response) => {
@@ -24,6 +24,6 @@ module.exports = {
   },
 
   read: (request, response) => {
-		return response.send('The Subscriptions See page works ok');
+    return response.render('subscriptions/read');
   },
 }

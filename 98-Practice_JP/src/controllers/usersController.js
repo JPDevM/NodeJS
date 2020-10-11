@@ -1,10 +1,10 @@
 module.exports = {
   browse: (request, response) => {
-		return response.send('The Users See All page works ok');
+    return response.render('users/browse');
   },
 
 	edit: (request, response) => {
-		return response.send('The Users Edit Form page works ok');
+    return response.render('users/edit');
   },
 
   update: (request, response) => {
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   add: (request, response) => {
-		return response.send('The Users Create Form page works ok');
+    return response.render('users/add');
   },
 
   create: (request, response) => {
@@ -24,6 +24,6 @@ module.exports = {
   },
 
   read: (request, response) => {
-		return response.send('The Users See page works ok');
+    return response.render('users/read');
   },
 }
