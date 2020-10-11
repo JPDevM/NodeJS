@@ -18,6 +18,30 @@
 - [x] README.md, LICENCE & .gitignore
 - [x] Install Node.JS, NPM & Express
 - [x] Definition of MVC entities: users, subscriptions.
+      ```js
+      app.get('/', function (request, response) {
+      response.send('Server ok');
+      });
+
+      app.get('/subscriptions', function (request, response) {
+        response.send('subscriptions ok');
+      });
+
+      app.get('/users', function (request, response) {
+        response.send('users ok');
+      });
+
+      // 404 Not Found
+      app.get('*', function (request, response) {
+        response.send('404 - Not found');
+      });
+      ```
+      Test:
+      http://localhost:5000/ --> ok
+      http://localhost:5000/subscriptions --> ok
+      http://localhost:5000/users --> ok
+      http://localhost:5000/sdfg --> ok
+
 - [x] MVC: Create Routes files (entities) --> staticRouter.js, usersRouter.js, subscriptionRoutes.
 
   > Create the ROUTERS. https://expressjs.com/es/guide/routing.html
