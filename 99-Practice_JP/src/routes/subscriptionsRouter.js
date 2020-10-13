@@ -11,7 +11,8 @@ router.get('/:id/edit', controller.edit);
 router.put('/:id', controller.update);
 router.get('/create', controller.add);
 router.post('/', controller.create);
-router.delete('/', controller.delete);
+router.delete('/:id', controller.delete);
+router.get('/search', controller.search);
 router.get('/:id', controller.read);
 
 module.exports = router;
