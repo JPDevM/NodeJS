@@ -188,6 +188,13 @@
   };
   ```
 
+- [x] MVC: // Public files folder setup.
+      app.js
+  ```js
+  const path = require('path');
+  const publicFolder = express.static(path.resolve(__dirname, '../public/'));
+  app.use(publicFolder);
+  ```
 - [x] MVC: Install template engine - views
 
   > Documentation: http://expressjs.com/es/guide/using-template-engines.html
@@ -201,19 +208,19 @@
 
 - [x] MVC: Create views files.
 
-<img src="/Users/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/View-files.png" alt="View-files" style="zoom:50%;" />
-  
-  read.ejs (idem with add.ejs, browse.ejs, edit.ejs in wich entities)
-
-```html
-  <%- include('../partials/head') %>
+<img src="/Users<%- include('../partials/head') %>
 
   <body>
     <h2>Read</h2>
     <p>The Users See page works ok</p>
   </body>
 
-  </html>
+  </html>/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/View-files.png" alt="View-files" style="zoom:50%;" />
+
+read.ejs (idem with add.ejs, browse.ejs, edit.ejs in wich entities)
+
+```html
+
 ```
 
 - [x] MVC: Tell controller to display view files instead of text.
@@ -236,4 +243,21 @@
     read: (request, response) => {
       return response.render('subscriptions/read');
     },
+  ```
+
+-------- acá seguro faltan más cosas para terminar el MVC, por ejemplo terminar los métodos.
+
+- [x] Rest API: Create a Json file in src for each entity with its data.
+
+- [x] Rest API: Set the Json Objet.
+      app.js
+
+  ```js
+  app.use(expess.json());
+  ```
+
+- [x] Rest API: Set how Express handles information in forms.
+      app.js
+  ```js
+  app.use(express.urlencoded({ extended: false }));
   ```

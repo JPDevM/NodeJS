@@ -1,7 +1,15 @@
+const fs = require('fs');
+const path = require('path');
+
 module.exports = {
+  // browse: (request, response) => {
+	// 	return response.render('subscriptions/browse');
+  // },
+
   browse: (request, response) => {
-		return response.render('subscriptions/browse');
+   	return response.json()
   },
+
 
 	edit: (request, response) => {
 		return response.render('subscriptions/edit');

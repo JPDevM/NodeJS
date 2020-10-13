@@ -37,7 +37,6 @@ app.listen(3000, function () {
 
 /*  
 		3. Creamos las VIEWS.
-			¿?
 			Sacamos afuera los headers 
 */
 

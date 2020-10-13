@@ -37,7 +37,6 @@ app.listen(3000, function () {
 
 /*  
 		3. Creamos las VIEWS.
-			¿?
 			Sacamos afuera los headers 
 */
 
@@ -47,7 +46,7 @@ app.use(logMiddleware);
 
 // Setup de la carpeta de archivos públicos
 const publicFolder = express.static(path.resolve(__dirname, '../public/'));
-app.use(publicFolder);
+app.use(publicFolder); 
 
 // Setup del template engine - views
 app.set('view engine', 'ejs'); // Setear el motor de vistas que vamos a usar
