@@ -1,15 +1,18 @@
 const fs = require('fs');
 const path = require('path');
 
-module.exports = {
-  // browse: (request, response) => {
-	// 	return response.render('subscriptions/browse');
-  // },
+// ¿¿¿¿¿ no se por qué se me rompió esto ????
+// const filePath = path.resolve(__dirname, './views/subscriptions/');
+// const subscriptions = fs.readFileSync(filePath)
 
+module.exports = {
   browse: (request, response) => {
-   	return response.json()
+		return response.render('subscriptions/browse');
   },
 
+  // browse: (request, response) => {
+  //  	return response.json('')
+  // },
 
 	edit: (request, response) => {
 		return response.render('subscriptions/edit');
