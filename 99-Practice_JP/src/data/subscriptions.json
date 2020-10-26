@@ -5159,7 +5159,6 @@
   "long": null,
   "notification": null,
   "currency": null
-<<<<<<< HEAD
 },
 {
   "id": "304",
@@ -5178,37 +5177,4 @@
   "notification": null,
   "currency": null
 }
-=======
- },
- {
-  "icon": "un ícon de mentiras",
-  "price": "5645645645",
-  "name": "Facebook",
-  "id": 304
- },
- {
-  "icon": "un ícon de mentiras",
-  "price": "5645645645",
-  "name": "Facebook",
-  "id": 305
- },
- {
-  "icon": "un ícon de mentiras",
-  "price": "5645645645",
-  "name": "Facebook",
-  "id": 306
- },
- {
-  "icon": "un ícon de mentiras",
-  "price": "5645645645",
-  "name": "Facebook",
-  "id": 307
- },
- {
-  "icon": "un ícon de mentiras",
-  "price": "5645645645",
-  "name": "Facebook",
-  "id": 308
- }
 ]
->>>>>>> 357a243c047c8b6022dfdba0c71e27f12c3ea9ef

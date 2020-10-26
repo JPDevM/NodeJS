@@ -1,12 +1,13 @@
-const { query } = require('express');
 const fs = require('fs');
 const path = require('path');
 
-const filePath = path.resolve(__dirname, '../data/subscriptions.json');
-const subscriptionsString = fs.readFileSync(filePath, 'utf-8');
-const subscriptions = JSON.parse(subscriptionsString);
+// JSON Model
+const subsModel = require('../models/jsonModel');
+const subs = subsModel('subscriptions.json');
 
-module.exports = {
+const subscriptions = subs.toArray();
+
+// module.exports = {
   // browse: (request, response) => {
 	// 	return response.render('subscriptions/browse');
   // },
@@ -16,12 +17,38 @@ module.exports = {
     return response.json(subscriptions);
   },
 
-	edit: (request, response) => {
-		return response.render('subscriptions/edit');
-  },
+	// edit: (request, response) => {
+	// 	return response.render('subscriptions/edit');
+  // },
 
   update: (request, response) => {
-		return response.send('The Subscriptions Edit One page works ok');
+    //return response.send('The Subscriptions Edit One page works ok');
+    
+    // 1. Buscar el registro que deseamos actualizar
+    let theSub = subscriptions.find(function (oneSub) {
+      return oneSub.id == request.params.id;
+    })
+
+    // 2. Hacer la actualizaciones
+    theSub.name = request.body.newName;
+    theSub.logoIcon = request.body.newLogoIcon ? request.body.newLogoIcon : theSub.logoIcon;
+
+    // 3. Guardar las actualizaciones en el JSON
+    /*
+      a. Recorrer el array de subscriptions
+      b. Encontrar la susbscription que querés modificar
+      c. Volver a guardar todo el JSON
+    */ 
+
+    // 4. Retornar un mensaje de éxito
+    return response.json({
+      meta: {
+        status: 200,
+        message: 'successful'
+      },
+      data: theSub
+    });
+    
   },
 
   add: (request, response) => {
@@ -68,11 +95,26 @@ module.exports = {
   },
 
   read: (request, response) => {
-    let id = request.params.id;
-    let theSubscription = subscriptions.find(function (oneSubscription) {
-      return oneSubscription.id === id;
-    })
-    return response.json(theSubscription)
+    try {
+      let id = request.params.id;
+      let theSubscription = subs.find(id);
+      if (theSubscription) {
+        return response.json(theSubscription)
+      }
+      return response.status(404).json({
+        meta: {
+          status: 404,
+          message: 'El id no existe'
+        }
+      })
+    } catch (error) {
+      return response.status(500).json({
+        meta: {
+          status: 500,
+          message: error
+        }
+      })
+    }
   },
 
   search: (request, response) => {
@@ -86,6 +128,6 @@ module.exports = {
       return response.json(theSubscription);
     }
 
-    return response.send('No hay nada para buscar');
+    return response.send('No se encontró nada');
   }
 }

@@ -47,7 +47,7 @@
 
 - [x] MVC: Modularize and create routes files (entities).
 
-  > Static, Subscription, Promotions.
+  > Subscription, Promotions.
   > A ROUTER is an "entity". BREAD: Browse, Read, Edit, Add, Delete.
 
     <img src="/Users/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/Routes-files.png" alt="Routes-files" style="zoom:50%;" />
@@ -261,3 +261,46 @@ read.ejs (idem with add.ejs, browse.ejs, edit.ejs in wich entities)
   ```js
   app.use(express.urlencoded({ extended: false }));
   ```
+
+
+## Construcción de una API
+
+Siempre vamos a usar 5 métodos que son:
+
+- get (2 -> all / one)
+- post
+- put / patch
+- delete
+
+### get
+
+Con esta ruta vamos a obtener todos los registros de una entidad:
+
+```js
+// Ruta - TODOS
+router.get('/', controller.browse);
+
+// Controller
+browse: (request, response) => {
+  return response.json(subscriptions);
+},
+```
+### put
+
+Ruta para editar un recurso
+
+```js
+// Ruta - TODOS
+router.put('/:id', controller.update);
+
+// Controller
+update: (request, response) => {
+  // Lógica de actualizar un registro
+  /*
+    1. Buscar el registro
+    2. En ese registro hacés la actualizaciones
+    3. Guardar las actualizaciones
+    4. Arrojar un mensaje de éxito
+  */ 
+}
+```
