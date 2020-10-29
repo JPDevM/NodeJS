@@ -1,7 +1,15 @@
 // Server on http://localhost:5000/
 var express = require('express');
+var cors = require('cors');
 var app = express();
-app.listen(5000, () => console.log('Server on http://localhost:5000/'));
+
+app.use(cors());
+
+require('dotenv').config();
+
+let port = process.env.PORT;
+
+app.listen(port, () => console.log(`Server on http://localhost:${port}/`));
 
 // Packages
 const path = require('path');

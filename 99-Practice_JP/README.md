@@ -1,10 +1,24 @@
 # Workflow JP
 
 - [x] Folder structure for a Node.js project.
-      <img src="/Users/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/Folder-structure.png" alt="Folder-structure" style="zoom:50%;" />
+
+  <img src="public/images/docs/Folder-structure.png" alt="Folder-structure" style="zoom:50%;" />
+
 - [x] README.md, LICENCE & .gitignore.
 
-- [x] Install Node.JS, NPM & Express.
+- [x] Install Express.
+
+- [x] Install thrid-party dependencies.
+  
+  • dotenv => `require('dotenv').config();`
+  
+  • cors => `app.use(cors());`
+
+  • passport (login social)
+
+  • express-session (super admin)
+
+  • cookie-parser (super admin)
 
 - [x] Definition of MVC entities.
 
@@ -40,9 +54,13 @@
   ```
 
   <u>Test:</u>
+
   http://localhost:5000/ --> ok
+
   http://localhost:5000/subscriptions --> ok
+
   http://localhost:5000/users --> ok
+
   http://localhost:5000/sdfg --> ok
 
 - [x] MVC: Modularize and create routes files (entities).
@@ -51,7 +69,7 @@
   > If preparing the backend to consume as API with the frontend, static is not defined as entity.
   > A ROUTER is an "entity". BREAD: Browse, Read, Edit, Add, Delete.
 
-    <img src="/Users/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/Routes-files.png" alt="Routes-files" style="zoom:50%;" />
+    <img src="public/images/docs/Routes-files.png" alt="Routes-files" style="zoom:50%;" />
 
   App.js
 
@@ -132,7 +150,7 @@
 
 - [x] MVC: Create controllers files.
 
-<img src="/Users/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/Controllers-files.png" alt="Controllers-files" style="zoom:50%;" />
+<img src="public/images/docs/Controllers-files.png" alt="Controllers-files" style="zoom:50%;" />
 
 - [x] MVC: Tell routes the controller method.
       There are 2 ways here:
@@ -145,15 +163,14 @@ subscriptionsRouter.js (idem with staticRouter.js, promotionsRouter.js, usersRou
 // Require the controller
 const controller = require('../controllers/subscriptionsControllers');
 
-router.get('/:id/edit', controller.edit);
-router.get('/create', controller.add);
-router.post('/', controller.create);
-router.delete('/', controller.delete);
-router.get('/:id', controller.read);
+router.get('/', controller.browse); // All
+router.put('/:id', controller.edit); // Update one
+router.post('/', controller.add); // Create one
+router.delete('/:id', controller.delete); // Delete one
+router.get('/:id', controller.read); // One
 ```
-
-> router.get('/', controller.browse);
-> router.put('/:id', controller.update);
+> router.get('/create', controller.create); // Vista
+> router.get('/:id/edit', controller.update); // Vista
 > These controllers are not created because they will not render views.
 
 - [x] MVC: Create the controller methods.
@@ -371,3 +388,6 @@ json Models I use it because as I use Json, I pull the most common methods outsi
 
 las rutas o controladores o sus métodos (no sé) ahora envian respuestas Json por que son APIs
 routes or controllers or their methods (I don't know) now send Json responses because they are APIs
+
+
+https://medium.com/zero-equals-false/using-cors-in-express-cac7e29b005b
