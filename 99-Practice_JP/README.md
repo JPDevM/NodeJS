@@ -371,3 +371,27 @@ json Models I use it because as I use Json, I pull the most common methods outsi
 
 las rutas o controladores o sus métodos (no sé) ahora envian respuestas Json por que son APIs
 routes or controllers or their methods (I don't know) now send Json responses because they are APIs
+
+https://www.npmjs.com/package/cors
+
+Extraigo las variables de desarrollo en archivos de producción .env y hago la documentación .env.example
+
+requiero lainstalo la librería
+https://www.npmjs.com/package/dotenv
+
+utilizo process.env para extraer las vaiables
+las pongo utilizo en app.js y ahora van a ser dínámicas
+
+---
+
+librería para el logueo social.
+http://www.passportjs.org/
+
+---
+
+Si hago pública la API.
+Hacer la paginación de cantidad de resultados en el request de la API. Ejemplo (enviarte 20 registros). En el único que se envía más de uno es el método browse, (en la búsqueda tambien necesito uno, en caso de desarrollar ete método)
+ver el tema de los token en la API (ver ejemplo en promotionsController)
+(el método serch se define desde el controlador, añadirlo en el lugar que va en el readme.md)
+Tengo que ver cuantas request pueden hacer por usuario.
+Documentación
