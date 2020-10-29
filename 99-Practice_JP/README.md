@@ -47,7 +47,8 @@
 
 - [x] MVC: Modularize and create routes files (entities).
 
-  > Subscription, Promotions.
+  > Subscription, Promotions, Static.
+  > If preparing the backend to consume as API with the frontend, static is not defined as entity.
   > A ROUTER is an "entity". BREAD: Browse, Read, Edit, Add, Delete.
 
     <img src="/Users/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/Routes-files.png" alt="Routes-files" style="zoom:50%;" />
@@ -134,21 +135,41 @@
 <img src="/Users/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/Controllers-files.png" alt="Controllers-files" style="zoom:50%;" />
 
 - [x] MVC: Tell routes the controller method.
+      There are 2 ways here:
 
-  subscriptionsRouter.js (idem with staticRouter.js, promotionsRouter.js, usersRouter.js)
+a. Prepare the backend to consume as an API with the frontend.
 
-  ```js
-  // Require the controller
-  const controller = require('../controllers/subscriptionsControllers');
+subscriptionsRouter.js (idem with staticRouter.js, promotionsRouter.js, usersRouter.js)
 
-  router.get('/', controller.browse);
-  router.get('/:id/edit', controller.edit);
-  router.put('/:id', controller.update);
-  router.get('/create', controller.add);
-  router.post('/', controller.create);
-  router.delete('/', controller.delete);
-  router.get('/:id', controller.read);
-  ```
+```js
+// Require the controller
+const controller = require('../controllers/subscriptionsControllers');
+
+~~router.get('/', controller.browse);
+~~router.get('/:id/edit', controller.edit);
+~~router.put('/:id', controller.update);
+~~router.get('/create', controller.add);
+router.post('/', controller.create);
+router.delete('/', controller.delete);
+router.get('/:id', controller.read);
+```
+
+b. The controller will render the views.
+
+subscriptionsRouter.js (idem with staticRouter.js, promotionsRouter.js, usersRouter.js)
+
+```js
+// Require the controller
+const controller = require('../controllers/subscriptionsControllers');
+
+router.get('/', controller.browse);
+router.get('/:id/edit', controller.edit);
+router.put('/:id', controller.update);
+router.get('/create', controller.add);
+router.post('/', controller.create);
+router.delete('/', controller.delete);
+router.get('/:id', controller.read);
+```
 
 - [x] MVC: Create the controller methods.
 
@@ -262,7 +283,6 @@ read.ejs (idem with add.ejs, browse.ejs, edit.ejs in wich entities)
   app.use(express.urlencoded({ extended: false }));
   ```
 
-
 ## Construcción de una API
 
 Siempre vamos a usar 5 métodos que son:
@@ -285,6 +305,7 @@ browse: (request, response) => {
   return response.json(subscriptions);
 },
 ```
+
 ### put
 
 Ruta para editar un recurso
@@ -301,6 +322,12 @@ update: (request, response) => {
     2. En ese registro hacés la actualizaciones
     3. Guardar las actualizaciones
     4. Arrojar un mensaje de éxito
-  */ 
-}
+  */
+};
 ```
+
+json Models lo utilizo porque como uso Json, saco los métodos más comunes afuera
+json Models I use it because as I use Json, I pull the most common methods outside
+
+las rutas o controladores o sus métodos (no sé) ahora envian respuestas Json por que son APIs
+routes or controllers or their methods (I don't know) now send Json responses because they are APIs
