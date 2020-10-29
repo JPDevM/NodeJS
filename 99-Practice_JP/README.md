@@ -145,14 +145,54 @@ subscriptionsRouter.js (idem with staticRouter.js, promotionsRouter.js, usersRou
 // Require the controller
 const controller = require('../controllers/subscriptionsControllers');
 
-~~router.get('/', controller.browse);
-~~router.get('/:id/edit', controller.edit);
-~~router.put('/:id', controller.update);
-~~router.get('/create', controller.add);
+router.get('/:id/edit', controller.edit);
+router.get('/create', controller.add);
 router.post('/', controller.create);
 router.delete('/', controller.delete);
 router.get('/:id', controller.read);
 ```
+
+> router.get('/', controller.browse);
+> router.put('/:id', controller.update);
+> These controllers are not created because they will not render views.
+
+- [x] MVC: Create the controller methods.
+
+  > Create standard methods
+
+  subscriptionsControllers.js (idem with staticControllers.js, promotionsControllers.js, usersControllers.js)
+
+  ```js
+  module.exports = {
+    browse: (request, response) => {
+      return response.json(subscriptions);
+    },
+
+    edit: (request, response) => {
+      return response.send('The Subscriptions Edit Form page works ok');
+    },
+
+    update: (request, response) => {
+      return response.send('The Subscriptions Edit One page works ok');
+    },
+
+    add: (request, response) => {
+      return response.send('The Subscriptions Create Form page works ok');
+    },
+
+    create: (request, response) => {
+      return response.send('The Subscriptions Add page works ok');
+    },
+
+    delete: (request, response) => {
+      return response.send('The Subscriptions Delete page works ok');
+    },
+
+    read: (request, response) => {
+      return response.send('The Subscriptions See page works ok');
+    },
+  };
+  ```
 
 b. The controller will render the views.
 
