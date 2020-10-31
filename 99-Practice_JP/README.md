@@ -1,369 +1,501 @@
-# Workflow JP
+# Workflow to create backend with NodeJS
 
-- [x] Folder structure for a Node.js project.
-      <img src="/Users/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/Folder-structure.png" alt="Folder-structure" style="zoom:50%;" />
-- [x] README.md, LICENCE & .gitignore.
+##### Create Folder structure for a Node.js project.
 
-- [x] Install Node.JS, NPM & Express.
+<img src="public/images/docs/Folder-structure.png" alt="Folder-structure" style="zoom:50%;" />
 
-- [x] Definition of MVC entities.
+##### Create README.md, LICENCE & .gitignore.
 
-  > Subscriptions, Promotions, Users.
+##### Install Express.
 
-- [x] MVC: Create Routes
+##### Install thrid-party dependencies.
 
-  > Documentation: https://expressjs.com/es/guide/routing.html
+- dotenv.
+- cors
+  Llevar todo esto a su lugar correspondiente: `app.use(cors());` in app.js file.
 
-  app.js
+> If a social login is required, install passport.
 
-  ```js
-  app.get('/', function (request, response) {
-    response.send('The Server page works ok');
-  });
+- passport
+  Llevar todo esto a su lugar correspondiente: `ver que poner acá` in enDonde.js file.
 
-  app.get('/subscriptions', function (request, response) {
-    response.send('The Subscriptions page works ok');
-  });
+> If you need to manage the sessions, e.g. Superadmin
 
-  app.get('/promotions', function (request, response) {
-    response.send('The Promotions page works ok');
-  });
+- express-session
+  Llevar todo esto a su lugar correspondiente: `ver que poner acá` in enDonde.js file.
+- cookie-parser
+  Llevar todo esto a su lugar correspondiente: `ver que poner acá` in enDonde.js file.
 
-  app.get('/users', function (request, response) {
-    response.send('The Users page works ok');
-  });
+##### Definition of MVC entities.
 
-  // 404 Not Found
-  app.get('*', function (request, response) {
-    response.send('404 - Not found');
-  });
-  ```
+- Subscriptions.
+- Promotions.
+- Users.
 
-  <u>Test:</u>
-  http://localhost:5000/ --> ok
-  http://localhost:5000/subscriptions --> ok
-  http://localhost:5000/users --> ok
-  http://localhost:5000/sdfg --> ok
+##### MVC: Create Routes
 
-- [x] MVC: Modularize and create routes files (entities).
+> Documentation: https://expressjs.com/es/guide/routing.html
 
-  > Subscription, Promotions, Static.
-  > If preparing the backend to consume as API with the frontend, static is not defined as entity.
-  > A ROUTER is an "entity". BREAD: Browse, Read, Edit, Add, Delete.
-
-    <img src="/Users/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/Routes-files.png" alt="Routes-files" style="zoom:50%;" />
-
-  App.js
-
-  ```js
-  const staticRouter = require('./src/routes/staticRouter');
-  app.use('/', staticRouter);
-
-  const subscriptionsRouter = require('./src/routes/subscriptionsRouter');
-  app.use('/subscriptions', subscriptionsRouter);
-
-  const promotionsRouter = require('./routes/promotionsRouter');
-  app.use('/promotions', promotionsRouter);
-
-  const usersRouter = require('./src/routes/usersRouter');
-  app.use('/users', usersRouter);
-
-  // 404 Not Found
-  app.get('*', function (request, response) {
-    response.send('404 - Not found');
-  });
-  ```
-
-  subscriptionsRouter.js (idem with staticRouter.js, promotionsRouter.js, usersRouter.js)
-
-  ```js
-  const express = require('express');
-  const router = express.Router();
-
-  // Routing to http://localhost:5000/subscriptions
-  router.get('/', function (request, response) {
-    response.send('The Subscriptions page works ok');
-  });
-
-  module.exports = router;
-  ```
-
-- [x] MVC: BREAD Subscriptions entity. 7 routes.
-
-  > 1 BROWSE - See all
-  > 3 EDIT - Edit one (edit form)
-  > 4 EDIT - Edit one
-  > 5 ADD - Add one (creation form)
-  > 6 ADD - Add one
-  > 7 DELETE - Delete one
-  > 2 READ - See one
-
-  subscriptionsRouter.js (idem with staticRouter.js, promotionsRouter.js, usersRouter.js)
-
-  ```js
-  router.get('/', function (request, response) {
-    response.send('The Subscriptions See All page works ok');
-  });
-
-  router.get('/:id/edit', function (request, response) {
-    response.send('The Subscriptions Edit Form page works ok');
-  });
-
-  router.put('/:id', function (request, response) {
-    response.send('The Subscriptions Edit One page works ok');
-  });
-
-  router.get('/create', function (request, response) {
-    response.send('The Subscriptions Create Form page works ok');
-  });
-
-  router.post('/', function (request, response) {
-    response.send('The Subscriptions Add page works ok');
-  });
-
-  router.delete('/', function (request, response) {
-    response.send('The Subscriptions Delete page works ok');
-  });
-
-  router.get('/:id', function (request, response) {
-    response.send('The Subscriptions See page works ok');
-  });
-  ```
-
-- [x] MVC: Create controllers files.
-
-<img src="/Users/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/Controllers-files.png" alt="Controllers-files" style="zoom:50%;" />
-
-- [x] MVC: Tell routes the controller method.
-      There are 2 ways here:
-
-a. Prepare the backend to consume as an API with the frontend.
-
-subscriptionsRouter.js (idem with staticRouter.js, promotionsRouter.js, usersRouter.js)
+In main file. e.g.: <u>app.js</u>
 
 ```js
-// Require the controller
-const controller = require('../controllers/subscriptionsControllers');
+app.get('/', function (request, response) {
+  response.send('The Server page works ok');
+});
 
-router.get('/:id/edit', controller.edit);
-router.get('/create', controller.add);
-router.post('/', controller.create);
-router.delete('/', controller.delete);
-router.get('/:id', controller.read);
+app.get('/subscriptions', function (request, response) {
+  response.send('The Subscriptions page works ok');
+});
+
+app.get('/promotions', function (request, response) {
+  response.send('The Promotions page works ok');
+});
+
+app.get('/users', function (request, response) {
+  response.send('The Users page works ok');
+});
+
+// 404 Not Found
+app.get('*', function (request, response) {
+  response.send('404 - Not found');
+});
 ```
 
-> router.get('/', controller.browse);
-> router.put('/:id', controller.update);
-> These controllers are not created because they will not render views.
+<u>Test some routes:</u>
 
-- [x] MVC: Create the controller methods.
+· http://localhost:5000/
+· http://localhost:5000/subscriptions
+· http://localhost:5000/users
+· http://localhost:5000/sdfg
 
-  > Create standard methods
+##### MVC: Modularize and create routes files (entities).
 
-  subscriptionsControllers.js (idem with staticControllers.js, promotionsControllers.js, usersControllers.js)
+> A ROUTER is an "entity". BREAD: Browse, Read, Edit, Add, Delete.
+> If preparing the backend to consume as API with the frontend, static is not defined as entity.
 
-  ```js
-  module.exports = {
-    browse: (request, response) => {
-      return response.json(subscriptions);
-    },
+<img src="public/images/docs/Routes-files.png" alt="Routes-files" style="zoom:50%;" />
 
-    edit: (request, response) => {
-      return response.send('The Subscriptions Edit Form page works ok');
-    },
+In main file. e.g.: <u>app.js</u>
 
-    update: (request, response) => {
-      return response.send('The Subscriptions Edit One page works ok');
-    },
+```js
+const staticRouter = require('./src/routes/staticRouter');
+app.use('/', staticRouter);
 
-    add: (request, response) => {
-      return response.send('The Subscriptions Create Form page works ok');
-    },
+const subscriptionsRouter = require('./src/routes/subscriptionsRouter');
+app.use('/subscriptions', subscriptionsRouter);
 
-    create: (request, response) => {
-      return response.send('The Subscriptions Add page works ok');
-    },
+const promotionsRouter = require('./routes/promotionsRouter');
+app.use('/promotions', promotionsRouter);
 
-    delete: (request, response) => {
-      return response.send('The Subscriptions Delete page works ok');
-    },
+const usersRouter = require('./src/routes/usersRouter');
+app.use('/users', usersRouter);
 
-    read: (request, response) => {
-      return response.send('The Subscriptions See page works ok');
-    },
-  };
-  ```
+// 404 Not Found
+app.get('*', function (request, response) {
+  response.send('404 - Not found');
+});
+```
 
-b. The controller will render the views.
+In the router file. e.g.:<u>subscriptionsRouter.js</u>
 
-subscriptionsRouter.js (idem with staticRouter.js, promotionsRouter.js, usersRouter.js)
+> Idem in the other routers entities. e.i.: staticRouter.js, promotionsRouter.js, usersRouter.js
+
+```js
+const express = require('express');
+const router = express.Router();
+
+// Routing to http://localhost:5000/subscriptions
+router.get('/', function (request, response) {
+  response.send('The Subscriptions page works ok');
+});
+
+module.exports = router;
+```
+
+##### dotenv: Create the environment variables
+
+> (dotenv documentation)[https://www.npmjs.com/package/dotenv]
+
+In main file. e.g.: <u>app.js</u> `require('dotenv').config();`
+
+Create the environment variables file and its documentation file in the root directory.
+
+In environment variables file. e.i.: <u>.env</u>
+
+```js
+DB_HOST = localhost;
+DB_NAME = root;
+DB_USER = root;
+DB_PASS = root;
+DB_PORT = 5432;
+```
+
+Keep record the documentation of environment variables. e.i.: <u>.env.example</u>
+
+## Acá todavía falta reemplzar las variables en los archivos, seguro que tengo que llevar todo este punto más adelante.
+
+##### MVC: BREAD Subscriptions entity. 7 routes.
+
+> 1 BROWSE - See all
+> 3 EDIT - Edit one (edit form)
+> 4 EDIT - Edit one
+> 5 ADD - Add one (creation form)
+> 6 ADD - Add one
+> 7 DELETE - Delete one
+> 2 READ - See one
+>
+> <img src="public/images/docs/BREAD_routes.png" alt="BREAD_routes" style="zoom:50%;" />
+
+In the router file. e.g.:<u>subscriptionsRouter.js</u>
+
+> Idem in the other routers entities. e.i.: staticRouter.js, promotionsRouter.js, usersRouter.js
+
+```js
+router.get('/', function (request, response) {
+  response.send('The Subscriptions See All page works ok');
+});
+
+/* Only if the controller will render the views. (No API)
+router.get('/:id/edit', function (request, response) {
+  response.send('The Subscriptions Edit Form page works ok');
+}); */
+
+router.put('/:id', function (request, response) {
+  response.send('The Subscriptions Edit One page works ok');
+});
+
+/* Only if the controller will render the views. (No API)
+router.get('/create', function (request, response) {
+  response.send('The Subscriptions Create Form page works ok');
+}); */
+
+router.post('/', function (request, response) {
+  response.send('The Subscriptions Add page works ok');
+});
+
+router.delete('/', function (request, response) {
+  response.send('The Subscriptions Delete page works ok');
+});
+
+router.get('/:id', function (request, response) {
+  response.send('The Subscriptions See page works ok');
+});
+```
+
+##### MVC: Create controllers files.
+
+<img src="public/images/docs/Controllers-files.png" alt="Controllers-files" style="zoom:50%;" />
+
+##### MVC: Tell routes the controller method.
+
+> <img src="public/images/docs/BREAD_view.png" alt="BREAD_view" style="zoom:35%;" />
+
+In the router file. e.g.:<u>subscriptionsRouter.js</u>
+
+> Idem in the other routers entities. e.i.: staticRouter.js, promotionsRouter.js, usersRouter.js
 
 ```js
 // Require the controller
 const controller = require('../controllers/subscriptionsControllers');
 
 router.get('/', controller.browse);
-router.get('/:id/edit', controller.edit);
-router.put('/:id', controller.update);
-router.get('/create', controller.add);
-router.post('/', controller.create);
-router.delete('/', controller.delete);
+/* Only if the controller will render the views. (No API)
+router.get('/', controller.browse); */
+router.put('/:id', controller.edit);
+/* Only if the controller will render the views. (No API)
+router.put('/:id', controller.update); */
+router.post('/', controller.add);
+router.delete('/:id', controller.delete);
 router.get('/:id', controller.read);
 ```
 
-- [x] MVC: Create the controller methods.
+##### MVC: Create the controller methods.
 
-  > Create standard methods
+> Create standard methods
 
-  subscriptionsControllers.js (idem with staticControllers.js, promotionsControllers.js, usersControllers.js)
+In the router file. e.g.:<u>subscriptionsControllers.js</u>
 
-  ```js
-  module.exports = {
-    browse: (request, response) => {
-      return response.send('The Subscriptions See All page works ok');
-    },
-
-    edit: (request, response) => {
-      return response.send('The Subscriptions Edit Form page works ok');
-    },
-
-    update: (request, response) => {
-      return response.send('The Subscriptions Edit One page works ok');
-    },
-
-    add: (request, response) => {
-      return response.send('The Subscriptions Create Form page works ok');
-    },
-
-    create: (request, response) => {
-      return response.send('The Subscriptions Add page works ok');
-    },
-
-    delete: (request, response) => {
-      return response.send('The Subscriptions Delete page works ok');
-    },
-
-    read: (request, response) => {
-      return response.send('The Subscriptions See page works ok');
-    },
-  };
-  ```
-
-- [x] MVC: // Public files folder setup.
-      app.js
-  ```js
-  const path = require('path');
-  const publicFolder = express.static(path.resolve(__dirname, '../public/'));
-  app.use(publicFolder);
-  ```
-- [x] MVC: Install template engine - views
-
-  > Documentation: http://expressjs.com/es/guide/using-template-engines.html
-
-  app.js
-
-  ```js
-  app.set('view engine', 'ejs');
-  app.set('views', './src/views');
-  ```
-
-- [x] MVC: Create views files.
-
-<img src="/Users<%- include('../partials/head') %>
-
-  <body>
-    <h2>Read</h2>
-    <p>The Users See page works ok</p>
-  </body>
-
-  </html>/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/98-Practice_JP/public/images/docs/View-files.png" alt="View-files" style="zoom:50%;" />
-
-read.ejs (idem with add.ejs, browse.ejs, edit.ejs in wich entities)
-
-```html
-
-```
-
-- [x] MVC: Tell controller to display view files instead of text.
-
-  subscriptionsController.js (idem with promotionsRouter.js, usersRouter.js)
-
-  ```js
-    browse: (request, response) => {
-      return response.render('subscriptions/browse');
-    },
-
-    edit: (request, response) => {
-      return response.render('subscriptions/edit');
-    },
-
-    add: (request, response) => {
-      return response.render('subscriptions/add');
-    },
-
-    read: (request, response) => {
-      return response.render('subscriptions/read');
-    },
-  ```
-
--------- acá seguro faltan más cosas para terminar el MVC, por ejemplo terminar los métodos.
-
-- [x] Rest API: Create a Json file in src for each entity with its data.
-
-- [x] Rest API: Set the Json Objet.
-      app.js
-
-  ```js
-  app.use(expess.json());
-  ```
-
-- [x] Rest API: Set how Express handles information in forms.
-      app.js
-  ```js
-  app.use(express.urlencoded({ extended: false }));
-  ```
-
-## Construcción de una API
-
-Siempre vamos a usar 5 métodos que son:
-
-- get (2 -> all / one)
-- post
-- put / patch
-- delete
-
-### get
-
-Con esta ruta vamos a obtener todos los registros de una entidad:
+> Idem in the other controllers entities. e.i.: staticControllers.js, promotionsControllers.js, usersControllers.js
 
 ```js
-// Ruta - TODOS
-router.get('/', controller.browse);
+module.exports = {
+  browse: (request, response) => {
+    return response.send('The Subscriptions See All page works ok');
+  },
 
-// Controller
+  /* Only if the controller will render the views. (No API)
+  edit: (request, response) => {
+    return response.send('The Subscriptions Edit Form page works ok');
+  }, */
+
+  update: (request, response) => {
+    return response.send('The Subscriptions Edit One page works ok');
+  },
+
+  /* Only if the controller will render the views. (No API)
+  add: (request, response) => {
+    return response.send('The Subscriptions Create Form page works ok');
+  }, */
+
+  create: (request, response) => {
+    return response.send('The Subscriptions Add page works ok');
+  },
+
+  delete: (request, response) => {
+    return response.send('The Subscriptions Delete page works ok');
+  },
+
+  read: (request, response) => {
+    return response.send('The Subscriptions See page works ok');
+  },
+};
+```
+
+##### Edit the methods of the controller.
+
+> Create generic models of json methods. [See jsonModels file](/src/models/jsonModel.md)
+> Created methods: toArray ( ), find (id).
+
+In the router file. e.g.:<u>subscriptionsControllers.js</u>
+
+> Idem in the other controllers entities. e.i.: staticControllers.js, promotionsControllers.js, usersControllers.js
+
+###### BROWSE
+
+> Show all results.
+
+```js
 browse: (request, response) => {
-  return response.json(subscriptions);
+  return response.json(subscriptions,);
 },
 ```
 
-### put
-
-Ruta para editar un recurso
+> Deliver a message of success or error. (Falta agregar el mensaje de error)
 
 ```js
-// Ruta - TODOS
-router.put('/:id', controller.update);
+browse: (request, response) => {
+  return response.json(
+    meta: {
+      status: 200,
+      message: 'successful',
+    },
+    data: subscriptions,
+  );
+},
+```
 
-// Controller
+> Paginate the API.
+
+```js
+browse: (request, response) => {
+  return response.json(subscriptions); // Editar esto y hacer que solo muestre 20 registros a la vez y agregarle el mensaje de éxito
+},
+```
+
+###### UPDATE
+
+```js
 update: (request, response) => {
-  // Lógica de actualizar un registro
-  /*
-    1. Buscar el registro
-    2. En ese registro hacés la actualizaciones
-    3. Guardar las actualizaciones
-    4. Arrojar un mensaje de éxito
-  */
+  // Logic to update a record:
+
+  // 1. Search the record to update.
+  let theSub = subscriptions.find(function (oneSub) {
+    return oneSub.id == request.params.id;
+  });
+
+  // 2. Make the update on that record.
+  theSub.name = request.body.newName;
+  theSub.logoIcon = request.body.newLogoIcon
+    ? request.body.newLogoIcon
+    : theSub.logoIcon;
+
+  // 3. Save the changes.
+    // a. Traverse the array of subscriptions
+    // b. Find the subscription you want to modify
+    // c. Resave all the JSON
+
+  // 4. Deliver a message of success.
+  return response.json({
+    meta: {
+      status: 200,
+      message: 'successful',
+    },
+    data: theSub,
+  });
+},
+```
+
+###### CREATE
+
+```js
+create: (request, response) => {
+  let newSubscription = request.body;
+
+  if (isNaN(request.body.price)) {
+    return response.status(500).json({
+      statusCode: 500,
+      message: 'El price debe contener solamente números'
+    })
+  }
+
+  if (request.body.name === undefined) {
+    return response.status(500).json({
+      statusCode: 500,
+      message: 'El name es necesario para guardar el registro'
+    })
+  }
+
+  let lastId = subscriptions[subscriptions.length -1].id;
+  newSubscription.id = Number(lastId) + 1;
+  subscriptions.push(newSubscription);
+  fs.writeFileSync(filePath, JSON.stringify(subscriptions, null, ' '));
+  return response.json(newSubscription);
+  },
+```
+
+###### DELETE
+
+```js
+delete: (request, response) => {
+  let id = request.params.id;
+  let theSubscription = subscriptions.find(function (oneSubscription) {
+    return oneSubscription.id === id;
+  })
+  return response.json({
+    subscription: theSubscription,
+    message: 'Vamos a borrar esa suscripción'
+  });
+},
+```
+
+###### READ
+
+```js
+read: (request, response) => {
+  try {
+    let id = request.params.id;
+    let theSubscription = subs.find(id);
+    if (theSubscription) {
+      return response.json(theSubscription)
+    }
+    return response.status(404).json({
+      meta: {
+        status: 404,
+        message: 'El id no existe'
+      }
+    })
+  } catch (error) {
+    return response.status(500).json({
+      meta: {
+        status: 500,
+        message: error
+      }
+    })
+  }
+},
+```
+
+###### (Añadir el método SEARCH) (no lo llamo desde el router o nada... arreglar)
+
+```js
+search: (request, response) => {
+  let queryString = request.query;
+  if (queryString.name) {
+    let name = queryString.name;
+    let theSubscription = subscriptions.find(function (oneSubscription) {
+      return oneSubscription.name.toLowerCase() === name.toLowerCase();
+    });
+    return response.json(theSubscription);
+  }
+  return response.send('No se encontró nada');
 };
+```
+
+###### SEARCH
+
+> Hacer la paginación de cantidad de resultados en el request de la API. Ejemplo (enviarte 20 registros).
+
+```js
+ // editar esto
+};
+```
+
+##### Rest API: Create a Json file in src for each entity with its data.
+
+##### Rest API: Set the Json Objet.
+
+In main file. e.g.: <u>app.js</u>
+
+```js
+app.use(expess.json());
+```
+
+##### Rest API: Set how Express handles information in forms.
+
+In main file. e.g.: <u>app.js</u>
+
+```js
+app.use(express.urlencoded({ extended: false }));
+```
+
+##### MVC: // Public files folder setup. // Esto es en caso de hacer las views.
+
+In main file. e.g.: <u>app.js</u>
+
+```js
+const path = require('path');
+const publicFolder = express.static(path.resolve(__dirname, '../public/'));
+app.use(publicFolder);
+```
+
+##### MVC: Install template engine - views
+
+> Documentation: http://expressjs.com/es/guide/using-template-engines.html
+
+In main file. e.g.: <u>app.js</u>
+
+```js
+app.set('view engine', 'ejs');
+app.set('views', './src/views');
+```
+
+##### MVC: Create views files.
+
+<img src="public/images/docs/View-files.png" alt="View-files" style="zoom:50%;" /> />
+
+In read.ejs file.
+
+> Idem with add.ejs, browse.ejs, edit.ejs in wich entities.
+
+```html
+<body>
+  <h2>Read</h2>
+  <p>The Users See page works ok</p>
+</body>
+```
+
+##### MVC: Tell controller to display view files instead of text.
+
+In subscriptionsController.js file.
+
+> Idem with promotionsRouter.js, usersRouter.js.
+
+```js
+  browse: (request, response) => {
+    return response.render('subscriptions/browse');
+  },
+
+  edit: (request, response) => {
+    return response.render('subscriptions/edit');
+  },
+
+  add: (request, response) => {
+    return response.render('subscriptions/add');
+  },
+
+  read: (request, response) => {
+    return response.render('subscriptions/read');
+  },
 ```
 
 json Models lo utilizo porque como uso Json, saco los métodos más comunes afuera
@@ -372,6 +504,7 @@ json Models I use it because as I use Json, I pull the most common methods outsi
 las rutas o controladores o sus métodos (no sé) ahora envian respuestas Json por que son APIs
 routes or controllers or their methods (I don't know) now send Json responses because they are APIs
 
+<<<<<<< HEAD
 https://www.npmjs.com/package/cors
 
 Extraigo las variables de desarrollo en archivos de producción .env y hago la documentación .env.example
@@ -390,8 +523,20 @@ http://www.passportjs.org/
 ---
 
 Si hago pública la API.
-Hacer la paginación de cantidad de resultados en el request de la API. Ejemplo (enviarte 20 registros). En el único que se envía más de uno es el método browse, (en la búsqueda tambien necesito uno, en caso de desarrollar ete método)
 ver el tema de los token en la API (ver ejemplo en promotionsController)
 (el método serch se define desde el controlador, añadirlo en el lugar que va en el readme.md)
 Tengo que ver cuantas request pueden hacer por usuario.
 Documentación
+=======
+
+https://medium.com/zero-equals-false/using-cors-in-express-cac7e29b005b
+
+> > > > > > > e31ab6eab708556c3c99110afdac185d0a669e12
+
+```
+
+```
+
+```
+
+```
