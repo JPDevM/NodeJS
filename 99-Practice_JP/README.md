@@ -116,30 +116,41 @@ module.exports = router;
 
 > (dotenv documentation)[https://www.npmjs.com/package/dotenv]
 
-In main file. e.g.: <u>app.js</u> `require('dotenv').config();`
+In main file. e.i.: <u>app.js</u> `require('dotenv').config();`
 
 Create the environment variables file and its documentation file in the root directory.
 
 In environment variables file. e.i.: <u>.env</u>
 
-```js
-DB_HOST = localhost;
-DB_NAME = root;
-DB_USER = root;
-DB_PASS = root;
-DB_PORT = 5432;
+```
+DB_HOST = localhost
+DB_NAME = Juan Pablo
+DB_USER = root
+DB_PASS = root
+DB_PORT = 5000
 ```
 
 Keep record the documentation of environment variables. e.i.: <u>.env.example</u>
 
-## Acá todavía falta reemplzar las variables en los archivos, seguro que tengo que llevar todo este punto más adelante.
+Specify express.js to listen for the port of host variables.
 
-##### MVC: BREAD Subscriptions entity. 7 routes.
+In main file. e.i.: <u>app.js</u>
 
+```js
+const port = process.env.DB_PORT;
+const host = process.env.DB_HOST;
+app.listen(port, () => console.log(`Server on http://${host}:${port}/`));
+```
+
+## Acá todavía falta reemplzar las variables de usuarios, seguro que tengo que llevar todo este punto más adelante.
+
+##### MVC: BREAD entities.
+
+> 7 paths if views are rendered. 5 routes if we prepare the backend to consume it via API:
 > 1 BROWSE - See all
-> 3 EDIT - Edit one (edit form)
+> 3 EDIT - Edit one (edit form) (only for views)
 > 4 EDIT - Edit one
-> 5 ADD - Add one (creation form)
+> 5 ADD - Add one (creation form) (only for views)
 > 6 ADD - Add one
 > 7 DELETE - Delete one
 > 2 READ - See one
@@ -211,7 +222,7 @@ router.get('/:id', controller.read);
 
 ##### MVC: Create the controller methods.
 
-> Create standard methods
+> Create standard methods.
 
 In the router file. e.g.:<u>subscriptionsControllers.js</u>
 
@@ -284,11 +295,46 @@ browse: (request, response) => {
 },
 ```
 
-> Paginate the API.
+> Paginate the API. Create a function.
 
 ```js
 browse: (request, response) => {
-  return response.json(subscriptions); // Editar esto y hacer que solo muestre 20 registros a la vez y agregarle el mensaje de éxito
+  return response.json(subscriptions); // Editar esto y hacer que solo muestre 20 registros a la vez y agregarle el mensaje de éxito. Borrar esto cuando termine exitosamente.
+//  EJEMPLO
+//  {
+//   "_metadata":
+//   {
+//       "page": 5,
+//       "per_page": 20,
+//       "page_count": 20,
+//       "total_count": 521,
+//       "Links": [
+//         {"self": "/products?page=5&per_page=20"},
+//         {"first": "/products?page=0&per_page=20"},
+//         {"previous": "/products?page=4&per_page=20"},
+//         {"next": "/products?page=6&per_page=20"},
+//         {"last": "/products?page=26&per_page=20"},
+//       ]
+//   },
+//   "records": [
+//     {
+//       "id": 1,
+//       "name": "Widget #1",
+//       "uri": "/products/1"
+//     },
+//     {
+//       "id": 2,
+//       "name": "Widget #2",
+//       "uri": "/products/2"
+//     },
+//     {
+//       "id": 3,
+//       "name": "Widget #3",
+//       "uri": "/products/3"
+//     }
+//   ]
+// }
+
 },
 ```
 
@@ -419,6 +465,8 @@ search: (request, response) => {
  // editar esto
 };
 ```
+
+# Acomodar esto de abajo
 
 ##### Rest API: Create a Json file in src for each entity with its data.
 

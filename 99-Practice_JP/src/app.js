@@ -3,17 +3,16 @@ var express = require('express');
 var cors = require('cors');
 var app = express();
 
-app.use(cors());
-
-require('dotenv').config();
-
-let port = process.env.PORT;
-
-app.listen(port, () => console.log(`Server on http://localhost:${port}/`));
-
 // Packages
 const path = require('path');
 var fs = require('fs');
+app.use(cors());
+require('dotenv').config();
+
+console.log(`Hi ${process.env.DB_NAME}, have a nice day!`);
+const port = process.env.DB_PORT;
+const host = process.env.DB_HOST;
+app.listen(port, () => console.log(`Server on http://${host}:${port}/`)); 
 
 // Public files folder setup
 const publicFolder = express.static(path.resolve(__dirname, '../public/'));

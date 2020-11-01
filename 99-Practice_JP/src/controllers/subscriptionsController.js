@@ -5,27 +5,29 @@ const path = require('path');
 const subsModel = require('../models/jsonModel');
 const subs = subsModel('subscriptions.json');
 
-const subscriptions = subs.toArray();
+const subscriptionsArray = subs.toArray();
 
 // module.exports = {
   // browse: (request, response) => {
-	// 	return response.render('subscriptions/browse');
+	// 	return response.render('subscriptionsArray/browse');
   // },
 
 module.exports = {
   browse: (request, response) => {
-    return response.json(subscriptions);
+    var subsciptions = subs.pagination();
+    return console.log(subsciptions);
+    // return JSON.parse(subsciptions);
   },
 
 	// edit: (request, response) => {
-	// 	return response.render('subscriptions/edit');
+	// 	return response.render('subscriptionsArray/edit');
   // },
 
   update: (request, response) => {
-    //return response.send('The Subscriptions Edit One page works ok');
+    //return response.send('The SubscriptionsArray Edit One page works ok');
     
     // 1. Buscar el registro que deseamos actualizar
-    let theSub = subscriptions.find(function (oneSub) {
+    let theSub = subscriptionsArray.find(function (oneSub) {
       return oneSub.id == request.params.id;
     })
 
@@ -35,7 +37,7 @@ module.exports = {
 
     // 3. Guardar las actualizaciones en el JSON
     /*
-      a. Recorrer el array de subscriptions
+      a. Recorrer el array de subscriptionsArray
       b. Encontrar la susbscription que querés modificar
       c. Volver a guardar todo el JSON
     */ 
