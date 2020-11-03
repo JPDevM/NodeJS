@@ -14,22 +14,12 @@ const subscriptionsArray = subs.toArray();
 
 module.exports = {
 	browse: (request, response) => {
-		/*
-			request.params().
-			objectCount,
-			currentPage,
-			pageSize,
-			totalPage,
-			links[first, previous, self, next, last], 
-			data[],
-		*/
-		
 		const START_PAGE = 1;
-		
+    
+    // E.g.: http://localhost:5000/subscriptions?page=2&max_per_page=10
 		var currentPage = parseInt(request.param('page'));
 		var maxPerPage = parseInt(request.param('max_per_page'));
 		var totalPage = Math.ceil(subscriptionsArray.length / maxPerPage);
-
 		var nextPage = currentPage >= totalPage ? totalPage : currentPage + 1;
 		var lastPage = totalPage;
 		var previousPage = currentPage <= START_PAGE ? START_PAGE : currentPage - 1;
@@ -39,19 +29,18 @@ module.exports = {
 			return response.json({
 				meta: {
 					status: 404,
-					message: 'page or max_per_page null value',
+					message: 'Page or max_per_page null value',
 				},
 			});
 		}
 		else if(typeof currentPage == 'undefined') {
-			// No paso pagina o paso cualquiera gilada
+			// currentPage undefined.
 			currentPage = START_PAGE;
 		}
 		else if(currentPage > totalPage){
-			// Se paso 
+			// currentPage is bigger than lastPage. 
 			currentPage = totalPage;
 		}
-
 
 		var buffer = subscriptionsArray.slice((currentPage-1)*maxPerPage, (currentPage*maxPerPage));
 
@@ -71,7 +60,6 @@ module.exports = {
 		};
 
 		return response.json(responseBuffer);
-		//return JSON.parse(responseBuffer);
 	},
 
 	// edit: (request, response) => {

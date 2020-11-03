@@ -16,8 +16,9 @@
 
 > If a social login is required, install passport.
 
-- passport
-  Llevar todo esto a su lugar correspondiente: `ver que poner acá` in enDonde.js file.
+- passport.
+  > Documentation: http://www.passportjs.org/
+  > Llevar todo esto a su lugar correspondiente: `ver que poner acá` in enDonde.js file.
 
 > If you need to manage the sessions, e.g. Superadmin
 
@@ -296,46 +297,63 @@ browse: (request, response) => {
 ```
 
 > Paginate the API. Create a function.
+>
+> Params: page, max_per_page.
+>
+> Model: http://DB_HOST/DB_PORT/entity?page=2&max_per_page=10
+>
+> E.g.: http://localhost:5000/subscriptions?page=2&max_per_page=10
 
 ```js
-browse: (request, response) => {
-  return response.json(subscriptions); // Editar esto y hacer que solo muestre 20 registros a la vez y agregarle el mensaje de éxito. Borrar esto cuando termine exitosamente.
-//  EJEMPLO
-//  {
-//   "_metadata":
-//   {
-//       "page": 5,
-//       "per_page": 20,
-//       "page_count": 20,
-//       "total_count": 521,
-//       "Links": [
-//         {"self": "/products?page=5&per_page=20"},
-//         {"first": "/products?page=0&per_page=20"},
-//         {"previous": "/products?page=4&per_page=20"},
-//         {"next": "/products?page=6&per_page=20"},
-//         {"last": "/products?page=26&per_page=20"},
-//       ]
-//   },
-//   "records": [
-//     {
-//       "id": 1,
-//       "name": "Widget #1",
-//       "uri": "/products/1"
-//     },
-//     {
-//       "id": 2,
-//       "name": "Widget #2",
-//       "uri": "/products/2"
-//     },
-//     {
-//       "id": 3,
-//       "name": "Widget #3",
-//       "uri": "/products/3"
-//     }
-//   ]
-// }
+	browse: (request, response) => {
+		const START_PAGE = 1;
 
-},
+    // E.g.: http://localhost:5000/subscriptions?c=2&max_per_page=10
+		var currentPage = parseInt(request.param('page'));
+		var maxPerPage = parseInt(request.param('max_per_page'));
+		var totalPage = Math.ceil(subscriptionsArray.length / maxPerPage);
+		var nextPage = currentPage >= totalPage ? totalPage : currentPage + 1;
+		var lastPage = totalPage;
+		var previousPage = currentPage <= START_PAGE ? START_PAGE : currentPage - 1;
+		var firstPage = 1;
+
+		if(currentPage < START_PAGE || maxPerPage < START_PAGE) {
+			return response.json({
+				meta: {
+					status: 404,
+					message: 'Page or max_per_page null value',
+				},
+			});
+		}
+		else if(typeof currentPage == 'undefined') {
+			// currentPage undefined.
+			currentPage = START_PAGE;
+		}
+		else if(currentPage > totalPage){
+			// currentPage is bigger than lastPage.
+			currentPage = totalPage;
+		}
+
+		var buffer = subscriptionsArray.slice((currentPage-1)*maxPerPage, (currentPage*maxPerPage));
+
+		var responseBuffer = {
+			'objectCount': subscriptionsArray.length,
+			'currentPage': currentPage,
+			'pageSize': maxPerPage,
+			'totalPage': totalPage,
+			'data': buffer,
+			'links': {
+				'first': firstPage,
+				'previous': previousPage,
+				'self': currentPage,
+				'next': nextPage,
+				'last': lastPage,
+			}
+		};
+
+		return response.json(responseBuffer);
+	},
+
 ```
 
 ###### UPDATE
@@ -380,14 +398,14 @@ create: (request, response) => {
   if (isNaN(request.body.price)) {
     return response.status(500).json({
       statusCode: 500,
-      message: 'El price debe contener solamente números'
+      message: 'El price debe contener solamente números.'
     })
   }
 
   if (request.body.name === undefined) {
     return response.status(500).json({
       statusCode: 500,
-      message: 'El name es necesario para guardar el registro'
+      message: 'El name es necesario para guardar el registro.'
     })
   }
 
