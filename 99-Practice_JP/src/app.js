@@ -6,6 +6,8 @@ var app = express();
 // Packages
 const path = require('path');
 var fs = require('fs');
+var passport-http = requiere('passport-http'); // Modificar
+var passport-facebook = requiere('passport-facebook'); // Modificar
 app.use(cors());
 require('dotenv').config();
 
@@ -23,8 +25,10 @@ app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
 // Middlewares
-app.use( express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+//acá poner passport
 
 const staticRouter = require('./routes/staticRouter');
 app.use('/', staticRouter);
