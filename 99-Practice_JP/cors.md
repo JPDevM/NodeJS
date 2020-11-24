@@ -1,5 +1,7 @@
-### Cors.
+This file is a section of [Workflow to create backend with NodeJS](./README.md).
 
-> Create generic models of json methods. [See jsonModels file](/src/models/jsonModel.md)
-> Create
+### Workflow to configure Cors in NodeJS.
 
+> Text
+
+##### 

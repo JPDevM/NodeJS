@@ -1,18 +1,24 @@
 # Workflow to create backend with NodeJS
 
-##### Install NodeJS (mmmm nop)
+.<img src="./public/images/docs/frameworks_logos.png" alt="frameworks_logos" style="zoom:25%;" />
+
+##### Install NodeJS and ExpressJS
 
 ```shell
-brew install node
+$ brew install node
+```
+
+```shell
+$ npm install express
 ```
 
 ##### Create Folder structure.
 
-<img src="public/images/docs/Folder-structure.png" alt="Folder-structure" style="zoom:50%;" />
+> Create too the <u>README.md</u>, <u>LICENCE</u> & <u>.gitignore</u>.
 
-##### Create README.md, LICENCE & .gitignore.
+.<img src="public/images/docs/Folder-structure.png" alt="Folder-structure" style="zoom:50%;" />
 
-##### Install Express.
+##### Set Express.
 
 In main file. e.g.: <u>app.js</u>
 
@@ -20,8 +26,8 @@ In main file. e.g.: <u>app.js</u>
 const express = require('express')
 const app = express()
 
-app.get('/', (req, res) => {
-  res.send('Hi!')
+app.get('/', (request, response) => {
+  response.send('Hi!')
 })
 
 const server = app.listen(3000, () => console.log('Server ready'))
@@ -33,7 +39,7 @@ const server = app.listen(3000, () => console.log('Server ready'))
 - Promotions.
 - Users.
 
-##### MVC: Create Routes
+##### MVC: Create Routes.
 
 > Documentation: https://expressjs.com/es/guide/routing.html
 
@@ -74,7 +80,7 @@ app.get('*', function (request, response) {
 > A ROUTER is an "entity". BREAD: Browse, Read, Edit, Add, Delete.
 > If preparing the backend to consume as API with the frontend, static is not defined as entity.
 
-<img src="public/images/docs/Routes-files.png" alt="Routes-files" style="zoom:50%;" />
+.<img src="public/images/docs/Routes-files.png" alt="Routes-files" style="zoom:50%;" />
 
 In main file. e.g.: <u>app.js</u>
 
@@ -99,7 +105,7 @@ app.get('*', function (request, response) {
 
 In the router file. e.g.:<u>subscriptionsRouter.js</u>
 
-> Idem in the other routers entities. e.i.: staticRouter.js, promotionsRouter.js, usersRouter.js
+> Idem in the other routers entities. e.i.: <u>staticRouter.js</u>, <u>promotionsRouter.js</u>, <u>usersRouter.js</u>.
 
 ```js
 const express = require('express');
@@ -128,7 +134,7 @@ module.exports = router;
 
 In the router file. e.g.:<u>subscriptionsRouter.js</u>
 
-> Idem in the other routers entities. e.i.: staticRouter.js, promotionsRouter.js, usersRouter.js
+> Idem in the other routers entities. e.i.: <u>staticRouter.js</u>, <u>promotionsRouter.js</u>, <u>usersRouter.js</u>.
 
 ```js
 router.get('/', function (request, response) {
@@ -172,7 +178,7 @@ router.get('/:id', function (request, response) {
 
 In the router file. e.g.:<u>subscriptionsRouter.js</u>
 
-> Idem in the other routers entities. e.i.: staticRouter.js, promotionsRouter.js, usersRouter.js
+> Idem in the other routers entities. e.i.: <u>staticRouter.js</u>, <u>promotionsRouter.js</u>, <u>usersRouter.js</u>.
 
 ```js
 // Require the controller
@@ -189,13 +195,11 @@ router.delete('/:id', controller.delete);
 router.get('/:id', controller.read);
 ```
 
-##### MVC: Create the controller methods.
-
-> Create standard methods.
+##### MVC: Create the controller standard methods.
 
 In the router file. e.g.:<u>subscriptionsControllers.js</u>
 
-> Idem in the other controllers entities. e.i.: staticControllers.js, promotionsControllers.js, usersControllers.js
+> Idem in the other routers entities. e.i.: <u>staticRouter.js</u>, <u>promotionsRouter.js</u>, <u>usersRouter.js</u>,
 
 ```js
 module.exports = {
@@ -233,29 +237,35 @@ module.exports = {
 
 
 
-<!-- En esta parte del proceso se los métodos del control deben mostrar los resultados. La base de datos se encarga de mostrar los resultados.-->
+<!-- In this part of the process the control methods should show the results. The database is in charge of displaying the results.-->
 
 [Edit the methods of the controller from the database.md](./Edit the methods of the controller from the database.md).
 
 [Edit the methods of the controller using JSON files.md](./Edit the methods of the controller usin JSON files.md).
 
+<!-- Another option is to send the views directly instead of the API, in this case with EJS as template engine.-->
+
+[MVC: Tell the controller to show the views](./MVC Tell the controller to show the views.md).
+
 ##### Install thrid-party dependencies.
+
+.<img src="./public/images/docs/Thrid-party-dependencies-logos.png" alt="Thrid-party-dependencies-logos" style="zoom:33%;" />
 
 - [dotenv.md](./dotenv.md). 
 
-  > Configuration in the environment separate from code
+  > Configuration in the environment separate from code.
 
 - [passport.md](./passport.md).
 
-  > If you need to manage the sessions, e.g. Superadmin
+  > If you need to manage the sessions, e.g. Superadmin.
 
 - [express-session.md](./express-session).
 
-  > if
+  > Create a session middleware.
 
 - [cookie-parser.md](./cookie-parser.md)
 
-  > If
+  > Parse Cookie header.
 
 
 
@@ -281,67 +291,11 @@ In main file. e.g.: <u>app.js</u>
 app.use(express.urlencoded({ extended: false }));
 ```
 
-##### MVC: // Public files folder setup. // Esto es en caso de hacer las views.
 
-In main file. e.g.: <u>app.js</u>
 
-```js
-const path = require('path');
-const publicFolder = express.static(path.resolve(__dirname, '../public/'));
-app.use(publicFolder);
-```
 
-##### MVC: Install template engine - views
 
-> Documentation: http://expressjs.com/es/guide/using-template-engines.html
-
-In main file. e.g.: <u>app.js</u>
-
-```js
-app.set('view engine', 'ejs');
-app.set('views', './src/views');
-```
-
-##### MVC: Create views files.
-
-<img src="public/images/docs/View-files.png" alt="View-files" style="zoom:50%;" /> />
-
-In read.ejs file.
-
-> Idem with add.ejs, browse.ejs, edit.ejs in wich entities.
-
-```html
-<body>
-  <h2>Read</h2>
-  <p>The Users See page works ok</p>
-</body>
-```
-
-##### MVC: Tell controller to display view files instead of text.
-
-In subscriptionsController.js file.
-
-> Idem with promotionsRouter.js, usersRouter.js.
-
-```js
-  browse: (request, response) => {
-    return response.render('subscriptions/browse');
-  },
-
-  edit: (request, response) => {
-    return response.render('subscriptions/edit');
-  },
-
-  add: (request, response) => {
-    return response.render('subscriptions/add');
-  },
-
-  read: (request, response) => {
-    return response.render('subscriptions/read');
-  },
-```
-
-json Models lo utilizo porque como uso Json, saco los métodos más comunes afuera
+Json Models lo utilizo porque como uso Json, saco los métodos más comunes afuera
 json Models I use it because as I use Json, I pull the most common methods outside
 
 las rutas o controladores o sus métodos (no sé) ahora envian respuestas Json por que son APIs
@@ -369,17 +323,6 @@ Si hago pública la API.
 ver el tema de los token en la API (ver ejemplo en promotionsController)
 (el método serch se define desde el controlador, añadirlo en el lugar que va en el readme.md)
 Tengo que ver cuantas request pueden hacer por usuario.
-Documentación
-=======
 
-https://medium.com/zero-equals-false/using-cors-in-express-cac7e29b005b
+> Documentación https://medium.com/zero-equals-false/using-cors-in-express-cac7e29b005b e31ab6eab708556c3c99110afdac185d0a669e12
 
-> > > > > > > e31ab6eab708556c3c99110afdac185d0a669e12
-
-```
-
-```
-
-```
-
-```

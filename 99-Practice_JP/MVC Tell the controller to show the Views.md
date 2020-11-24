@@ -1,0 +1,67 @@
+This file is a section of [Workflow to create backend with NodeJS](./README.md).
+
+### Workflow....
+
+> Text
+
+##### MVC: // Public files folder setup. // Esto es en caso de hacer las views.
+
+In main file. e.g.: <u>app.js</u>
+
+```js
+const path = require('path');
+const publicFolder = express.static(path.resolve(__dirname, '../public/'));
+app.use(publicFolder);
+```
+
+##### MVC: Install template engine - views
+
+> Documentation: http://expressjs.com/es/guide/using-template-engines.html
+
+In main file. e.g.: <u>app.js</u>
+
+```js
+app.set('view engine', 'ejs');
+app.set('views', './src/views');
+```
+
+##### MVC: Create views files.
+
+.<img src="/Users/jp/Documents/JPDevM/Dev/JPDevM CV on GitHub/node_practice/99-Practice_JP/public/images/docs/View-files.png" alt="View-files" style="zoom:50%;" /> />
+
+In read.ejs file.
+
+> Idem with add.ejs, browse.ejs, edit.ejs in wich entities.
+
+```html
+<body>
+  <h2>Read</h2>
+  <p>The Users See page works ok</p>
+</body>
+```
+
+##### MVC: Tell controller to display view files instead of text.
+
+In subscriptionsController.js file.
+
+> Idem with promotionsRouter.js, usersRouter.js.
+
+```js
+  browse: (request, response) => {
+    return response.render('subscriptions/browse');
+  },
+
+  edit: (request, response) => {
+    return response.render('subscriptions/edit');
+  },
+
+  add: (request, response) => {
+    return response.render('subscriptions/add');
+  },
+
+  read: (request, response) => {
+    return response.render('subscriptions/read');
+  },
+```
+
+j
