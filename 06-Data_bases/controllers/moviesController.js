@@ -1,17 +1,31 @@
 const { movie } = require('../database/models');
 const Op = require('../database/models').Sequelize.Op;
+// https://sequelize.org/master/manual/model-querying-basics.html#operators
 
 module.exports = {
 	all: (req, res) => {
-		movie.findAll()
-			.then(data => res.json(data))
+		movie.findAll({
+			include: ['genre', 'actors'],
+			limit: 5
+		})
+			.then(data => {
+				let result = {
+					prevPage: null,
+					nextPage: `${req.protocol}://${req.hostname}/...`,
+					movies: data
+				};
+				res.json(result);
+			})
 	},
 
 	top5: (req, res) => {
 		movie.findAll({
-			order: [
-				['rating', 'DESC']
-			],
+			where: {
+				rating: { [Op.gt]: 6 }
+			},
+			// order: [
+			// 	['rating', 'DESC']
+			// ],
 			limit: 5
 		})
 			.then(data => res.json(data))
@@ -41,8 +55,22 @@ module.exports = {
 	},
 
 	detail: (req, res) => {
-		movie.findByPk(req.params.id)
-			.then(data => res.json(data))
+		movie.findByPk(req.params.id, {
+			include: ['actors', 'genre']
+		})
+			.then(data => { 
+				if (data) {
+					const movie = data.dataValues;
+					movie.status = 'done';
+					return res.json(movie);
+				}
+				return res.status(404).json({
+					status: 'fail',
+					message: 'Not found',
+					reason: `No movie found with the id: ${req.params.id}`
+				})
+			})
+			.catch(err => console.log(err));
 	},
 	
 	delete: (req, res) => {
@@ -65,4 +93,11 @@ module.exports = {
 				})
 			})
 	},
+
+	test: (req, res) => {
+		const year = req.params.year;
+		const rating = req.params.rating;
+
+		
+	}
 }

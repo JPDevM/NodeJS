@@ -6,7 +6,8 @@ module.exports = {
     "host": "127.0.0.1",
     "dialect": "mysql",
     "define": {
-      underscored: true // esto aplica para TODOS los modelos
+      underscored: true, // esto aplica para TODOS los modelos
+      paranoid: true // esto es para el soft delete de TODOS los modelos
     }
   },
   "test": {

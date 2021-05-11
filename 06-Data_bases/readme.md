@@ -119,10 +119,62 @@ module.exports = {
 * `update`
 * `destroy`: elimina un registro de la tabla
 
+8. **Soft deletes**: un mecanismo que nos permite evitar tener que borrar algo de la DB. Un soft delete es una marca de tiempo en una columna de la tabla que define que ese registro fue "eliminado". Para que el soft delete pueda ser usado de manera correcta. Tenemos que implementar esto en el archivo `config.js`:
+
+```js
+module.exports = {
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "database_name",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    // Configuraciones adicionales para TODOS los modelos
+    "define": {
+      underscored: true // esto aplica para TODOS los modelos
+      paranoid: true // esto aplica para TODOS los modelos
+    }
+  },
+  // ...
+}
+```
+
+9. **Relaciones**
+* Para relacionar dos modelos entre sí, necesitamos los dos modelos dentro de nuestra carpeta `models`
+* Dentro del modelo que queremos relacionar vamos a hacer lo siguiente:
+```js
+movie.associate = function (models) {
+    // Relación de pertenece a (N:1):
+		movie.belongsTo(models.genre, { 
+			as: 'genre', // alias de la relacion
+			foreignKey: 'genre_id'
+		 });
+	}
+```
+```js
+genre.associate = function (models) {
+		// Relación de tiene muchos (1:N):
+		genre.hasMany(models.movie, {
+			as: 'movies', // alias de la relacion
+			foreignKey: 'genre_id' // la columna que almacena la referencia a la otra tabla
+		});
+	}
+```
+
+* El método de la relación, recibe dos argumentos:
+  - Nombre del modelo -> `models.genre`
+  - Configuración -> `{ as: 'aliasDeLaRelación', foreignKey: 'columna_con_id' }`
+* En la consulta para poder traer la relación tenemos que hacer esto:
+```js
+movie.findAll({
+  include: ['genre']
+})
+```
+
 ## Todo
 
 - [X] Configuraciones adicionales para todos los modelos
 - [X] Métodos de consulta: `findAll`, `findByPk`, `findOne`, `create`, `update`, `delete`
 - [X] Operadores de sequelize: `where`, `order`, `limit`, `offset`
+- [X] Soft deletes
 - [ ] Relaciones entre modelos
-- [ ] Soft deletes
