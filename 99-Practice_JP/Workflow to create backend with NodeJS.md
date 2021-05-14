@@ -5,11 +5,12 @@
 ##### Install NodeJS and ExpressJS
 
 ```shell
-$ brew install node
+$ brew install node # Only the 1st use. 
+$ npm init -y # create package.json quick
 ```
 
 ```shell
-$ npm install express
+$ npm i express
 ```
 
 ##### Create Folder structure.
@@ -23,17 +24,24 @@ $ npm install express
 In main file. e.g.: <u>app.js</u>
 
 ```js
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 
 app.get('/', (request, response) => {
   response.send('Hi!')
 })
 
-const server = app.listen(3000, () => console.log('Server ready'))
+// Server listen and running
+app.listen(3000, () => console.log('Server ready'))
+```
+
+```shell
+$ nodemon app.js
 ```
 
 ##### Definition of MVC entities.
+
+>  In this example, 3 entities will be used.
 
 - Subscriptions.
 - Promotions.
@@ -41,7 +49,7 @@ const server = app.listen(3000, () => console.log('Server ready'))
 
 ##### MVC: Create Routes.
 
-> Documentation: https://expressjs.com/es/guide/routing.html
+> Express documentation: https://expressjs.com/es/guide/routing.html
 
 In main file. e.g.: <u>app.js</u>
 
@@ -85,9 +93,11 @@ app.get('*', function (request, response) {
 In main file. e.g.: <u>app.js</u>
 
 ```js
-const staticRouter = require('./src/routes/staticRouter');
+// // Static routes that do not depend on any entity (About Us, Contact, FAQ)
+const staticRouter = require('./src/routes/staticRouter'); 
 app.use('/', staticRouter);
 
+// Define the http://localhost:3000/subscriptions path based on the subscriptionsRouter prefix. 
 const subscriptionsRouter = require('./src/routes/subscriptionsRouter');
 app.use('/subscriptions', subscriptionsRouter);
 
@@ -235,17 +245,15 @@ module.exports = {
 };
 ```
 
+##### In this part of the process the control methods should show the results. The database is in charge of displaying the results.
 
+- [Edit the methods of the controller from the database.md](./Edit the methods of the controller from the database.md).
 
-<!-- In this part of the process the control methods should show the results. The database is in charge of displaying the results.-->
+- [Edit the methods of the controller using JSON files.md](./Edit the methods of the controller usin JSON files.md).
 
-[Edit the methods of the controller from the database.md](./Edit the methods of the controller from the database.md).
+> Another option is to send the views directly instead of the API, in this case with EJS as template engine.
 
-[Edit the methods of the controller using JSON files.md](./Edit the methods of the controller usin JSON files.md).
-
-<!-- Another option is to send the views directly instead of the API, in this case with EJS as template engine.-->
-
-[MVC: Tell the controller to show the views](./MVC Tell the controller to show the views.md).
+- [MVC: Tell the controller to show the views](./MVC Tell the controller to show the views.md).
 
 ##### Install thrid-party dependencies.
 

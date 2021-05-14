@@ -1,8 +1,10 @@
 This file is a section of [Workflow to create backend with NodeJS](./README.md).
 
-### Edit the methods of the controller usin JSON files.
+### Edit the methods of the controller usin DataBase.
 
 > x
+
+Create DB with SQL
 
 In the router file. e.g.:<u>subscriptionsControllers.js</u>
 
