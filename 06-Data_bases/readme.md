@@ -4,21 +4,21 @@ Sequelize es un ORM para trabajar con bases de datos dentro de los entornos de e
 
 1. Instalar sequelize en nuestro proyecto
 
-```
-npm install sequelize
+```shell
+$ npm install sequelize
 ```
 
 2. Instalar *mysql2*, es un plugin para trabajar con MySQL dentro Sequelize.
 
-```
-npm install mysql2
+```shell
+$ npm install mysql2
 ```
 
 Despues de instaladas esta librerías, vamos a necesitar comenzar a configurar la estructura de la base de datos con la que vamos a trabajar.
 
 Para poder generar toda la estructura de archivos que necesita Sequelize para trabajar, necesitamos de un archivo llamado `.sequelizerc`. El archivo deberá tener esta estructura: 
 
-```
+```js
 const path = require('path');
 
 module.exports = {
@@ -31,8 +31,8 @@ module.exports = {
 
 3. Una vez tengamos el archivo, ahora desde la terminal vamos a ejecutar un comando, para que se generen esta estructura de carpetas de manera automática.
 
-```
-sequelize init
+```shell
+$ sequelize init
 ```
 
 > El comando `sequelize` es un comando de consola que para tenerlo disponible necesitamos previamente instalarlo de manera GLOBAL. ¿Cómo se instala este comando? `npm i sequelize-cli -g`. 
@@ -70,6 +70,8 @@ module.exports = { // sumar el module.exports =
 > *Importante:* un modelo es la representación en código de una tabla. Dentro del modelo, nosotros definimos qué columnas queremos traer.
 
 La estructura básica de un modelo es así:
+
+# Aquí me quedé
 
 ```js
 module.exports = (sequelize, dataTypes) => {
