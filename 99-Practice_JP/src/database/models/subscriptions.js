@@ -1,11 +1,12 @@
 module.exports = (sequelize, dataTypes) => {
   // Define the structure of the model
   const image = sequelize.define(
-    // 1. Model name.
-    'subscriptions',
+    // 1. Model name in singular.
+    'subscription',
 
     // 2. attributes of the database to access
     // https://sequelize.org/v5/manual/data-types.html
+    // Tips: no usar FLOAT, usar DECIMAL encambio para mayor precición.
     {
       active: dataTypes.BOOLEAN(),
       popular: dataTypes.BOOLEAN(),
