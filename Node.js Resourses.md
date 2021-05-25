@@ -1,0 +1,222 @@
+[Awesome Node.JS](https://github.com/tejasrsuthar/Awesome-NodeJS): A curated collection of best NodeJS Resources.
+
+ORM Objet relational mapper.
+
+[Sequelize ORM](https://sequelize.org/)  Para bases de datos relacionales con Express.
+
+- [Mysql2](https://www.npmjs.com/package/mysql2) Plugging MySQL para Sequelize.
+
+
+
+
+
+
+
+
+
+---
+name: Resources
+route: /
+---
+
+# 💕 Awesome NodeJS 💕   [![Build Status](https://travis-ci.org/tejasrsuthar/Awesome-NodeJS.svg?branch=master)](https://travis-ci.org/tejasrsuthar/Awesome-NodeJS) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+
+✍️ ✍️  A curated collection of best NodeJS Resources
+
+
+
+> While wokring with NodeJS as a beginner level, many starters are facing issues from where to get help, resources, tips & tricks. This is just a little effort to reduce that and users can find easily all the resources related to laravel being Books, Articles, Latest News, Security Fixes, Cheatsheets and many more. 
+
+#### ⚓️  Pull requests are most welcome, if you found great resource about NodeJS
+
+Inspired by 👍 [ziadoz/awesome-php](https://github.com/ziadoz/awesome-php)
+
+## Table of Contents
+- [NodeJS Community](#nodejs-community)
+- [Articles, Tutorials, Blogs](#articles-tutorials-blogs-etc)
+- [Article Series](#article-series)
+- [Frameworks](#frameworks)
+- [CMS](#cms)
+- [Admin/Frontend](#adminfrontend)
+- [Database Drivers](#database-drivers)
+- [Debugging Tools](#debugging-tools)
+- [Logging](#logging)
+- [Streams](#streams)
+- [Command line Tools](#command-line-tools)
+- [Routers](#routers)
+- [Form Validation](#form-validation)
+- [Cron](#cron)
+- [Tutorials](#tutorials)
+- [Books](#books)
+- [Videos](#videos)
+- [Screencasts](#screencasts)
+- [Learning Courses](#learning-courses)
+- [Performance Testing](#performance-testing)
+- [Tips & Tricks](#tips-and-tricks)
+
+
+## Frameworks
+*Web Develpoment Frameworks*
+- [Restify](http://restify.com/) -The future of Node.js REST development (Rest API Development in NodeJS) 
+- [x2](http://x2node.com/) - A collection of modules published with NPM and designed to provide a complete toolset for creating back-end applications that expose RESTful APIs and are backed with a SQL database.
+- [TotalJS](https://www.totaljs.com/)
+- [Moleculer Microservices Framework](http://moleculer.services/) - Fast & powerful microservices framework for NodeJS
+- [Async](http://caolan.github.io/async/) - Utility module provides convinent Async operations
+- [Strapi](http://strapi.io/) - The next generation framework for Node.js
+- [Cylon](https://github.com/hybridgroup/cylon/) - NodeJS framework for robotics, drones, and the Internet of Things
+- [DerbyJS](http://derbyjs.com/) - Full-stack framework for writing modern web applications
+- [Loopback](https://loopback.io/) - NodeJS API Framework
+- [Adonis](http://www.adonisjs.com/) - NodeJS MV* framework inspired by Laravel  
+- [Express](http://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js
+- [Koa.js](http://koajs.com/) - Next generation framework for Node.js
+- [totaljs](https://www.totaljs.com/) - Node.js web framework
+- [Derby.js](http://derbyjs.com/) -  Full-stack framework for writing modern web applications
+- [Meteor.js](https://www.meteor.com/) 
+- [Restify](http://restify.com/)
+- [Hapi](http://hapijs.com/)
+- [Sails.js](http://sailsjs.org/) - MVC web framework 
+- [ActionHero](http://www.actionherojs.com/)
+- [sequelizejs](http://docs.sequelizejs.com/en/v3/) - ORM framework for PostgreSQL, MySQL, SQLite and MSSQL
+- [Socket.io](http://socket.io/)
+- [AllCountJS](https://allcountjs.com/) - Open source full-stack Node.js framework for rapid application development
+- [Socketstream](http://socketstream.org/) - Socketstream is a framework for Realtime Web Apps
+- [PartialJS](http://www.partialjs.com/) 
+- [MoleculerJS Boilerplate](https://github.com/pankod/moleculerjs-boilerplate) - A well-structured Moleculer JS Boilerplate with Typescript, CLI, Service Helpers, Swagger, Jest support and everything you'll ever need to deploy rock solid projects.
+- [Tinyhttp](https://tinyhttp.v1rtl.site) - modern Express-like web framework written in TypeScript and compiled to native ESM, that uses a bare minimum amount of dependencies trying to avoid legacy hell.
+
+## CMS
+- [Ghost](https://ghost.org/) - The professional publishing platform developed in NodeJS
+- [Keystone](http://keystonejs.com/) - Node.js CMS & Web Application Platform
+- [Apostrophe](http://apostrophecms.org/) - CMS framework for Node.js that supports in-context editing, schema-driven content types,flexible widgets, and much more.
+- [Factor](http://factor.dev) - The Javascript CMS.
+
+## Admin/Frontend
+- [Aqua](https://jedireza.github.io/aqua/) - Full featured Admin / Frontend developed with NodeJS, MongoDB, React
+
+## Database Drivers/Clients
+- [MySQL](https://www.npmjs.com/package/mysql) - MySQL Database client
+- [Mongoose](https://www.npmjs.com/package/mongoose) - MongoDB Databse client
+- [PostgreSQL](https://www.npmjs.com/package/pg) - PostgreSQL Database client
+- [SQLite](https://www.npmjs.com/package/sqlite) - SQLite Database client
+- [Oracle](https://github.com/oracle/node-oracledb) - Oracle Database client
+- [IBM DB2](https://github.com/ibmdb/node-ibm_db) - IBM DB2 and IBM Informix bindings for node
+- [MariaDB](https://www.npmjs.com/package/mariasql) - A node.js binding to the non-blocking client library provided with MariaDB
+
+## Debugging Tools
+- [Core Node Debugger](https://nodejs.org/api/debugger.html)
+- [Node Inspector](https://github.com/node-inspector/node-inspector) - Node.js debugger based on Blink Developer Tools
+- [Joyent's Guide](https://www.joyent.com/node-js/production/debug)
+- [Visual Studio Code](https://code.visualstudio.com/docs/runtimes/nodejs#_debugging-your-node-application)
+- [Find and fix vulnerabilities in your dependencies](https://snyk.io)
+- [Node.JS Profilers] (https://stackify.com/node-js-profilers/)
+
+## Logging
+ - [Morgan - HTTP request logger middleware for node.js](https://www.npmjs.com/package/morgan)
+ - [Winston - A logger for just about everything](https://github.com/winstonjs/winston)
+ - [log4js - A port of log4js to node.js](https://github.com/log4js-node/log4js-node)
+ - [Express-winston - winston middleware for express.js](https://www.npmjs.com/package/express-winston)
+ - [Bunyan - A simple and fast JSON logging module for node.js services](https://github.com/trentm/node-bunyan)
+
+## Streams
+ - [into-stream - Convert a buffer/string/array/object into a stream](https://github.com/sindresorhus/into-stream)
+ - [from2 - Convenience wrapper for ReadableStream, inspired by through2](https://github.com/hughsk/from2)
+ - [through2 - Tiny wrapper around streams2 Transform to avoid explicit subclassing noise](https://github.com/rvagg/through2)
+ - [get-stream - Get a stream as a string or buffer](https://github.com/sindresorhus/get-stream)
+
+## Command line Tools
+- [Pageres](https://github.com/sindresorhus/pageres)
+
+## Article Series
+*Web Develpoment Article Series collection*
+
+- Building a Google Keep Clone with Vue and Firebase
+	- [Part1](https://scotch.io/tutorials/building-a-google-keep-clone-with-vue-and-firebase-pt-1),
+	 [Part2](https://scotch.io/tutorials/building-a-google-keep-clone-with-vue-and-firebase-pt-2),
+	 [Part3](https://scotch.io/tutorials/building-a-google-keep-clone-with-vue-and-firebase-pt-3)
+- Making MEAN Apps with Google Maps
+	- [part1](https://scotch.io/tutorials/making-mean-apps-with-google-maps-part-i),
+	 [Part2](https://scotch.io/tutorials/making-mean-apps-with-google-maps-part-ii)
+
+## Routers
+*Node Modules for Routing*
+- [ExpressJS Routing](https://expressjs.com/guide/routing.html)
+- [Router - NPM](https://www.npmjs.com/package/router)
+- [Routes - NPM](https://www.npmjs.com/package/routes)
+- [parse-route NPM](https://www.npmjs.com/package/parse-route) Helper to parse route with params
+- [http-hash](https://github.com/Matt-Esch/http-hash) HTTP router based on a strict path tree structure
+
+## Form Validation
+- [Caolan/forms](https://github.com/caolan/forms) - An easy way to create, parse and validate forms in node.js
+- [express-validator](https://www.npmjs.com/package/express-validator) - An express.js middleware for node-validator.
+- [express-form](https://github.com/dandean/express-form) - Form validation and data filtering for Express
+
+## Cron
+- [node-reel](https://github.com/shakee93/node-reel) - Human friendly cron for NodeJS/Express
+
+## Console - Terminal
+- [Chalk](https://www.npmjs.com/package/chalk) - Terminal string styling done right
+
+## Tutorials
+*Best NodeJS learning tutorials*
+- [Tutorials Point](http://www.tutorialspoint.com/nodejs/) 
+- [Nodeschool.io](http://nodeschool.io/)
+
+## Books
+*Best books related to NodeJS*
+- [Mastering NodeJS](http://www.amazon.in/Mastering-Node-js-Community-Experience-Distilled/dp/1782166327)
+- [Getting Mean Express Angular Manning](http://www.amazon.in/GETTING-MEAN-EXPRESS-ANGLUAR-Manning/dp/9351199134)
+- [NodeJs, MongoDB, AngularJS Development](https://www.amazon.in/Node-js-MongoDB-AngularJS-Development-Developers-ebook/dp/B00KU3OIZ0)
+- [NodeJS Mobile Application Development](http://www.amazon.in/Learning-Node-js-Mobile-Application-Development/dp/178528049X)
+- [Jump Start node JS](http://www.amazon.in/Jump-Start-Node-js-Don-Nguyen/dp/9352131703)
+- [Professional NodeJS](http://www.amazon.in/Professional-Node-js-Building-Javascript-Scalable/dp/1118185463)
+- [Handson NodeJs](https://leanpub.com/hands-on-nodejs)
+- [Node Beginner](https://leanpub.com/nodebeginner)
+- [Smashing NodeJS](https://www.amazon.com/dp/B008Z5OEUY/)
+- [Get Programming with Node.js](https://www.manning.com/books/get-programming-with-node-js)
+- [Free Node.JS books](https://devfreebooks.github.io/nodejs/)
+
+## Videos
+*Videos to learn NodeJS*
+- [The New Boston NodeJS vidoes for Beginners](https://thenewboston.com/videos.php?cat=355)
+- [Node.js Login System With Passport](https://www.youtube.com/watch?v=Z1ktxiqyiLA)
+- [Node tuts](http://nodetuts.com/)
+- [Introduction to Node.js with Ryan Dahl](http://www.youtube.com/watch?v=jo_B4LTHi3I)
+- [Node.js: Asynchronous Purity Leads to Faster Development](http://www.infoq.com/presentations/nodejs)
+- [Parallel Programming with Node.js](http://www.infoq.com/presentations/Parallel-Programming-with-Nodejs)
+- [Server-side JavaScript with Node, Connect & Express](http://vimeo.com/18077379)
+- [Node.js First Look](http://www.lynda.com/Nodejs-tutorials/Nodejs-First-Look/101554-2.html)
+- [Node.js with MongoDB](http://www.youtube.com/watch?v=0_GNHWZHc-o)
+- [Ryan Dahl's Google Tech Talk](http://www.youtube.com/watch?v=F6k8lTrAE2g)
+- [Youtube - Building a Multiplayer Shooting Game with Node.JS, MongoDB and WebSocket](https://www.youtube.com/watch?v=PfSwUOBL1YQ)
+- [Node.js easily explained in a funny way](https://www.youtube.com/watch?v=KsjrN-T3ZCs)
+- [Youtube - Building a Twitch Chat Bot in 10 Minutes with Node.JS](https://www.youtube.com/watch?v=K6N9dSMb7sM)
+
+## Screencasts
+- [Learn All The Nodes](http://learnallthenodes.com/)
+- [NodeTuts](http://nodetuts.com/)
+- [NodeCasts](http://nodecasts.net/)
+- [5 Fantastic & Free Screencast Sites for Node Developers](http://scottksmith.com/blog/2015/02/26/5-fantastic-and-free-screencast-sites-for-node-developers/)
+
+
+## Learning Courses
+- [Getting Started for NodeJS - For Beginners](https://www.udemy.com/getting-started-with-nodejs-for-beginners/)
+- [Rapid node trainning](https://www.udemy.com/nodejs-tutorial-from-scratch-by-examples/)
+- [Learn and Understand NodeJS](https://www.udemy.com/understand-nodejs/)
+- [Full Stack JavaScript: Learn Backbone.js, Node.js & MongoDB](https://www.udemy.com/fullstack-javascript/)
+- [The Complete Node JS Developer Course](https://www.udemy.com/the-complete-node-js-developer-course/)
+- [All about NodeJS](https://www.udemy.com/all-about-nodejs/)
+- [Learn Nodejs by building 12 projects](https://www.udemy.com/learn-nodejs-by-building-10-projects/)
+- [A Simple Node.js/Mongo/Restify API in Less Than 3 Hours](https://www.udemy.com/a-simple-nodejs-api/)
+- [RESTful Web API Design with NodeJS](https://www.udemy.com/restful-web-api-design-with-nodejs/)
+- [Real Time Web with Node.js](https://www.codeschool.com/courses/real-time-web-with-node-js)
+- [Building Blocks of Express.js](https://www.codeschool.com/courses/building-blocks-of-express-js)
+- [Build an Image Streaming App With Node.js](https://www.codeschool.com/screencasts/build-an-image-streaming-app-with-node-js)
+- [NODE.JS LIVE Online & Classroom Training/Tutorial](http://www.springpeople.com/courses/online/nodejs-jumpstart-workshop-training-course)
+- [Mastering REST APIs in Node.js: Zero-To-Hero](https://www.manning.com/livevideo/mastering-rest-apis-in-nodejs)
+
+## Performance Testing
+- [Like unit-testing, for performance](https://k6.io)
+
+## Tips and Tricks
+- [When Not to Use Lock Files with Node.js](https://www.twilio.com/blog/lockfiles-nodejs)

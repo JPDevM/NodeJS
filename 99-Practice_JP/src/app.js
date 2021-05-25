@@ -6,15 +6,15 @@ var app = express();
 // Packages
 const path = require('path');
 var fs = require('fs');
-var passport-http = requiere('passport-http'); // Modificar
-var passport-facebook = requiere('passport-facebook'); // Modificar
+var passporthttp = require('passport-http'); // Modificar
+var passportfacebook = require('passport-facebook'); // Modificar
 app.use(cors());
 require('dotenv').config();
 
 console.log(`Hi ${process.env.DB_NAME}, have a nice day!`);
 const port = process.env.DB_PORT;
 const host = process.env.DB_HOST;
-app.listen(port, () => console.log(`Server on http://${host}:${port}/`)); 
+app.listen(port, () => console.log(`Server on http://${host}:${port}/`));
 
 // Public files folder setup
 const publicFolder = express.static(path.resolve(__dirname, '../public/'));
