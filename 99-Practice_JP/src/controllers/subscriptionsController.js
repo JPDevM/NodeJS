@@ -1,6 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
+// Susbscription model 
+const { subscription } = require('../database/models'); // al desestructurar es necesario usar el mismo nombre que dimos al momento de crear el modelo
+
 // JSON Model
 const subsModel = require('../models/jsonModel');
 const subs = subsModel('subscriptions.json');
