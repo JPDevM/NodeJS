@@ -173,10 +173,33 @@ movie.findAll({
 })
 ```
 
+10. **Trabajando con el modelo dentro del controlador**: Lo primero que necesitamos hacer es requerir el modelo dentro del controlador que estemos trabajando:
+
+```js
+const { image } = require('../database/models');
+```
+
+Una vez hecho esto, ahora vamos a poder usar los métodos descritos anteriormente, así:
+
+```js
+const controller = {
+  browse: (req, res) => {
+    image.findAll()
+      .then(images => {
+        return res.json(images);
+      })
+  },
+}
+
+module.exports = controller;
+```
+
+
 ## Todo
 
 - [X] Configuraciones adicionales para todos los modelos
 - [X] Métodos de consulta: `findAll`, `findByPk`, `findOne`, `create`, `update`, `delete`
 - [X] Operadores de sequelize: `where`, `order`, `limit`, `offset`
 - [X] Soft deletes
-- [ ] Relaciones entre modelos
+- [X] Relaciones entre modelos
+- [ ] Desarrollar endPoints para la API *pinterest_clone*

@@ -1,6 +1,20 @@
 // import model into controller.
 const { image } = require('../database/models');
 
+// Susbscription model
+const { subscription } = require('../database/models'); // al desestructurar es necesario usar el mismo nombre que dimos al momento de crear el modelo
+
+// JSON Model
+const subsModel = require('../models/jsonModel');
+const subs = subsModel('subscriptions.json');
+
+const subscriptionsArray = subs.toArray();
+
+// module.exports = {
+// browse: (request, response) => {
+// 	return response.render('subscriptionsArray/browse');
+// },
+
 const controller = {
   browse: (request, response) => {
     image.findAll().then((images) => {
