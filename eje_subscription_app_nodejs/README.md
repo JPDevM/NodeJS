@@ -4,6 +4,12 @@
 
 Test with NodeJS
 
+### Start
+
+```shell
+nodemon src/app.js
+```
+
 ### This is the road map.
 
 The first approach to NodeJS in a web environment. Using Express, NodeMon, FileSystem, Path.
