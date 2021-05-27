@@ -1,8 +1,12 @@
+// -------------------- //
+// Sequalize model user //
+// -------------------- //
+
 module.exports = (sequelize, dataTypes) => {
   // Define the structure of the model
-  const image = sequelize.define(
+  const modelUsers = sequelize.define(
     // 1. Model name.
-    'image',
+    'users',
 
     // 2. attributes of the database to access
     {
@@ -13,14 +17,14 @@ module.exports = (sequelize, dataTypes) => {
   );
 
   // Association with the user table. To see your values.
-  image.associate = (models) => {
+  modelUsers.associate = (models) => {
     // The BelongsTo association. Source: https://sequelize.org/master/manual/assocs.html
-    // The Image.belongsTo(B) association means that a One-To-One relationship exists between A and B, with the foreign key being defined in the source model (A).
-    image.belongsTo(models.user, {
+    // The modelUsers.belongsTo(B) association means that a One-To-One relationship exists between A and B, with the foreign key being defined in the source model (A).
+    modelUsers.belongsTo(models.user, {
       as: 'user',
       foreignKey: 'userId',
     });
   };
 
-  return image;
+  return modelUsers;
 };

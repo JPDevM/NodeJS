@@ -1,45 +1,62 @@
-// import model into controller.
-const { image } = require('../database/models');
+// ------------------------------- //
+// Node.JS CONTROLLER subscription //
+// ------------------------------- //
 
-// Susbscription model
-const { subscription } = require('../database/models'); // al desestructurar es necesario usar el mismo nombre que dimos al momento de crear el modelo
-
-// JSON Model
-const subsModel = require('../models/jsonModel');
-const subs = subsModel('subscriptions.json');
-
-const subscriptionsArray = subs.toArray();
-
-// module.exports = {
-// browse: (request, response) => {
-// 	return response.render('subscriptionsArray/browse');
-// },
+// Import models into controller.
+// al desestructurar es necesario usar el mismo nombre que dimos al momento de crear el modelo.
+const { modelSubscription } = require('../database/models');
 
 const controller = {
+  // BROWSE --> See all: Select All subscriptions
   browse: (request, response) => {
-    image.findAll().then((images) => {
-      return response.json(images);
-    });
-  },
-  // Need edit.
-  read: (request, response) => {
-    image.findAll().then((images) => {
-      return response.json(images);
-    });
-  },
-  // Need edit.
-  edit: (request, response) => {
-    image.findAll().then((images) => {
-      return response.json(images);
+    modelSubscription.findAll().then((modelSubscriptions) => {
+      return response.json(modelSubscriptions);
     });
   },
 
+  // READ --> See one: SELECT * FROM subscriptions WHERE id = http://... .../subscriptions/id
+  read: (request, response) => {
+    modelSubscription
+      .findById({
+        where: { id: request.params.id },
+      })
+      .then((modelSubscriptions) => {
+        return response.json(modelSubscriptions);
+      });
+  },
+
+  // EDIT --> Edit one:
+  // TO-DO: terminar el método edit.
+  edit: (request, response) => {
+    modelSubscription.findAll().then((modelSubscriptions) => {
+      return response.json(modelSubscriptions);
+    });
+  },
+
+  // ADD --> Add one:
+  // TO-DO: terminar el método add.
   add: (request, response) => {
     let dataToSave = {
       // Use variable names from the db.
       urlPath: request.body.urlPath, // Constancy in the db: the last argument of the body (urlPath) is the name = "urlPath" tag of the front form.
       description: request.body.description,
       userId: 1,
+
+      isActive: request.body.active, //dataTypes.INTEGER,
+      isPopular: 'true', //dataTypes.INTEGER,
+      name: '', //dataTypes.STRING,
+      logoIcon: '', //dataTypes.STRING,
+      logo: '', //dataTypes.STRING,
+      description: '', //dataTypes.STRING,
+      price: '', //dataTypes.DECIMAL(10, 2),
+      firstPayment: '', //dataTypes.DATE(),
+      recurrency: '', //dataTypes.STRING,
+      longDate: '', //dataTypes.DATE(),
+      notification: '', //{
+      currency: '', //dataTypes.STRING,
+      style: '', //dataTypes.STRING,
+      userId: '', //dataTypes.INTERGER,
+      colorId: '', //dataTypes.INTEGER,
     };
 
     image
@@ -61,6 +78,8 @@ const controller = {
       });
   },
 
+  // DELETE --> Delete one:
+  // TO-DO: terminar el método delete.
   delete: (request, response) => {
     return response.send('The Subscriptions Delete page works ok');
   },
