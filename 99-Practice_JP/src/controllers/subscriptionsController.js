@@ -8,27 +8,49 @@ const { modelSubscription } = require('../database/models');
 
 const controller = {
   // BROWSE --> See all: Select All subscriptions
-  browse: (request, response) => {
-    modelSubscription.findAll().then((modelSubscriptions) => {
-      return response.json(modelSubscriptions);
-    });
+  browse: async (request, response) => {
+    try {
+      // Paginador - Opcional - http://localhost:3000/subscriptions?page=2
+      let page = request.query.page || 1;
+
+      let allSubs = await modelSubscription.findAll({
+        limit: 20,
+        offset: page === 1 ? 1 : page * 10,
+      });
+
+      return response.json({
+        metadata: {
+          status: 200,
+          message: 'Success'
+        },
+        data: allSubs
+      });
+    } catch (error) {
+      return response.status(500).json({
+        metadata: {
+          status: 500,
+          message: 'Fail',
+          reason: error
+        }
+      });
+    }
   },
 
   // READ --> See one: SELECT * FROM subscriptions WHERE id = http://... .../subscriptions/id
-  read: (request, response) => {
-    modelSubscription
-      .findById({
-        where: { id: request.params.id },
-      })
-      .then((modelSubscriptions) => {
-        return response.json(modelSubscriptions);
-      });
+  read: async (request, response) => {
+    const oneSubscription = await modelSubscription.findById(request.params.id);
+    return response.json(oneSubscription);
+  },
+
+  editForm: async (request, response) => {
+    const oneSubscription = await modelSubscription.findById(request.params.id);
+    response.render('subscriptions/edit', oneSubscription);
   },
 
   // EDIT --> Edit one:
   // TO-DO: terminar el método edit.
   edit: (request, response) => {
-    modelSubscription.findAll().then((modelSubscriptions) => {
+    modelSubscription.update({}, { where: { id: request.params.id } }).then((modelSubscriptions) => {
       return response.json(modelSubscriptions);
     });
   },
@@ -42,7 +64,7 @@ const controller = {
       description: request.body.description,
       userId: 1,
 
-      isActive: request.body.active, //dataTypes.INTEGER,
+      isActive: request.body.active === 'si' ? 1 : 0, //dataTypes.INTEGER,
       isPopular: 'true', //dataTypes.INTEGER,
       name: '', //dataTypes.STRING,
       logoIcon: '', //dataTypes.STRING,
@@ -53,13 +75,13 @@ const controller = {
       recurrency: '', //dataTypes.STRING,
       longDate: '', //dataTypes.DATE(),
       notification: '', //{
-      currency: '', //dataTypes.STRING,
+      currency: request.body.currency, //dataTypes.STRING,
       style: '', //dataTypes.STRING,
       userId: '', //dataTypes.INTERGER,
       colorId: '', //dataTypes.INTEGER,
     };
 
-    image
+    modelSubscription
       .create(dataToSave)
       // Success message.
       .then((data) => {
@@ -81,7 +103,9 @@ const controller = {
   // DELETE --> Delete one:
   // TO-DO: terminar el método delete.
   delete: (request, response) => {
-    return response.send('The Subscriptions Delete page works ok');
+    modelSubscription.update({ where: { id: request.params.id } }).then((modelSubscriptions) => {
+      return response.json(modelSubscriptions);
+    });
   },
 };
 

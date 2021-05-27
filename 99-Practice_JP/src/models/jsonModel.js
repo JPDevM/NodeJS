@@ -20,8 +20,7 @@ module.exports = function (fileName) {
 
 		pagination () {
 			const fileArray = this.toArray();
-			var objectCount = fileArray.length;3
-		
+			var objectCount = fileArray.length;
 
 			return fileArray;
 			

@@ -18,7 +18,10 @@ module.exports = (sequelize, dataTypes) => {
       logoIcon: dataTypes.STRING,
       logo: dataTypes.STRING,
       description: dataTypes.STRING,
-      price: dataTypes.DECIMAL(10, 2),
+      price: {
+        type: dataTypes.DECIMAL(10, 2),
+        defaultValue: 100.00
+      },
       firstPayment: dataTypes.DATE(),
       recurrency: dataTypes.STRING,
       longDate: dataTypes.DATE(),
@@ -26,7 +29,10 @@ module.exports = (sequelize, dataTypes) => {
         type: dataTypes.INTEGER,
         defaultValue: 0,
       },
-      currency: dataTypes.STRING,
+      currency: {
+        type: dataTypes.STRING,
+        defaultValue: 'eur'
+      },
       style: dataTypes.STRING,
       userId: dataTypes.INTERGER,
       colorId: dataTypes.INTEGER,
