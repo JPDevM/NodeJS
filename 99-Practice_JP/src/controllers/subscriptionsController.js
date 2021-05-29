@@ -4,60 +4,66 @@
 
 // Import models into controller.
 // al desestructurar es necesario usar el mismo nombre que dimos al momento de crear el modelo.
+const { request, response } = require('express');
 const { modelSubscription } = require('../database/models');
 
 const controller = {
-  // BROWSE --> See all: Select All subscriptions
+  // BROWSE --> See all: Select All subscriptions ('.../')
   browse: async (request, response) => {
+    // const allSubscription = await modelSubscription;
+    // return response.json({ allSubscription })
+
     try {
-      // Paginador - Opcional - http://localhost:3000/subscriptions?page=2
+      // Paginator - Opcional - http://.../subscriptions?page=2
       let page = request.query.page || 1;
 
-      let allSubs = await modelSubscription.findAll({
+      let allSubscription = await modelSubscription.findAll({
         limit: 20,
         offset: page === 1 ? 1 : page * 10,
       });
 
+      //Success
       return response.json({
         metadata: {
           status: 200,
-          message: 'Success'
+          message: 'Success',
         },
-        data: allSubs
+        data: allSubscription,
       });
     } catch (error) {
+      // Fail
       return response.status(500).json({
         metadata: {
           status: 500,
           message: 'Fail',
-          reason: error
-        }
+          reason: error,
+        },
       });
     }
   },
 
-  // READ --> See one: SELECT * FROM subscriptions WHERE id = http://... .../subscriptions/id
-  read: async (request, response) => {
-    const oneSubscription = await modelSubscription.findById(request.params.id);
-    return response.json(oneSubscription);
-  },
-
+  // 3 EDIT - Edit one (edit form)(view)('.../:id/edit')
   editForm: async (request, response) => {
     const oneSubscription = await modelSubscription.findById(request.params.id);
     response.render('subscriptions/edit', oneSubscription);
   },
 
-  // EDIT --> Edit one:
+  // 4 EDIT - Edit one ('.../:id')
   // TO-DO: terminar el método edit.
   edit: (request, response) => {
-    modelSubscription.update({}, { where: { id: request.params.id } }).then((modelSubscriptions) => {
-      return response.json(modelSubscriptions);
-    });
+    modelSubscription
+      .update({}, { where: { id: request.params.id } })
+      .then((modelSubscriptions) => {
+        return response.json(modelSubscriptions);
+      });
   },
 
-  // ADD --> Add one:
+  // 5 CREATE - Add one (creation form)(view) ('.../create')
+  createForm: (request, response) => {},
+
+  // 6 CREATE - Add one ('.../')
   // TO-DO: terminar el método add.
-  add: (request, response) => {
+  create: (request, response) => {
     let dataToSave = {
       // Use variable names from the db.
       urlPath: request.body.urlPath, // Constancy in the db: the last argument of the body (urlPath) is the name = "urlPath" tag of the front form.
@@ -100,12 +106,23 @@ const controller = {
       });
   },
 
-  // DELETE --> Delete one:
+  // 7 DELETE --> Delete one ('.../:id')
   // TO-DO: terminar el método delete.
   delete: (request, response) => {
-    modelSubscription.update({ where: { id: request.params.id } }).then((modelSubscriptions) => {
-      return response.json(modelSubscriptions);
-    });
+    modelSubscription
+      .update({ where: { id: request.params.id } })
+      .then((modelSubscriptions) => {
+        return response.json(modelSubscriptions);
+      });
+  },
+
+  // 8 SEARCH - Find
+  search: (request, response) => {},
+
+  // 2 READ --> See one ('.../:id')
+  read: async (request, response) => {
+    const oneSubscription = await modelSubscription.findById(request.params.id);
+    return response.json(oneSubscription);
   },
 };
 

@@ -11,9 +11,12 @@ var fs = require('fs');
 app.use(cors());
 require('dotenv').config();
 
+// Welcome menssaje
 console.log(`Hi ${process.env.USER_NAME}, have a nice day!`);
 const port = process.env.APP_PORT;
-app.listen(port, (req, res) => console.log(`Server on http://${req.hostname}:${port}/`));
+app.listen(port, (require, response) =>
+  console.log(`Server on http://localhost:${port}/`)
+);
 
 // Public files folder setup
 const publicFolder = express.static(path.resolve(__dirname, '../public/'));
@@ -27,8 +30,9 @@ app.set('views', './src/views');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-//acá poner passport
+// Acá poner passport.
 
+// Entities
 const staticRouter = require('./routes/staticRouter');
 app.use('/', staticRouter);
 

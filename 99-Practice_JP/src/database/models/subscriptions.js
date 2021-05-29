@@ -6,7 +6,7 @@ module.exports = (sequelize, dataTypes) => {
   // Define the structure of the model
   const modelSubscription = sequelize.define(
     // 1. Model name in singular for db consistency.
-    'subscription', // Sequelize busca una tabla llamada subscriptions
+    'subscription', // Sequelize finds the subscriptions table
 
     // 2. attributes of the database to access
     // https://sequelize.org/v5/manual/data-types.html
@@ -15,12 +15,11 @@ module.exports = (sequelize, dataTypes) => {
       isActive: dataTypes.INTEGER, // true - false
       isPopular: dataTypes.INTEGER, // true - false
       name: dataTypes.STRING,
-      logoIcon: dataTypes.STRING,
       logo: dataTypes.STRING,
       description: dataTypes.STRING,
       price: {
         type: dataTypes.DECIMAL(10, 2),
-        defaultValue: 100.00
+        defaultValue: 0.0,
       },
       firstPayment: dataTypes.DATE(),
       recurrency: dataTypes.STRING,
@@ -31,18 +30,17 @@ module.exports = (sequelize, dataTypes) => {
       },
       currency: {
         type: dataTypes.STRING,
-        defaultValue: 'eur'
+        defaultValue: 'eur',
       },
       style: dataTypes.STRING,
-      userId: dataTypes.INTERGER,
-      colorId: dataTypes.INTEGER,
+      userId: dataTypes.INTEGER, // FK user
+      colorId: dataTypes.INTEGER, // FK color
     }
   );
 
-  // Association with the user table. To see your values.
+  // 3. FK Association with the user table. To see your values.
   modelSubscription.associate = (models) => {
-    // The BelongsTo association. Source: https://sequelize.org/master/manual/assocs.html
-    // The modelSubscription.belongsTo(B) association means that a One-To-One relationship exists between A and B, with the foreign key being defined in the source model (A).
+    // BelongsTo association. https://sequelize.org/master/manual/assocs.html
     modelSubscription.belongsTo(models.user, {
       as: 'user',
       foreignKey: 'userId',
