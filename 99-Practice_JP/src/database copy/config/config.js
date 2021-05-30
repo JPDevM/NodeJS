@@ -3,8 +3,8 @@ require('dotenv').config();
 
 module.exports = {
   development: {
-    username: 'root', // MySQL server user (by default it is root)
-    password: '', // MySQL server password (by default it is empty)
+    username: process.env.DB_USER, // MySQL server user (by default it is root)
+    password: process.env.DB_PASS, // MySQL server password (by default it is empty)
     database: 'subs_db', // Name of the DB to connect.
     host: '127.0.0.1',
     dialect: 'mysql',

@@ -12,13 +12,41 @@ module.exports = (sequelize, dataTypes) => {
     // 2. attributes of the database to access
     // https://sequelize.org/v5/manual/data-types.html
     {
-      type: dataTypes.INTEGER,
-      startDate: dataTypes.DATE,
-      endDate: dataTypes.DATE,
-      active: dataTypes.BOOLEAN,
-      urlPath: dataTypes.INTEGER,
-      description: dataTypes.TEXT,
-      userId: dataTypes.INTEGER, // FK user
+      isActive: {
+        type: dataTypes.Integer, // true - false
+        allowNull: false, // MUST have a value. Set defaultValue
+        defaultValue: false,
+      },
+      type: {
+        type: dataTypes.String,
+        allowNull: true,
+        defaultValue: null,
+      },
+      startDate: {
+        type: dataTypes.Date,
+        allowNull: true,
+        defaultValue: null,
+      },
+      endDate: {
+        type: dataTypes.Date,
+        allowNull: true,
+        defaultValue: null,
+      },
+      urlPath: {
+        type: dataTypes.String,
+        allowNull: true,
+        defaultValue: 'no-image.png',
+      },
+      description: {
+        type: dataTypes.String,
+        allowNull: true,
+        defaultValue: null,
+      },
+      userId: {
+        type: dataTypes.Integer, // FK user
+        allowNull: true,
+        defaultValue: null,
+      },
     }
   );
 

@@ -12,10 +12,7 @@ module.exports = (sequelize, dataTypes) => {
     // https://sequelize.org/v5/manual/data-types.html
     // Tips: no usar FLOAT, usar DECIMAL encambio para mayor precición.
     {
-      colorHexa: {
-        type: DataTypes.String,
-        allowNull: false, // MUST have a value. Set defaultValue
-      },
+      colorHexa: dataTypes.STRING,
     }
   );
   // 3. FK Association with the user table. To see your values.

@@ -12,29 +12,75 @@ module.exports = (sequelize, dataTypes) => {
     // https://sequelize.org/v5/manual/data-types.html
     // Tips: no usar FLOAT, usar DECIMAL encambio para mayor precición.
     {
-      isActive: dataTypes.INTEGER, // true - false
-      isPopular: dataTypes.INTEGER, // true - false
-      name: dataTypes.STRING,
-      logo: dataTypes.STRING,
-      description: dataTypes.STRING,
+      isActive: {
+        type: dataTypes.Integer, // true - false
+        allowNull: false, // MUST have a value. Set defaultValue
+        defaultValue: false,
+      },
+      isPopular: {
+        type: dataTypes.Integer, // true - false
+        allowNull: false, // MUST have a value. Set defaultValue
+        defaultValue: false,
+      },
+      name: {
+        type: dataTypes.String,
+        allowNull: false, // MUST have a value. Set defaultValue
+      },
+      logo: {
+        type: dataTypes.String,
+        allowNull: true,
+        defaultValue: 'no-image.png',
+      },
+      description: {
+        type: DataTypes.String,
+        allowNull: true,
+        defaultValue: null,
+      },
       price: {
-        type: dataTypes.DECIMAL(10, 2),
+        type: dataTypes.Decimal(10, 2),
+        allowNull: true,
         defaultValue: 0.0,
       },
-      firstPayment: dataTypes.DATE(),
-      recurrency: dataTypes.STRING,
-      longDate: dataTypes.DATE(),
+      firstPayment: {
+        type: dataTypes.Date,
+        allowNull: true,
+        defaultValue: null,
+      },
+      recurrency: {
+        type: DataTypes.String,
+        allowNull: true,
+        defaultValue: null,
+      },
+      longDate: {
+        type: dataTypes.Date,
+        allowNull: true,
+        defaultValue: null,
+      },
       notification: {
-        type: dataTypes.INTEGER,
-        defaultValue: 0,
+        type: dataTypes.Integer,
+        allowNull: true,
+        defaultValue: null,
       },
       currency: {
-        type: dataTypes.STRING,
+        type: dataTypes.Integer, // true - false
+        allowNull: false, // MUST have a value. Set defaultValue
         defaultValue: 'eur',
       },
-      style: dataTypes.STRING,
-      userId: dataTypes.INTEGER, // FK user
-      colorId: dataTypes.INTEGER, // FK color
+      style: {
+        type: DataTypes.String,
+        allowNull: true,
+        defaultValue: null,
+      },
+      userId: {
+        type: dataTypes.Integer, // FK user
+        allowNull: true,
+        defaultValue: null,
+      },
+      colorId: {
+        type: dataTypes.Integer, // FK user
+        allowNull: true,
+        defaultValue: null,
+      },
     }
   );
 
