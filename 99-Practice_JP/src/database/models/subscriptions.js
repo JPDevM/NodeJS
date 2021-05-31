@@ -13,71 +13,71 @@ module.exports = (sequelize, dataTypes) => {
 
     {
       isActive: {
-        type: dataTypes.Integer, // true - false
+        type: dataTypes.INTEGER, // 0:false, 1:true
         allowNull: false, // MUST have a value. Set defaultValue
         defaultValue: false,
       },
       isPopular: {
-        type: dataTypes.Integer, // true - false
+        type: dataTypes.INTEGER, // 0:false, 1:true
         allowNull: false, // MUST have a value. Set defaultValue
         defaultValue: false,
       },
       name: {
-        type: dataTypes.String,
+        type: dataTypes.STRING,
         allowNull: false, // MUST have a value. Set defaultValue
       },
       logo: {
-        type: dataTypes.String,
+        type: dataTypes.STRING,
         allowNull: true,
         defaultValue: 'no-image.png',
       },
       description: {
-        type: DataTypes.String,
+        type: DataTypes.STRING,
         allowNull: true,
         defaultValue: null,
       },
       price: {
-        type: dataTypes.Decimal(10, 2),
+        type: dataTypes.DECIMAL(10, 2),
         allowNull: true,
         defaultValue: 0.0,
       },
       firstPayment: {
-        type: dataTypes.Date,
+        type: dataTypes.DATE,
         allowNull: true,
         defaultValue: null,
       },
       recurrency: {
-        type: DataTypes.String,
+        type: DataTypes.STRING, // monthly
         allowNull: true,
         defaultValue: null,
       },
       longDate: {
-        type: dataTypes.Date,
+        type: dataTypes.DATE,
         allowNull: true,
         defaultValue: null,
       },
       notification: {
-        type: dataTypes.Integer,
+        type: dataTypes.INTEGER,
         allowNull: true,
         defaultValue: null,
       },
       currency: {
-        type: dataTypes.Integer, // true - false
+        type: dataTypes.STRING, // eur
         allowNull: false, // MUST have a value. Set defaultValue
         defaultValue: 'eur',
       },
       style: {
-        type: DataTypes.String,
+        type: DataTypes.ENUM('flash', 'white', 'black'),
         allowNull: true,
         defaultValue: null,
       },
       userId: {
-        type: dataTypes.Integer, // FK user
+        type: dataTypes.INTEGER, // FK user
         allowNull: true,
         defaultValue: null,
       },
       colorId: {
-        type: dataTypes.Integer, // FK user
+        type: dataTypes.INTEGER, // FK user
         allowNull: true,
         defaultValue: null,
       },

@@ -58,7 +58,7 @@ module.exports = {
         defaultValue: null,
       },
       currency: {
-        type: Sequelize.INTEGER, // true - false
+        type: Sequelize.STRING, // true - false
         allowNull: false, // MUST have a value. Set defaultValue
         defaultValue: 'eur',
       },

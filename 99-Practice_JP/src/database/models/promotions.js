@@ -14,37 +14,37 @@ module.exports = (sequelize, dataTypes) => {
 
     {
       isActive: {
-        type: dataTypes.Integer, // true - false
+        type: dataTypes.INTEGER, // 0:false, 1:true
         allowNull: false, // MUST have a value. Set defaultValue
         defaultValue: false,
       },
       type: {
-        type: dataTypes.String,
+        type: dataTypes.STRING, // cuponCode,
         allowNull: true,
         defaultValue: null,
       },
       startDate: {
-        type: dataTypes.Date,
+        type: dataTypes.DATE,
         allowNull: true,
         defaultValue: null,
       },
       endDate: {
-        type: dataTypes.Date,
+        type: dataTypes.DATE,
         allowNull: true,
         defaultValue: null,
       },
       urlPath: {
-        type: dataTypes.String,
+        type: dataTypes.STRING,
         allowNull: true,
         defaultValue: 'no-image.png',
       },
       description: {
-        type: dataTypes.String,
+        type: dataTypes.STRING,
         allowNull: true,
         defaultValue: null,
       },
       userId: {
-        type: dataTypes.Integer, // FK user
+        type: dataTypes.INTEGER, // FK user
         allowNull: true,
         defaultValue: null,
       },
