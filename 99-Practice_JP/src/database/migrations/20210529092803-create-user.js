@@ -18,9 +18,9 @@ module.exports = {
         defaultValue: null,
       },
       email: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(125),
         allowNull: false, // MUST have a value. Set defaultValue
-        unique: true,
+        unique: true, // specify STRING(125)
       },
       gender: {
         type: Sequelize.STRING,
