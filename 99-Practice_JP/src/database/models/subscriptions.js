@@ -15,12 +15,10 @@ module.exports = (sequelize, dataTypes) => {
       isActive: {
         type: dataTypes.INTEGER, // 0:false, 1:true
         allowNull: false, // MUST have a value. Set defaultValue
-        defaultValue: false,
       },
       isPopular: {
         type: dataTypes.INTEGER, // 0:false, 1:true
         allowNull: false, // MUST have a value. Set defaultValue
-        defaultValue: false,
       },
       name: {
         type: dataTypes.STRING,
@@ -32,7 +30,7 @@ module.exports = (sequelize, dataTypes) => {
         defaultValue: 'no-image.png',
       },
       description: {
-        type: DataTypes.STRING,
+        type: dataTypes.STRING,
         allowNull: true,
         defaultValue: null,
       },
@@ -47,7 +45,7 @@ module.exports = (sequelize, dataTypes) => {
         defaultValue: null,
       },
       recurrency: {
-        type: DataTypes.STRING, // monthly
+        type: dataTypes.STRING, // monthly
         allowNull: true,
         defaultValue: null,
       },
@@ -67,7 +65,7 @@ module.exports = (sequelize, dataTypes) => {
         defaultValue: 'eur',
       },
       style: {
-        type: DataTypes.ENUM('flash', 'white', 'black'),
+        type: dataTypes.ENUM('flash', 'white', 'black'),
         allowNull: true,
         defaultValue: null,
       },
