@@ -1,6 +1,9 @@
+const { user } = require('../database/models');
+
 module.exports = {
-  browse: (request, response) => {
-    return response.render('users/browse');
+  browse: async (request, response) => {
+    const users = await user.findAll();
+    return response.json(users);
   },
 
 	edit: (request, response) => {
@@ -11,12 +14,14 @@ module.exports = {
 		return response.send('The Users Edit One page works ok');
   },
 
+  // Renders the users create form
   add: (request, response) => {
     return response.render('users/add');
   },
 
-  create: (request, response) => {
-		return response.send('The Users Add page works ok');
+  create: async (request, response) => {
+		const userCreated = await user.create(request.body);
+    return response.json(userCreated);
   },
 
   delete: (request, response) => {

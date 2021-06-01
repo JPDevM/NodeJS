@@ -8,7 +8,7 @@ module.exports = {
 
     for (let i = 1; i <= 50; i++) {
       fakeColors.push({
-        colorHexa: faker.datatype.hexaDecimal(), // FF8822
+        colorHexa: faker.internet.color(), // FF8822
         createdAt: new Date(),
         updatedAt: new Date(),
       });

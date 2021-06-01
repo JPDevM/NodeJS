@@ -30,7 +30,7 @@ module.exports = (sequelize, dataTypes) => {
         defaultValue: 'no-image.png',
       },
       description: {
-        type: DataTypes.STRING,
+        type: dataTypes.STRING,
         allowNull: true,
         defaultValue: null,
       },
@@ -45,7 +45,7 @@ module.exports = (sequelize, dataTypes) => {
         defaultValue: null,
       },
       recurrency: {
-        type: DataTypes.STRING, // monthly
+        type: dataTypes.STRING, // monthly
         allowNull: true,
         defaultValue: null,
       },
@@ -65,7 +65,7 @@ module.exports = (sequelize, dataTypes) => {
         defaultValue: 'eur',
       },
       style: {
-        type: DataTypes.ENUM('flash', 'white', 'black'),
+        type: dataTypes.ENUM('flash', 'white', 'black'),
         allowNull: true,
         defaultValue: null,
       },
