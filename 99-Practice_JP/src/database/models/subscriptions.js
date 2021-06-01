@@ -13,11 +13,11 @@ module.exports = (sequelize, dataTypes) => {
 
     {
       isActive: {
-        type: dataTypes.INTEGER, // 0:false, 1:true
+        type: dataTypes.INTEGER, // 0:false, 1:true --> defaultValue: 0.
         allowNull: false, // MUST have a value. Set defaultValue
       },
       isPopular: {
-        type: dataTypes.INTEGER, // 0:false, 1:true
+        type: dataTypes.INTEGER, // 0:false, 1:true --> defaultValue: 0.
         allowNull: false, // MUST have a value. Set defaultValue
       },
       name: {
