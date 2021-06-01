@@ -12,7 +12,7 @@ module.exports = (sequelize, dataTypes) => {
     // Tips: don't use FLOAT, use DECIMAL instead. Don't use BOOLEAN, use INTEGER DEFAULT 0.
     {
       colorHexa: {
-        type: DataTypes.STRING,
+        type: dataTypes.STRING,
         allowNull: false, // MUST have a value. Set defaultValue
       },
     }
