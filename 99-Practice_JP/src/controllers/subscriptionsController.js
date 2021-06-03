@@ -4,42 +4,42 @@
 
 // Import models into controller.
 // al desestructurar es necesario usar el mismo nombre que dimos al momento de crear el modelo.
-const { request, response } = require('express');
+const { request, response } = require('express'); // esto por que va?
 const { modelSubscription } = require('../database/models');
 
-const controller = {
+module.exports = {
   // BROWSE --> See all: Select All subscriptions ('.../')
   browse: async (request, response) => {
-    // const allSubscription = await modelSubscription;
-    // return response.json({ allSubscription })
+    const allSubscription = await modelSubscription;
+    return response.json({ allSubscription });
 
-    try {
-      // Paginator - Opcional - http://.../subscriptions?page=2
-      let page = request.query.page || 1;
+    // try {
+    //   // Paginator - Opcional - http://.../subscriptions?page=2
+    //   let page = request.query.page || 1;
 
-      let allSubscription = await modelSubscription.findAll({
-        limit: 20,
-        offset: page === 1 ? 1 : page * 10,
-      });
+    //   let allSubscription = await modelSubscription.findAll({
+    //     limit: 20,
+    //     offset: page === 1 ? 1 : page * 10,
+    //   });
 
-      //Success
-      return response.json({
-        metadata: {
-          status: 200,
-          message: 'Success',
-        },
-        data: allSubscription,
-      });
-    } catch (error) {
-      // Fail
-      return response.status(500).json({
-        metadata: {
-          status: 500,
-          message: 'Fail',
-          reason: error,
-        },
-      });
-    }
+    //   //Success
+    //   return response.json({
+    //     metadata: {
+    //       status: 200,
+    //       message: 'Success',
+    //     },
+    //     data: allSubscription,
+    //   });
+    // } catch (error) {
+    //   // Fail
+    //   return response.status(500).json({
+    //     metadata: {
+    //       status: 500,
+    //       message: 'Fail a lot',
+    //       reason: error,
+    //     },
+    //   });
+    // }
   },
 
   // 3 EDIT - Edit one (edit form)(view)('.../:id/edit')
@@ -50,6 +50,7 @@ const controller = {
 
   // 4 EDIT - Edit one ('.../:id')
   // TO-DO: terminar el método edit.
+  // Renders the editForm
   edit: (request, response) => {
     modelSubscription
       .update({}, { where: { id: request.params.id } })
@@ -63,6 +64,8 @@ const controller = {
 
   // 6 CREATE - Add one ('.../')
   // TO-DO: terminar el método add.
+  // Renders the editForm
+
   create: (request, response) => {
     let dataToSave = {
       // Use variable names from the db.
@@ -125,5 +128,3 @@ const controller = {
     return response.json(oneSubscription);
   },
 };
-
-module.exports = controller;

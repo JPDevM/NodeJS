@@ -1,34 +1,50 @@
-const { user } = require('../database/models');
+// ------------------------ //
+// Node.JS CONTROLLER users //
+// ------------------------ //
+
+// Import models into controller.
+// al desestructurar es necesario usar el mismo nombre que dimos al momento de crear el modelo.
+const { request, response } = require('express'); // esto por que va?
+const { modelUsers } = require('../database/models');
 
 module.exports = {
   browse: async (request, response) => {
-    const users = await user.findAll();
-    return response.json(users);
+    try {
+      const modelUsers = await user.findAll();
+      return response.json(modelUsers);
+    } catch (error) {
+      return response.send('fail fail fail');
+    }
   },
 
-	edit: (request, response) => {
+  editForm: (request, response) => {
+    return response.render('users/editForm');
+  },
+
+  // Renders the editForm
+  edit: (request, response) => {
     return response.render('users/edit');
   },
 
-  update: (request, response) => {
-		return response.send('The Users Edit One page works ok');
+  createForm: (request, response) => {
+    return response.send('The Users Edit One page works ok');
   },
 
-  // Renders the users create form
-  add: (request, response) => {
-    return response.render('users/add');
-  },
-
+  // Renders the createForm
   create: async (request, response) => {
-		const userCreated = await user.create(request.body);
+    const userCreated = await user.create(request.body);
     return response.json(userCreated);
   },
 
   delete: (request, response) => {
-		return response.send('The Users Delete page works ok');
+    return response.send('The Users Delete page works ok');
+  },
+
+  search: (request, response) => {
+    return response.render('users/search');
   },
 
   read: (request, response) => {
     return response.render('users/read');
   },
-}
+};
