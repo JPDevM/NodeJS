@@ -5,7 +5,9 @@
 // Import models into controller.
 // al desestructurar es necesario usar el mismo nombre que dimos al momento de crear el modelo.
 const { request, response } = require('express'); // esto por que va?
-const { modelUsers } = require('../database/models');
+const { user } = require('../database/models');
+
+const bcrypt = require('bcryptjs');
 
 module.exports = {
   browse: async (request, response) => {
@@ -26,14 +28,19 @@ module.exports = {
     return response.render('users/edit');
   },
 
+  // Renders the createForm
   createForm: (request, response) => {
-    return response.send('The Users Edit One page works ok');
+    return response.render('users/add');
   },
 
-  // Renders the createForm
   create: async (request, response) => {
-    const userCreated = await user.create(request.body);
-    return response.json(userCreated);
+    const userToCreate = {
+      ...request.body,
+      password: bcrypt.hashSync(request.body.password, 11)
+    }
+    const userCreated = await user.create(userToCreate);
+    // TODO -> make automatic login
+    return response.redirect('/users/login');
   },
 
   delete: (request, response) => {
@@ -47,4 +54,49 @@ module.exports = {
   read: (request, response) => {
     return response.render('users/read');
   },
+
+  login: (request, response) => {
+    return response.render('users/login');
+  },
+  
+  loginProcess: async (request, response) => {
+    // 1. Search the user by email
+    const userByEmail = await user.findOne({ where: { email: request.body.email } });
+
+    // 2. If user exists, we'll to compare the passwords
+    if (userByEmail) {
+      const userPassword = userByEmail.password;
+      const userFromLoginForm = request.body.password;
+      const isSamePassword = bcrypt.compareSync(userFromLoginForm, userPassword);
+
+      // 2.a. If passwords are the same, so we'll to let the user get inside
+      if (isSamePassword) {
+        request.session.userLogged = {
+          id: userByEmail.id,
+          firstName: userByEmail.firstName,
+          lastName: userByEmail.lastName,
+          email: userByEmail.email,
+        }
+        // TODO: Remember user - COOKIES
+        return response.redirect('/users/profile');
+      }
+
+      // 2.b. If passwords doesn't match, we'll alert to user
+      return response.send('Hey, you have credentials problems! 🤥');
+    }
+
+    // 3. If user doesn't exist
+    return response.send('Hey, you have credentials problems! 😔');
+  },
+
+  profile: async (request, response) => {
+    const user = request.session.userLogged;
+    return response.render('users/profile', { user });
+  },
+
+  logout: (request, response) => {
+    request.session.destroy();
+    return response.redirect('/users/login');
+  }
+
 };

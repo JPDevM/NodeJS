@@ -14,7 +14,6 @@ module.exports = {
       { 
         type: Sequelize.STRING, 
         after: 'email', 
-        defaultValue: '$2a$11$jbkf5i3Ly3lGROrQ/4Z18uhHv8Wmlad1yJkcA6pV9wgkwQdJo5j92' // 123
       });
   },
 

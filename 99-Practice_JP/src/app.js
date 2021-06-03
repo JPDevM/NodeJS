@@ -2,6 +2,7 @@
 var express = require('express');
 var cors = require('cors');
 var app = express();
+const session = require('express-session');
 
 // Packages
 const path = require('path');
@@ -9,6 +10,11 @@ var fs = require('fs');
 // var passporthttp = require('passport-http'); // Modificar
 // var passportfacebook = require('passport-facebook'); // Modificar
 app.use(cors());
+app.use(session({
+  secret: 'a random word',
+  resave: false,
+  saveUninitialized: true,
+}));
 require('dotenv').config();
 
 // Welcome menssaje

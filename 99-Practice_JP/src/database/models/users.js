@@ -4,7 +4,7 @@
 
 module.exports = (sequelize, dataTypes) => {
   // Define the structure of the model
-  const modelUsers = sequelize.define(
+  const model = sequelize.define(
     // 1. Model name in singular for db consistency.
     'user', // Sequelize looks for a table with this pluralized name.
 
@@ -40,5 +40,5 @@ module.exports = (sequelize, dataTypes) => {
 
   // 3 FK Association with the user table. To see your values.
 
-  return modelUsers;
+  return model;
 };
