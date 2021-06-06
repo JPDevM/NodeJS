@@ -25,7 +25,7 @@ router.get('/search', controller.search);
 router.get('/login', guest, controller.login);
 // Login Process
 router.post('/login', controller.loginProcess);
-// Profile View
+// Profile (view)
 router.get('/profile', auth, controller.profile);
 // Logout process
 router.post('/logout', controller.logout);

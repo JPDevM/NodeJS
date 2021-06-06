@@ -1,25 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
 <%- include('../partials/head') %>
 
-<body>
-	<h2>Login</h2>
-	<p>Log in into your account</p>
-	<form action="/users/login/" method="POST">
-		<div>
-			<label>Email:</label>
-			<input type="email" name="email">
-		</div>
-		<div>
-			<label>Password:</label>
-			<input type="password" name="password">
-		</div>
-		<div>
-			<label>
-				<input type="checkbox" name="remember">
-				Recordar usuario:
-			</label>
-		</div>
-		<button type="submit">Login</button>
-	</form>
-</body>
+	<body>
+		<h2>Login</h2>
+		<p>Log in into your account</p>
+		<form action="/users/login/" method="POST">
+			<div>
+				<label>Email:</label>
+				<input type="email" name="email">
+			</div>
+			<div>
+				<label>Password:</label>
+				<input type="password" name="password">
+			</div>
+			<div>
+				<label>
+					<input type="checkbox" name="remember">
+					Recordar usuario:
+				</label>
+			</div>
+			<button type="submit">Login</button>
+		</form>
+		<%- include('../partials/footer') %>
+	</body>
 
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+
+  <body>
+    <header>
+      <nav class=" navbar navbar-dark bg-dark">
+        <a class="navbar-brand text-white-50" href="/ ">
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </a>
+        <span class="navbar-text text-white">
+          New subscriptions
+        </span>
+        <a class="navbar-brand text-white-50" href="#">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </a>
+      </nav>
+    </header>
+
+    <!-- listado de subscripciones -->
+    <main class="container-fluid" role="main">
+      <section class="mt-2">
+
+        <!-- Navigation: Popular || All -->
+        <nav class="mt-2">
+          <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link bg-dark text-white active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
+              role="tab" aria-controls="nav-home" aria-selected="true">Popular</a>
+            <a class="nav-item nav-link bg-dark text-white" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+              role="tab" aria-controls="nav-profile" aria-selected="false">All</a>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+            <!-- Popular -->
+            <ul id="popularSubscriptions" class="p-0"></ul>
+
+          </div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+            <!-- All Subs -->
+            <ul id="allSubscriptions" class="p-0"></ul>
+
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <footer>
+      <div class="row fixed-bottom bg-dark mx-0 ">
+        <div class="col"><a href="/add_new">
+            <p class="py-3 text-white text-center">Create custom subscription</p>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <%- include('partials/footer') %>
+  </body>
+
+</html>

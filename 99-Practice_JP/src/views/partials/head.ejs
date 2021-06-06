@@ -1,12 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Custom Fonts -->
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&family=Indie+Flower&family=Nunito:wght@400&family=Open+Sans:wght@400&family=Raleway:wght@400&family=Roboto+Mono:wght@400&display=swap');
+	</style>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<!-- Font Awesome 5 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Custom Sass -->
+	<link rel="stylesheet" type="text/css" href='../../css/style_sass.css'>
+
 	<!-- 
 		La variable title viene desde el controlador
 		Si la variable no viene, se imprime el valor por defecto 'Website'
 	-->
-	<title><%= typeof title != 'undefined' ? title : 'Website' %></title>
-	<link rel="stylesheet" href="/css/styles.css">
+	<title>
+		<%= typeof title !='undefined' ? title : 'Subscription App' %>
+	</title>
 </head>

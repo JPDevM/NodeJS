@@ -3,78 +3,90 @@
 // ------------------------------- //
 
 // Import models into controller.
-// al desestructurar es necesario usar el mismo nombre que dimos al momento de crear el modelo.
-const { request, response } = require('express'); // esto por que va?
-const { modelSubscription } = require('../database/models');
+// A the destructuring, using the table name in the model.
+const { request, response } = require('express');
+const { Subscription } = require('../database/models');
 
 module.exports = {
-  // BROWSE --> See all: Select All subscriptions ('.../')
+  // BROWSE --> See all. ('.../')
   browse: async (request, response) => {
-    const allSubscription = await modelSubscription;
-    return response.json({ allSubscription });
+    try {
+      const allSubscription = await Subscription.findAll();
+      //Success
+      return response.json({
+        metadata: {
+          status: 200,
+          message: 'Success',
+        },
+        data: allSubscription,
+      });
+    } catch (error) {
+      // Fail
+      return response.status(500).json({
+        metadata: {
+          status: 500,
+          message: 'Could not list from database.',
+          reason: error,
+        },
+      });
+    }
+  },
+
+  // 3 EDIT - Edit one (edit form)(view)('.../:id/edit')
+  editForm: async (request, response) => {
+    const oneSubscription = await Subscription.findByPk(request.params.id).then(
+      (data) => console.log(data)
+    );
+    // try {
+    //   // Recupero values y los paso al formulario
+    //   .then(oneSubscription) => response.json(oneSubscription));
+    // } catch (error) {
+    //   return response.status(500).json({
+    //     metadata: {
+    //       status: 500,
+    //       message: 'FAIL Recupero values y los paso al formulario.',
+    //       reason: error,
+    //     },
+    //   });
+    // }
 
     // try {
-    //   // Paginator - Opcional - http://.../subscriptions?page=2
-    //   let page = request.query.page || 1;
-
-    //   let allSubscription = await modelSubscription.findAll({
-    //     limit: 20,
-    //     offset: page === 1 ? 1 : page * 10,
-    //   });
-
-    //   //Success
-    //   return response.json({
-    //     metadata: {
-    //       status: 200,
-    //       message: 'Success',
-    //     },
-    //     data: allSubscription,
-    //   });
+    //   const userId = request.params.id;
+    //   const oneSubscription = await Subscription.edit(userId);
+    //   return response.render('subscriptions/read', oneSubscription);
     // } catch (error) {
     //   // Fail
     //   return response.status(500).json({
     //     metadata: {
     //       status: 500,
-    //       message: 'Fail a lot',
+    //       message: 'No se pudo listar los usuatos de la db',
     //       reason: error,
     //     },
     //   });
     // }
   },
 
-  // 3 EDIT - Edit one (edit form)(view)('.../:id/edit')
-  editForm: async (request, response) => {
-    const oneSubscription = await modelSubscription.findById(request.params.id);
-    response.render('subscriptions/edit', oneSubscription);
-  },
-
   // 4 EDIT - Edit one ('.../:id')
-  // TO-DO: terminar el método edit.
-  // Renders the editForm
   edit: (request, response) => {
-    modelSubscription
-      .update({}, { where: { id: request.params.id } })
-      .then((modelSubscriptions) => {
-        return response.json(modelSubscriptions);
-      });
+    Subscription.update({}, { where: { id: request.params.id } }).then(
+      (subscription) => {
+        return response.json(subscription);
+      }
+    );
   },
 
   // 5 CREATE - Add one (creation form)(view) ('.../create')
   createForm: (request, response) => {},
 
   // 6 CREATE - Add one ('.../')
-  // TO-DO: terminar el método add.
-  // Renders the editForm
-
   create: (request, response) => {
     let dataToSave = {
       // Use variable names from the db.
       urlPath: request.body.urlPath, // Constancy in the db: the last argument of the body (urlPath) is the name = "urlPath" tag of the front form.
       description: request.body.description,
       userId: 1,
-
       isActive: request.body.active === 'si' ? 1 : 0, //dataTypes.INTEGER,
-      isPopular: 'true', //dataTypes.INTEGER,
+      isPopular: request.body.isPopular === 'si' ? 1 : 0, //dataTypes.INTEGER,
       name: '', //dataTypes.STRING,
       logoIcon: '', //dataTypes.STRING,
       logo: '', //dataTypes.STRING,
@@ -90,8 +102,7 @@ module.exports = {
       colorId: '', //dataTypes.INTEGER,
     };
 
-    modelSubscription
-      .create(dataToSave)
+    Subscription.create(dataToSave)
       // Success message.
       .then((data) => {
         return response.send({
@@ -112,11 +123,11 @@ module.exports = {
   // 7 DELETE --> Delete one ('.../:id')
   // TO-DO: terminar el método delete.
   delete: (request, response) => {
-    modelSubscription
-      .update({ where: { id: request.params.id } })
-      .then((modelSubscriptions) => {
-        return response.json(modelSubscriptions);
-      });
+    Subscription.update({ where: { id: request.params.id } }).then(
+      (subscription) => {
+        return response.json(subscription);
+      }
+    );
   },
 
   // 8 SEARCH - Find
@@ -124,7 +135,7 @@ module.exports = {
 
   // 2 READ --> See one ('.../:id')
   read: async (request, response) => {
-    const oneSubscription = await modelSubscription.findById(request.params.id);
+    const oneSubscription = await Subscription.findById(request.params.id);
     return response.json(oneSubscription);
   },
 };

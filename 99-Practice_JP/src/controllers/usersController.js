@@ -3,71 +3,129 @@
 // ------------------------ //
 
 // Import models into controller.
-// al desestructurar es necesario usar el mismo nombre que dimos al momento de crear el modelo.
-const { request, response } = require('express'); // esto por que va?
+// A the destructuring, using the table name in the model.
+const { request, response } = require('express');
 const { user } = require('../database/models');
 
 const bcrypt = require('bcryptjs');
 
 module.exports = {
+  // BROWSE --> See all. ('.../')
   browse: async (request, response) => {
     try {
-      const modelUsers = await user.findAll();
-      return response.json(modelUsers);
+      const allUsers = await user.findAll();
+      //Success
+      return response.json({
+        metadata: {
+          status: 200,
+          message: 'Success',
+        },
+        data: allUsers,
+      });
     } catch (error) {
-      return response.send('fail fail fail');
+      // Fail
+      return response.status(500).json({
+        metadata: {
+          status: 500,
+          message: 'Could not list from database.',
+          reason: error,
+        },
+      });
     }
   },
 
+  // 3 EDIT - Edit one (edit form)(view)('.../:id/edit')
   editForm: (request, response) => {
-    return response.render('users/editForm');
+    try {
+      const userToEdit = request.params;
+      //Success
+      return response.json({
+        metadata: {
+          status: 200,
+          message: 'Success',
+        },
+        data: userToEdit,
+      });
+    } catch (error) {
+      // Fail
+      return response.status(500).json({
+        metadata: {
+          status: 500,
+          message: 'Could not list from database.',
+          reason: error,
+        },
+      });
+    }
   },
 
-  // Renders the editForm
+  // 4 EDIT - Edit one ('.../:id')
   edit: (request, response) => {
     return response.render('users/edit');
   },
 
-  // Renders the createForm
+  // 5 CREATE - Add one (creation form)(view) ('.../create')
   createForm: (request, response) => {
-    return response.render('users/add');
+    return response.render('/users/add');
   },
 
+  // 6 CREATE - Add one ('.../')
   create: async (request, response) => {
     const userToCreate = {
       ...request.body,
-      password: bcrypt.hashSync(request.body.password, 11)
-    }
-    const userCreated = await user.create(userToCreate);
+      password: bcrypt.hashSync(request.body.password, 11),
+    };
+    const userCreated = await User.create(userToCreate);
     // TODO -> make automatic login
     return response.redirect('/users/login');
   },
 
+  // 7 DELETE --> Delete one ('.../:id')
   delete: (request, response) => {
     return response.send('The Users Delete page works ok');
   },
 
+  // 8 SEARCH - Find
   search: (request, response) => {
     return response.render('users/search');
   },
 
-  read: (request, response) => {
-    return response.render('users/read');
+  // 2 READ --> See one ('.../:id')
+  read: async (request, response) => {
+    try {
+      const oneUser = await user.findOne({ where: { id: request.params.id } });
+      console.log(oneUser);
+      return response.render('users/read', oneUser);
+    } catch (error) {
+      // Fail
+      return response.status(500).json({
+        metadata: {
+          status: 500,
+          message: 'Could not list from database.',
+          reason: error,
+        },
+      });
+    }
   },
 
+  // LOGING
   login: (request, response) => {
     return response.render('users/login');
   },
-  
+
   loginProcess: async (request, response) => {
     // 1. Search the user by email
-    const userByEmail = await user.findOne({ where: { email: request.body.email } });
+    const userByEmail = await user.findOne({
+      where: { email: request.body.email },
+    });
 
     // 2. If user exists, we'll to compare the passwords
     if (userByEmail) {
       const userPassword = userByEmail.password;
       const userFromLoginForm = request.body.password;
-      const isSamePassword = bcrypt.compareSync(userFromLoginForm, userPassword);
+      const isSamePassword = bcrypt.compareSync(
+        userFromLoginForm,
+        userPassword
+      );
 
       // 2.a. If passwords are the same, so we'll to let the user get inside
       if (isSamePassword) {
@@ -76,7 +134,7 @@ module.exports = {
           firstName: userByEmail.firstName,
           lastName: userByEmail.lastName,
           email: userByEmail.email,
-        }
+        };
         // TODO: Remember user - COOKIES
         return response.redirect('/users/profile');
       }
@@ -89,14 +147,15 @@ module.exports = {
     return response.send('Hey, you have credentials problems! 😔');
   },
 
+  // Profile view ('.../profile)
   profile: async (request, response) => {
     const user = request.session.userLogged;
-    return response.render('users/profile', { user });
+    return response.render('index', user);
   },
 
+  // Loguot
   logout: (request, response) => {
     request.session.destroy();
-    return response.redirect('/users/login');
-  }
-
+    return response.redirect('/user/login');
+  },
 };

@@ -1,8 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
 <%- include('../partials/head') %>
 
-<body>
-	<h2>Edit</h2>
-	<p>The Subscriptions Edit Form page works ok</p>
-</body>
+	<body>
+		<header>
+			<nav class=" navbar navbar-dark bg-dark">
+				<a class="navbar-brand text-white-50" href="/setting">
+					<i class="fa fa-chevron-left" aria-hidden="true"></i>
+				</a>
+				<span class="navbar-text text-white text-truncate">
+					Default Currency
+				</span>
+				<a style="opacity: 0%;">
+					<i class="fa fa-heart" aria-hidden="true"></i>
+				</a>
+			</nav>
+		</header>
+
+		<main>
+			<section class="my-2">
+				<div class="container-fluid">
+
+					<!-- Form -->
+					<form class="get" method="GET" action="" enctype="multipart/form-data">
+
+						<!-- name -->
+						<div class="form-group col-lg-4 col-md-6 col-sm-8">
+							<label for="my-input">name</label>
+							<input id="my-input" class="form-control" type="text" name="name" value="nameTest">
+						</div>
+
+						<!-- description -->
+						<div class="form-group col-lg-4 col-md-6 col-sm-8">
+							<label for="my-input">description</label>
+							<input id="my-input" class="form-control" type="text" name="description" value="descriptionTest">
+						</div>
+
+						<!-- colorId -->
+						<div class="form-group col-lg-4 col-md-6 col-sm-8">
+							<label for="example-color-input" class="col-form-label">colorId</label>
+							<input class="form-control" type="color" value="#563d7c" id="example-color-input" name="colorId">
+						</div>
+
+						<!-- firstPayment -->
+						<div class="form-group ol-lg-4 col-md-6 col-sm-8">
+							<label for="example-datetime-local-input" class="col-form-label">firstPayment</label>
+							<input class="form-control" type="datetime-local" value="2011-08-19T13:45:00"
+								id="example-datetime-local-input" name="firstPayment">
+						</div>
+
+						<!-- recurrency -->
+						<div class="form-group col-lg-4 col-md-6 col-sm-8">
+							<label for="my-select">recurrency</label>
+							<select id="my-select" class="form-control" name="recurrency">
+								<option>Monthly</option>
+								<option>Semanal</option>
+								<option>bi-Monthly</option>
+							</select>
+						</div>
+
+						<!-- longPayment -->
+						<div class="form-group ol-lg-4 col-md-6 col-sm-8">
+							<label for="example-datetime-local-input" class="col-form-label">longPayment</label>
+							<input class="form-control" type="datetime-local" value="2011-08-19T13:45:00"
+								id="example-datetime-local-input" name="longPayment">
+						</div>
+
+						<!-- currency -->
+						<div class="form-group col-lg-4 col-md-6 col-sm-8">
+							<label for="my-select">currency</label>
+							<select id="my-select" class="form-control" name="currency">
+								<option>eur</option>
+							</select>
+						</div>
+
+
+						<button type="submit">Crear</button>
+
+				</div>
+				</form>
+				</div>
+			</section>
+		</main>
+
+		<%- include('../partials/footer') %>
+	</body>
 
 </html>
