@@ -39,6 +39,8 @@ module.exports = {
       password: bcrypt.hashSync(request.body.password, 11)
     }
     const userCreated = await user.create(userToCreate);
+    console.log(userCreated);
+    
     // TODO -> make automatic login
     return response.redirect('/users/login');
   },
@@ -76,9 +78,15 @@ module.exports = {
           firstName: userByEmail.firstName,
           lastName: userByEmail.lastName,
           email: userByEmail.email,
+          isAdmin: userByEmail.isAdmin,
         }
-        // TODO: Remember user - COOKIES
-        return response.redirect('/users/profile');
+        if(request.body.remember) {
+          let cookieAge = (((1000 * 60) * 60) * 24) * 30;
+          console.log('Se creó la cookie');
+          response.cookie('userId', userByEmail.id, { maxAge: cookieAge });
+        }
+
+        return response.redirect('/users/auth/profile');
       }
 
       // 2.b. If passwords doesn't match, we'll alert to user
@@ -96,6 +104,7 @@ module.exports = {
 
   logout: (request, response) => {
     request.session.destroy();
+    response.clearCookie('userId');
     return response.redirect('/users/login');
   }
 

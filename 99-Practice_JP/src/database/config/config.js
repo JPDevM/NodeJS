@@ -5,7 +5,7 @@ module.exports = {
   development: {
     username: 'root', // MySQL server user (by default it is root)
     password: '', // MySQL server password (by default it is empty)
-    database: 'subs_db', // Name of the DB to connect.
+    database: 'usersDB', // Name of the DB to connect.
     host: '127.0.0.1',
     dialect: 'mysql',
   },

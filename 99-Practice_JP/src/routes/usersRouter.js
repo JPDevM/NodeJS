@@ -6,6 +6,9 @@ const controller = require('../controllers/usersController');
 
 const { auth, guest } = require('../middlewares/authMiddleware');
 
+// http://localhost:5000/users/auth
+router.use('/auth', auth); // Todas las rutas que sean /users/auth van a usar este middleware
+
 // BREAD: Respond to http://localhost:5000/users
 // 1 BROWSE - See all
 router.get('/', controller.browse);
@@ -26,7 +29,7 @@ router.get('/login', guest, controller.login);
 // Login Process
 router.post('/login', controller.loginProcess);
 // Profile View
-router.get('/profile', auth, controller.profile);
+router.get('/auth/profile', controller.profile);
 // Logout process
 router.post('/logout', controller.logout);
 // 2 READ - See one

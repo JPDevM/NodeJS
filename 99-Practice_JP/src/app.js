@@ -3,6 +3,7 @@ var express = require('express');
 var cors = require('cors');
 var app = express();
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
 // Packages
 const path = require('path');
@@ -15,6 +16,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }));
+app.use(cookieParser());
 require('dotenv').config();
 
 // Welcome menssaje

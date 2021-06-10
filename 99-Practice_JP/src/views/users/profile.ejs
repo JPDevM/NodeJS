@@ -5,6 +5,12 @@
 	<h3>Hi <%= user.firstName %> <%= user.lastName %></h3>
 	<a href="mailto:<%= user.email %>"><%= user.email %></a>
 	<br>
+	<% if (user.isAdmin !== 0) { %>
+		<hr>
+		<p>Es administrador: <%= user.isAdmin %> </p>
+		<a href="/">Agregar subscripción</a>
+		<hr> 
+	<% } %>
 	<br>
 	<form action="/users/logout" method="POST">
 		<button type="submit">LOG OUT</button>
