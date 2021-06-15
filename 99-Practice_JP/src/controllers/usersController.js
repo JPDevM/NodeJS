@@ -80,10 +80,13 @@ module.exports = {
           email: userByEmail.email,
           isAdmin: userByEmail.isAdmin,
         }
+
+        // 2.b. If the user checks the remember input
         if(request.body.remember) {
           let cookieAge = (((1000 * 60) * 60) * 24) * 30;
-          console.log('Se creó la cookie');
-          response.cookie('userId', userByEmail.id, { maxAge: cookieAge });
+          let fakeId = `${new Date().getTime()}_0${userByEmail.id}0_${(new Date().getTime() + 12345)}`;
+
+          response.cookie('userId', fakeId, { maxAge: cookieAge });
         }
 
         return response.redirect('/users/auth/profile');
