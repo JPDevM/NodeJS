@@ -6,7 +6,7 @@ module.exports = (sequelize, dataTypes) => {
   // Define the structure of the model
   const modelSubscription = sequelize.define(
     // 1. Model name in singular for db consistency.
-    'subscription', // Sequelize looks for a table with this pluralized name.
+    'Subscription', // Sequelize looks for a table with this pluralized name.
 
     // 2. attributes of the database to access. https://sequelize.org/v5/manual/data-types.html
     // Tips: don't use FLOAT, use DECIMAL instead. Don't use BOOLEAN, use INTEGER DEFAULT 0.
@@ -83,15 +83,15 @@ module.exports = (sequelize, dataTypes) => {
   );
 
   // 3. FK Association with the user table. To see your values.
-  modelSubscription.associate = (models) => {
+  modelSubscription.associate = ({ user, Color }) => {
     // BelongsTo association. https://sequelize.org/master/manual/assocs.html
-    modelSubscription.belongsTo(models.user, {
-      as: 'user',
+    modelSubscription.belongsTo(user, {
+      as: 'user', //  nombre de la relación
       foreignKey: 'userId',
     });
 
-    modelSubscription.belongsTo(models.color, {
-      as: 'color',
+    modelSubscription.belongsTo(Color, {
+      as: 'color', //  nombre de la relación
       foreignKey: 'colorId',
     });
   };

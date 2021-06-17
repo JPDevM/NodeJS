@@ -8,6 +8,9 @@ module.exports = {
     database: 'usersDB', // Name of the DB to connect.
     host: '127.0.0.1',
     dialect: 'mysql',
+    define: {
+      paranoid: true // soft deletes implementation (get all data that have NULL in deletedAt column)
+    }
   },
   test: {
     username: process.env.DB_USER,

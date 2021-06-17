@@ -30,10 +30,6 @@ app.listen(port, (require, response) =>
 const publicFolder = express.static(path.resolve(__dirname, '../public/'));
 app.use(publicFolder);
 
-// Template engine - views
-app.set('view engine', 'ejs');
-app.set('views', './src/views');
-
 // Middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
