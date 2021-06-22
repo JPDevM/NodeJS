@@ -23,6 +23,8 @@ router.post('/', controller.create);
 router.delete('/:id', controller.delete);
 // 8 SEARCH - Find
 router.get('/search', controller.search);
+// Colors
+router.get('/colors', controller.color);
 // 2 READ - See one
 router.get('/:id', controller.read);
 

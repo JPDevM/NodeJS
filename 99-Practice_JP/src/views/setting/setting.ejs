@@ -1,244 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head') %>
+<%- include('../partials/head') %>
 
-  <body>
-    <header>
-      <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand text-white-50" href="/ ">
-          <i class="fa fa-chevron-down" aria-hidden="true"></i>
-        </a>
-        <span class="navbar-text text-white">
-          Settings
-        </span>
-        <a style="opacity: 0%;">
-          <i class="fa fa-heart" aria-hidden="true"></i>
-        </a>
-      </nav>
-    </header>
+  <body style="background-color: black;">
+    <%- include('../partials/header') %>
 
-    <main>
-      <section class="my-2">
-        <div class="container-fluid">
-          <div class="row">
+      <main>
+        <section class="my-2">
+          <div class="container-fluid">
+            <div class="row">
 
 
-            <!-- General >>> Dysplay: None-->
-            <div class="col-12 d-none">
-              <p class="text-white-50 mb-0 mt-4 text-uppercase"><small>General</small></p>
+              <!-- General >>> Dysplay: None-->
+              <div class="col-12 d-none">
+                <p class="text-white-50 mb-0 mt-4 text-uppercase"><small>General</small></p>
+              </div>
+
+              <div class="col-12 bg-dark-light border-setting-top d-none">
+                <a href="">
+                  <div class="row align-items-center my-2">
+                    <div class=" col-10 text-white text-truncate">
+                      <p class="my-0">Seguridad</p>
+                    </div>
+                    <div class="col-2 text-white-50 text-right">
+                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-12 bg-dark-light border-setting-top d-none">
+                <form>
+                  <div class="form-check my-2 px-0 text-white">
+                    <input class="form-check-input custom-control-imput" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Synchronization in iCloud
+                    </label>
+                  </div>
+                </form>
+              </div>
+
+              <div class="col-12 py-2 text-white border-setting-top text-truncate d-none">
+                <a href="">
+                  <p class="my-0 text-primary text-truncate">Sync to iCloud now</p>
+                </a>
+              </div>
+
+              <div class="col-12 py-2 text-white border-setting-top text-truncate d-none">
+                <p class="my-0 text-white-50 text-truncate">
+                  <small>Last synchronization on July 17, 2020 at 3:07 p.m.</small>
+                </p>
+              </div>
+
+
+              <!-- My subscriptions -->
+              <div class="col-12">
+                <p class="text-white-50 mb-0 mt-4 text-uppercase"><small>My subscriptions</small></p>
+              </div>
+
+              <div class="col-12 bg-dark-light border-setting-top">
+                <a href="order">
+                  <div class="row align-items-center my-2">
+                    <div class=" col-7 text-white text-truncate">
+                      <p class="my-0">Sort Subscriptions by</p>
+                    </div>
+                    <div class="col-5 text-white-50 text-right">
+                      <p class="my-0 text-truncate">Payment Date<i class="fa fa-angle-right ml-2"
+                          aria-hidden="true"></i>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-12 bg-dark-light border-setting-top">
+                <a href="total">
+                  <div class="row align-items-center my-2">
+                    <div class=" col-7 text-white text-truncate">
+                      <p class="my-0">See Total as</p>
+                    </div>
+                    <div class="col-5 text-white-50 text-right">
+                      <p class="my-0 text-truncate">Average Expenses<i class="fa fa-angle-right ml-2"
+                          aria-hidden="true"></i>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-12 bg-dark-light border-setting-top  border-setting-bottom">
+                <a href="/currency">
+                  <div class="row align-items-center my-2">
+                    <div class=" col-7 text-white text-truncate">
+                      <p class="my-0">Default Currency</p>
+                    </div>
+                    <div class="col-5 text-white-50 text-right">
+                      <p class="my-0 text-truncate">EUR €<i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+
+              <!-- Design -->
+              <div class="col-12">
+                <p class="text-white-50 mb-0 mt-4 text-uppercase"><small>Design</small></p>
+              </div>
+
+              <div class="col-12 bg-dark-light border-setting-top d-none">
+                <a href="">
+                  <div class="row align-items-center my-2">
+                    <div class=" col-10 text-white text-truncate">
+                      <p class="my-0">App icon</p>
+                    </div>
+                    <div class="col-2 text-white-50 text-right">
+                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-12 bg-dark-light border-setting-top">
+                <a href="/theme">
+                  <div class="row align-items-center my-2">
+                    <div class=" col-10 text-white text-truncate">
+                      <p class="my-0">Theme</p>
+                    </div>
+                    <div class="col-2 text-white-50 text-right">
+                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-12 bg-dark-light border-setting-top border-setting-bottom">
+                <a href="font">
+                  <div class="row align-items-center my-2">
+                    <div class=" col-10 text-white text-truncate">
+                      <p class="my-0">Font</p>
+                    </div>
+                    <div class="col-2 text-white-50 text-right">
+                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Actualizaciones -->
+              <div class="col-12">
+                <p class="text-white-50 mb-0 mt-4 text-uppercase"><small>Updates</small></p>
+              </div>
+
+              <div class="col-12 bg-dark-light border-setting-top border-setting-bottom">
+                <a href="">
+                  <div class="row align-items-center my-2">
+                    <div class=" col-10 text-white text-truncate">
+                      <p class="my-0">See Updates</p>
+                    </div>
+                    <div class="col-2 text-white-50 text-right">
+                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-12 bg-dark-light border-setting-top d-none">
+                <a href="">
+                  <div class="row align-items-center my-2">
+                    <div class=" col-10 text-white text-truncate">
+                      <p class="my-0">Restore Purchases</p>
+                    </div>
+                    <div class="col-2 text-white-50 text-right">
+                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+
+              <!-- Información -->
+              <div class="col-12">
+                <p class="text-white-50 mb-0 mt-4 text-uppercase"><small>Information</small></p>
+              </div>
+
+              <div class="col-12 bg-dark-light border-setting-top">
+                <a href="">
+                  <div class="row align-items-center my-2">
+                    <div class=" col-7 text-white text-truncate">
+                      <p class="my-0">Comments</p>
+                    </div>
+                    <div class="col-5 text-white-50 text-right">
+                      <p class="my-0 text-truncate">info@info.com<i class="fa fa-angle-right ml-2"
+                          aria-hidden="true"></i>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-12 bg-dark-light border-setting-top">
+                <a href="">
+                  <div class="row align-items-center my-2">
+                    <div class=" col-10 text-white text-truncate">
+                      <p class="my-0">About</p>
+                    </div>
+                    <div class="col-2 text-white-50 text-right">
+                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="col-12 py-2 text-white border-setting-top border-setting-bottom text-truncate">
+                <a href="">
+                  <p class="my-0 text-primary text-truncate">Rate the app</p>
+                </a>
+              </div>
+
+              <div class="col-12 text-center mt-3">
+                <i class="fa fa-heart text-danger" aria-hidden="true" style="font-size: 3em;"></i>
+                <p><small>v 0.1</small></p>
+              </div>
+
             </div>
-
-            <div class="col-12 bg-dark-light border-setting-top d-none">
-              <a href="">
-                <div class="row align-items-center my-2">
-                  <div class=" col-10 text-white text-truncate">
-                    <p class="my-0">Seguridad</p>
-                  </div>
-                  <div class="col-2 text-white-50 text-right">
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-12 bg-dark-light border-setting-top d-none">
-              <form>
-                <div class="form-check my-2 px-0 text-white">
-                  <input class="form-check-input custom-control-imput" type="checkbox" value="" id="defaultCheck1">
-                  <label class="form-check-label" for="defaultCheck1">
-                    Synchronization in iCloud
-                  </label>
-                </div>
-              </form>
-            </div>
-
-            <div class="col-12 py-2 text-white border-setting-top text-truncate d-none">
-              <a href="">
-                <p class="my-0 text-primary text-truncate">Sync to iCloud now</p>
-              </a>
-            </div>
-
-            <div class="col-12 py-2 text-white border-setting-top text-truncate d-none">
-              <p class="my-0 text-white-50 text-truncate">
-                <small>Last synchronization on July 17, 2020 at 3:07 p.m.</small>
-              </p>
-            </div>
-
-
-            <!-- My subscriptions -->
-            <div class="col-12">
-              <p class="text-white-50 mb-0 mt-4 text-uppercase"><small>My subscriptions</small></p>
-            </div>
-
-            <div class="col-12 bg-dark-light border-setting-top">
-              <a href="order">
-                <div class="row align-items-center my-2">
-                  <div class=" col-7 text-white text-truncate">
-                    <p class="my-0">Sort Subscriptions by</p>
-                  </div>
-                  <div class="col-5 text-white-50 text-right">
-                    <p class="my-0 text-truncate">Payment Date<i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-12 bg-dark-light border-setting-top">
-              <a href="total">
-                <div class="row align-items-center my-2">
-                  <div class=" col-7 text-white text-truncate">
-                    <p class="my-0">See Total as</p>
-                  </div>
-                  <div class="col-5 text-white-50 text-right">
-                    <p class="my-0 text-truncate">Average Expenses<i class="fa fa-angle-right ml-2"
-                        aria-hidden="true"></i>
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-12 bg-dark-light border-setting-top  border-setting-bottom">
-              <a href="/currency">
-                <div class="row align-items-center my-2">
-                  <div class=" col-7 text-white text-truncate">
-                    <p class="my-0">Default Currency</p>
-                  </div>
-                  <div class="col-5 text-white-50 text-right">
-                    <p class="my-0 text-truncate">EUR €<i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-
-            <!-- Design -->
-            <div class="col-12">
-              <p class="text-white-50 mb-0 mt-4 text-uppercase"><small>Design</small></p>
-            </div>
-
-            <div class="col-12 bg-dark-light border-setting-top d-none">
-              <a href="">
-                <div class="row align-items-center my-2">
-                  <div class=" col-10 text-white text-truncate">
-                    <p class="my-0">App icon</p>
-                  </div>
-                  <div class="col-2 text-white-50 text-right">
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-12 bg-dark-light border-setting-top">
-              <a href="/theme">
-                <div class="row align-items-center my-2">
-                  <div class=" col-10 text-white text-truncate">
-                    <p class="my-0">Theme</p>
-                  </div>
-                  <div class="col-2 text-white-50 text-right">
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-12 bg-dark-light border-setting-top border-setting-bottom">
-              <a href="font">
-                <div class="row align-items-center my-2">
-                  <div class=" col-10 text-white text-truncate">
-                    <p class="my-0">Font</p>
-                  </div>
-                  <div class="col-2 text-white-50 text-right">
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Actualizaciones -->
-            <div class="col-12">
-              <p class="text-white-50 mb-0 mt-4 text-uppercase"><small>Updates</small></p>
-            </div>
-
-            <div class="col-12 bg-dark-light border-setting-top border-setting-bottom">
-              <a href="">
-                <div class="row align-items-center my-2">
-                  <div class=" col-10 text-white text-truncate">
-                    <p class="my-0">See Updates</p>
-                  </div>
-                  <div class="col-2 text-white-50 text-right">
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-12 bg-dark-light border-setting-top d-none">
-              <a href="">
-                <div class="row align-items-center my-2">
-                  <div class=" col-10 text-white text-truncate">
-                    <p class="my-0">Restore Purchases</p>
-                  </div>
-                  <div class="col-2 text-white-50 text-right">
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-
-            <!-- Información -->
-            <div class="col-12">
-              <p class="text-white-50 mb-0 mt-4 text-uppercase"><small>Information</small></p>
-            </div>
-
-            <div class="col-12 bg-dark-light border-setting-top">
-              <a href="">
-                <div class="row align-items-center my-2">
-                  <div class=" col-7 text-white text-truncate">
-                    <p class="my-0">Comments</p>
-                  </div>
-                  <div class="col-5 text-white-50 text-right">
-                    <p class="my-0 text-truncate">info@info.com<i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-12 bg-dark-light border-setting-top">
-              <a href="">
-                <div class="row align-items-center my-2">
-                  <div class=" col-10 text-white text-truncate">
-                    <p class="my-0">About</p>
-                  </div>
-                  <div class="col-2 text-white-50 text-right">
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-12 py-2 text-white border-setting-top border-setting-bottom text-truncate">
-              <a href="">
-                <p class="my-0 text-primary text-truncate">Rate the app</p>
-              </a>
-            </div>
-
-            <div class="col-12 text-center mt-3">
-              <i class="fa fa-heart text-danger" aria-hidden="true" style="font-size: 3em;"></i>
-              <p><small>v 0.1</small></p>
-            </div>
-
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
 
-    <%- include('../partials/footer') %>
+      <%- include('../partials/footer') %>
   </body>
 
 </html>

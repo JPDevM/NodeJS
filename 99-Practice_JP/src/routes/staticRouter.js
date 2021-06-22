@@ -4,15 +4,19 @@ const router = express.Router();
 
 // routing to http://localhost:5000
 router.get('/', function (request, response) {
-  response.send('The inicial page works ok');
+  response.render('landing');
 });
 
-router.get('/landing', function (request, response) {
-  response.send('The Landing page works ok');
+router.get('/docs', function (request, response) {
+  response.send('The docs page works ok');
+});
+
+router.get('/setting', function (request, response) {
+  response.render('setting/setting');
 });
 
 router.get('/api', function (request, response) {
-  response.send('The API page works ok');
+  response.send('The api page works ok');
 });
 
 module.exports = router;

@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head') %>
 
-	<body>
-		<h2>Add</h2>
-		<p>The Users Create Form page works ok</p>
-		<form action="/users/" method="POST">
-			<div>
-				<label>First name:</label>
-				<input type="text" name="firstName">
-			</div>
-			<div>
-				<label>Last name:</label>
-				<input type="text" name="lastName">
-			</div>
-			<div>
-				<label>Email:</label>
-				<input type="email" name="email">
-			</div>
-			<div>
-				<label>Password:</label>
-				<input type="password" name="password">
-			</div>
-			<div>
-				<label>Gender:</label>
-				<label>
-					<input type="radio" name="gender" value="female">
-					<i>F</i>
-				</label>
-				<label>
-					<input type="radio" name="gender" value="male">
-					<i>M</i>
-				</label>
-			</div>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Create user</title>
+</head>
 
-			<button type="submit">Register</button>
-		</form>
-		<%- include('../partials/footer') %>
-	</body>
+<body>
+	<h2>Add</h2>
+	<p>The Users Create Form page works ok</p>
+	<form action="/users/" method="POST">
+		<div>
+			<label>First name:</label>
+			<input type="text" name="firstName">
+		</div>
+		<div>
+			<label>Last name:</label>
+			<input type="text" name="lastName">
+		</div>
+		<div>
+			<label>Email:</label>
+			<input type="email" name="email">
+		</div>
+		<div>
+			<label>Password:</label>
+			<input type="password" name="password">
+		</div>
+		<div>
+			<label>Gender:</label>
+			<label>
+				<input type="radio" name="gender" value="female">
+				<i>F</i>
+			</label>
+			<label>
+				<input type="radio" name="gender" value="male">
+				<i>M</i>
+			</label>
+		</div>
+
+		<button type="submit">Register</button>
+	</form>
+</body>
 
 </html>

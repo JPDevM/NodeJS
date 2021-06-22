@@ -93,7 +93,6 @@ module.exports = {
   read: async (request, response) => {
     try {
       const oneUser = await user.findOne({ where: { id: request.params.id } });
-      console.log(oneUser);
       return response.render('users/read', oneUser);
     } catch (error) {
       // Fail
@@ -136,6 +135,7 @@ module.exports = {
           email: userByEmail.email,
         };
         // TODO: Remember user - COOKIES
+        // Success
         return response.redirect('/users/profile');
       }
 
@@ -150,6 +150,7 @@ module.exports = {
   // Profile view ('.../profile)
   profile: async (request, response) => {
     const user = request.session.userLogged;
+    console.log(user);
     return response.render('index', user);
   },
 

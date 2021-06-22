@@ -1,32 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('partials/head') %>
+  <%# user.firstName %>
 
-  <body>
-    <header>
-      <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand text-white-50" href="/setting">
-          <i class="fa fa-cog" aria-hidden="true"></i>
-        </a>
-        <span class="navbar-text text-white">
-          My subscriptions
-        </span>
-        <a class="navbar-brand text-white-50" href="/add"><i class="fa fa-plus" aria-hidden="true"></i></a>
-      </nav>
-    </header>
+    <body style="background-color: chocolate;">
+      <%- include('partials/header') %>
 
-    <!-- listado de subscripciones -->
-    <main class="container-fluid" role="main">
-      <section class="mt-2">
+        <!-- listado de subscripciones -->
+        <main class="container-fluid" role="main">
+          <section class="mt-2">
+            <h2>Esto es el index.ejs</h2>
+            <!-- Subscripción cargada desde Javascript -->
+            <ul id="mySubscriptions" class="p-0"></ul>
 
-        <!-- Subscripción cargada desde Javascript -->
-        <ul id="mySubscriptions" class="p-0"></ul>
-
-      </section>
-    </main>
+          </section>
+        </main>
 
 
-    <%- include('partials/footer') %>
-  </body>
+        <%- include('partials/footer') %>
+    </body>
 
 </html>

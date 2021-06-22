@@ -4,79 +4,60 @@
 
 // Import models into controller.
 // A the destructuring, using the table name in the model.
+const { render } = require('ejs');
 const { request, response } = require('express');
-const { Subscription } = require('../database/models');
+const { subscription, color } = require('../database/models');
 
 module.exports = {
   // BROWSE --> See all. ('.../')
   browse: async (request, response) => {
-    try {
-      const allSubscription = await Subscription.findAll();
-      //Success
-      return response.json({
-        metadata: {
-          status: 200,
-          message: 'Success',
-        },
-        data: allSubscription,
-      });
-    } catch (error) {
-      // Fail
-      return response.status(500).json({
-        metadata: {
-          status: 500,
-          message: 'Could not list from database.',
-          reason: error,
-        },
-      });
-    }
+    const allSubscription = await subscription.findAll();
+    return response.render('subscriptions/browse', { allSubscription });
   },
+  // browse: async (request, response) => {
+  //   try {
+  //     const allSubscription = await subscription.findAll();
+  //     //Success
+  //     return response.json({
+  //       metadata: {
+  //         status: 200,
+  //         message: 'Success',
+  //       },
+  //       data: allSubscription,
+  //     });
+  //   } catch (error) {
+  //     // Fail
+  //     return response.status(500).json({
+  //       metadata: {
+  //         status: 500,
+  //         message: 'Could not list from database.',
+  //         reason: error,
+  //       },
+  //     });
+  //   }
+  // },
 
   // 3 EDIT - Edit one (edit form)(view)('.../:id/edit')
   editForm: async (request, response) => {
-    const oneSubscription = await Subscription.findByPk(request.params.id).then(
-      (data) => console.log(data)
-    );
-    // try {
-    //   // Recupero values y los paso al formulario
-    //   .then(oneSubscription) => response.json(oneSubscription));
-    // } catch (error) {
-    //   return response.status(500).json({
-    //     metadata: {
-    //       status: 500,
-    //       message: 'FAIL Recupero values y los paso al formulario.',
-    //       reason: error,
-    //     },
-    //   });
-    // }
-
-    // try {
-    //   const userId = request.params.id;
-    //   const oneSubscription = await Subscription.edit(userId);
-    //   return response.render('subscriptions/read', oneSubscription);
-    // } catch (error) {
-    //   // Fail
-    //   return response.status(500).json({
-    //     metadata: {
-    //       status: 500,
-    //       message: 'No se pudo listar los usuatos de la db',
-    //       reason: error,
-    //     },
-    //   });
-    // }
+    const oneSubscription = await subscription.findOne({
+      where: { id: request.params.id },
+    });
+    return response.render('subscriptions/edit', { oneSubscription });
   },
 
   // 4 EDIT - Edit one ('.../:id')
   edit: (request, response) => {
-    Subscription.update({}, { where: { id: request.params.id } }).then(
-      (subscription) => {
+    subscription
+      .update({}, { where: { id: request.params.id } })
+      .then((subscription) => {
         return response.json(subscription);
-      }
-    );
+      });
   },
 
   // 5 CREATE - Add one (creation form)(view) ('.../create')
-  createForm: (request, response) => {},
+  createForm: (request, response) => {
+    return response.render('subscriptions/add');
+  },
 
   // 6 CREATE - Add one ('.../')
   create: (request, response) => {
@@ -102,7 +83,8 @@ module.exports = {
       colorId: '', //dataTypes.INTEGER,
     };
 
-    Subscription.create(dataToSave)
+    subscription
+      .create(dataToSave)
       // Success message.
       .then((data) => {
         return response.send({
@@ -123,19 +105,25 @@ module.exports = {
   // 7 DELETE --> Delete one ('.../:id')
   // TO-DO: terminar el método delete.
   delete: (request, response) => {
-    Subscription.update({ where: { id: request.params.id } }).then(
-      (subscription) => {
+    subscription
+      .update({ where: { id: request.params.id } })
+      .then((subscription) => {
         return response.json(subscription);
-      }
-    );
+      });
   },
 
   // 8 SEARCH - Find
   search: (request, response) => {},
 
+  // Colors ('.../colors')
+  color: async (request, response) => {
+    const allColor = await color.findAll();
+    return response.json(allColor);
+  },
+
   // 2 READ --> See one ('.../:id')
   read: async (request, response) => {
-    const oneSubscription = await Subscription.findById(request.params.id);
+    const oneSubscription = await subscription.findById(request.params.id);
     return response.json(oneSubscription);
   },
 };
