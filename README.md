@@ -30,13 +30,13 @@
 
 - In this part of the process the control methods should show the results. The database is in charge of displaying the results.
 
-- [Edit the methods of the controller from the database.md](./1.%20a.%20Edit%20the%20methods%20of%20the%20controller%20from%20the%20database.md).
+- `1. a` [Edit the methods of the controller from the database.md](./1.%20a.%20Edit%20the%20methods%20of%20the%20controller%20from%20the%20database.md).
 
-- [Edit the methods of the controller using JSON files.md](./1.%20b.%20Edit%20the%20methods%20of%20the%20controller%20using%20JSON%20files.md).
+- `1. b` [Edit the methods of the controller using JSON files.md](./1.%20b.%20Edit%20the%20methods%20of%20the%20controller%20using%20JSON%20files.md).
 
 Another option is to send the views directly instead of the API, in this case with EJS as template engine.
 
-- [MVC: Tell the controller to show the views](./1.%20c.%20MVC%20Tell%20the%20controller%20to%20show%20the%20Views.md).
+- `1. c` [MVC: Tell the controller to show the views](./1.%20c.%20MVC%20Tell%20the%20controller%20to%20show%20the%20Views.md).
 
 - Install thrid-party dependencies.
 
