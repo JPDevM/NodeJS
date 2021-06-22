@@ -62,3 +62,9 @@ module.exports = {
     dialect: 'mysql',
   },
 ```
+
+
+
+
+
+<!-- No olvidar, agregar.env a gitigore -->
