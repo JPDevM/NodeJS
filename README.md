@@ -1,10 +1,10 @@
 # NodeJS Articles
 
+> This is an index. You can see the complete documentation step by step here: [Link to: Workflow to create backend with NodeJS](./1.%20Workflow%20to%20create%20backend%20with%20NodeJS.md).
+
 ### 1. Workflow to create backend with NodeJS
 
-> [Link to: Workflow to create backend with NodeJS](./1.%20Workflow%20to%20create%20backend%20with%20NodeJS.md).
-
-> You can also see this publication in [Medium](https://jpdevm.medium.com/workflow-to-create-backend-with-nodejs-b2ec0efd78d0).
+> You can also see the FULL publication in [Medium](https://jpdevm.medium.com/workflow-to-create-backend-with-nodejs-b2ec0efd78d0).
 
 <img src="./Images_docs/1. Workflow to create backend with NodeJS/frameworks_logos.png" alt="frameworks_logos" style="zoom:20%;" />
 
