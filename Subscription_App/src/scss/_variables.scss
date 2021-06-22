@@ -1,0 +1,30 @@
+// Main colors
+$lightColor: #fff;
+$darkColor: #000;
+$rainbowColor: radial-gradient(
+    circle at 50% 0,
+    rgba(255, 0, 0, 0.5),
+    rgba(255, 0, 0, 0) 70.71%
+  ),
+  radial-gradient(
+    circle at 6.7% 75%,
+    rgba(0, 0, 255, 0.5),
+    rgba(0, 0, 255, 0) 70.71%
+  ),
+  radial-gradient(
+    circle at 93.3% 75%,
+    rgba(0, 255, 0, 0.5),
+    rgba(0, 255, 0, 0) 70.71%
+  );
+
+// Color Schema //terminar el dark-white-mode desde media queries con prefers-color-scheme
+.light {
+  background: #eee;
+  color: black;
+}
+.dark {
+  background: #333;
+  color: white;
+}
+.rainbow {
+}

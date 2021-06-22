@@ -1,0 +1,385 @@
+@charset "UTF-8";
+/* ☆ （ • •）☆
+╔uu══════════════════╗☆
+       Mixins  
+╚══════nn════════════╝ */
+.light {
+  background: #eee;
+  color: black;
+}
+
+.dark {
+  background: #333;
+  color: white;
+}
+
+/* ☆ （ • •）☆
+╔uu══════════════════╗☆
+ Global Settings  
+╚══════nn════════════╝ */
+.bg-dark {
+  background-color: #000 !important;
+}
+
+body {
+  background-color: black;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+
+ul {
+  list-style: none;
+}
+
+.nav-link.active {
+  background-color: #000;
+  border: 0px;
+  border-bottom: #fff 1px solid;
+}
+
+.input-dark {
+  background-color: black;
+  color: white;
+  border: 0px;
+  border-radius: 0px;
+}
+.input-dark:focus {
+  background-color: black;
+  color: white;
+}
+
+.input-dark-strong {
+  background-color: black;
+  color: grey;
+  border: 0px;
+  border-radius: 0px;
+}
+.input-dark-strong:focus {
+  background-color: black;
+  color: white;
+}
+
+/* Card Styles */
+#cardRow {
+  color: white;
+}
+
+#cardLogo {
+  font-size: 2em;
+}
+
+/* Setting Styles */
+.bg-dark-light {
+  background-color: #171717;
+}
+
+.border-setting-top {
+  border: 0px;
+  border-radius: 0px;
+  border-top: 1px solid lightslategray;
+}
+
+.border-setting-bottom {
+  border-bottom: 1px solid lightslategray;
+}
+
+.custom-control-imput {
+  right: 0px;
+}
+
+#previewCard {
+  background-color: blue;
+  border-radius: 0.2em;
+}
+
+/* Form Custom Cards */
+#addCustomSubscriptionForm #valueNewSub {
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.form-group span {
+  color: white;
+}
+
+#btnSelect {
+  color: blue;
+}
+
+#btnSelect span {
+  color: red;
+}
+
+#fontOpenSans {
+  font-family: "Open Sans", sans-serif;
+}
+
+#fontDancingScript {
+  font-family: "Dancing Script", cursive;
+}
+
+#fontIndieFlower {
+  font-family: "Indie Flower", cursive;
+}
+
+#fontNunito {
+  font-family: "Nunito", sans-serif;
+}
+
+#fontRaleway {
+  font-family: "Raleway", sans-serif;
+}
+
+#fontRobotoMono {
+  font-family: "Roboto Mono", monospace;
+}
+
+/* ☆ （ • •）☆
+╔uu══════════════════╗☆
+    Landing Page  
+╚══════nn════════════╝ */
+#body-landing {
+  background-color: white;
+}
+
+.logInBtn {
+  border-width: 2px;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, #00f5ff, #f000d2);
+}
+.logInBtn:hover {
+  background-color: white;
+  color: #3200a0;
+  border-image-source: linear-gradient(to left, #f000d2 #00f5ff);
+}
+
+.SigInBtn {
+  background: #00f5ff;
+  background: linear-gradient(225deg, #00f5ff 0%, #f000d2 100%);
+  color: white;
+  border: none;
+}
+.SigInBtn:hover {
+  background: linear-gradient(225deg, #f000d2 0%, #00f5ff 100%);
+}
+
+.logo > img {
+  width: 15vw;
+  display: block;
+  margin: 5vw auto;
+}
+
+.carousel-Landing {
+  position: relative;
+}
+
+.carousel-Landing.pointer-event {
+  touch-action: pan-y;
+}
+
+.carousel-inner {
+  position: relative;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.carousel-item {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  backface-visibility: hidden;
+}
+.carousel-item img {
+  max-height: 250px;
+  max-width: 250px;
+  border-radius: 50%;
+  box-shadow: white -5px -5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: block;
+}
+
+.carousel-item-next:not(.carousel-item-left),
+.active.carousel-item-right {
+  transform: translateX(100%);
+}
+
+.carousel-item-prev:not(.carousel-item-right),
+.active.carousel-item-left {
+  transform: translateX(-100%);
+}
+
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition-property: opacity;
+  transform: none;
+}
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+  z-index: 1;
+  opacity: 1;
+}
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+  z-index: 0;
+  opacity: 0;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 50vw;
+  width: 50vw;
+  border-radius: 50%;
+}
+.carousel-control-prev .carousel-control-prev-text,
+.carousel-control-next .carousel-control-prev-text {
+  margin-top: 25%;
+  margin-left: auto;
+  margin-right: 25%;
+}
+.carousel-control-prev .carousel-control-prev-text:hover,
+.carousel-control-next .carousel-control-prev-text:hover {
+  color: black;
+}
+.carousel-control-prev .carousel-control-next-text,
+.carousel-control-next .carousel-control-next-text {
+  margin-top: 25%;
+  margin-right: auto;
+  margin-left: 25%;
+}
+
+.carousel-control-prev {
+  top: calc(100vh - 25vw);
+  left: -25vw;
+  color: #3200a0;
+  border: 1px solid #3200a0;
+}
+
+.carousel-control-next {
+  background-color: black !important;
+  top: calc(100vh - 25vw);
+  left: 75vw;
+  color: white;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: no-repeat 50%/100% 100%;
+}
+
+.carousel-indicators {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  list-style: none;
+}
+.carousel-indicators li {
+  box-sizing: content-box;
+  flex: 0 1 auto;
+  width: 3px;
+  height: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #f000d2;
+  background-clip: padding-box;
+  opacity: 0.5;
+}
+.carousel-indicators .active {
+  opacity: 1;
+}
+
+.carousel-caption {
+  position: initial;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+.carousel-caption h4,
+.carousel-caption p {
+  color: black;
+}
+.carousel-caption h4 {
+  font-family: "Indie Flower", cursive;
+}
+.carousel-caption p {
+  font-family: "Raleway", sans-serif;
+}
+
+/* ☆ （ • •）☆
+╔uu══════════════════╗☆
+    Sigin & Login  
+╚══════nn════════════╝ */
+#bodySigin,
+#bodyLogin {
+  background-color: #00f5ff;
+  background: linear-gradient(to left, #f000d2 0%, #00f5ff 100%);
+}
+
+/* ☆ （ • •）☆
+╔uu══════════════════╗☆
+      Media  
+╚══════nn════════════╝ */
+.bg-dark {
+  background-color: #000 !important;
+}
+
+/* Card Styles */
+.cardBox {
+  border: none;
+}
+
+.cardLogo-sm {
+  font-size: 2em;
+}
+
+.cardLogo {
+  font-size: 3em;
+}
+
+.cardLogo-lg {
+  font-size: 4em;
+}
+
+.cardStyle {
+  /* border: 1px solid rgba(128, 128, 128, 0.25); */
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(166, 173, 201, 0.15);
+}
+
+/* Background Styles */
+.bg-dark {
+  background-color: black;
+  color: white;
+}
+
+.bg-dark-light {
+  background-color: #171717;
+  color: lightgrey;
+}
+
+/*# sourceMappingURL=style_sass.css.map */

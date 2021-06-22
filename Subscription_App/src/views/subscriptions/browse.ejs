@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../head') %>
+
+	<body>
+		<header>
+			<%# NavBar variables %>
+				<% let navBarLeft={btnUrl:"../setting", btnIcon:"fa fa-cog"}; let navBarCenter={titleUrl:"../subscriptions/",
+					titleText:"My subscriptions"}; let navBarRight={btnUrl:"../subscriptions/create", btnIcon:"fa fa-plus"}; %>
+
+					<%# NavBar HTML %>
+						<%- include('../subscriptions/partials/header',{ navBarLeft, navBarCenter, navBarRight }) %>
+		</header>
+		<div class="container">
+
+			<%# Resume %>
+				<%- include('../subscriptions/partials/resume') %>
+
+					<!--
+									 Ejemplo de como hacer un fetch a la db <script>
+									const fetchPromise = async () => await
+									fetch('http://localhost:5000/subscriptions/colors').then(response => response.json());
+									fetchPromise()
+									.then(colors => console.log(colors));
+									</script> -->
+
+					<div class="row">
+						<ul id="activeSubs" class="p-0">
+
+							<%# Active subscription list %>
+								<%- include('../subscriptions/partials/activeSubscription' ) %>
+
+						</ul>
+					</div>
+
+		</div>
+
+		<%# Footer %>
+			<%- include('../subscriptions/partials/footer') %>
+	</body>
+
+</html>

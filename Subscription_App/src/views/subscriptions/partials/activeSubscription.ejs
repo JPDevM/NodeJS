@@ -1,0 +1,64 @@
+<% for( let one in allSubscription ){ %>
+  <% if( allSubscription[one].isActive===1 ){ %>
+    <li class="my-3 rounded bgColor">
+      <%# <a id="cardUser" href="/"> Routear a editar esta card %>
+        <div class="row bg-dark-light cardStyle">
+
+          <%# Logo %>
+            <div class="cardUserLeft col-2">
+              <div class="cardLogo-sm">
+                <i class="fa fa-spotify" style="color:<%- colors[one].colorHexa %>"></i>
+                <%# Reemplazar color con subscriptionData.logo %>
+              </div>
+            </div>
+
+            <%# Name %>
+              <div id="cardUserCenter" class="col-6">
+                <div class="row">
+                  <div class="col-12">
+                    <p class="my-0 text-truncate">
+                      <strong>
+                        <%- allSubscription[one].name %>
+                      </strong>
+                    </p>
+                  </div>
+
+                  <%# Description %>
+                    <div class="col-12">
+                      <p class="my-0 text-truncate">
+                        <small>
+                          <%- allSubscription[one].description %>
+                        </small>
+                      </p>
+                    </div>
+                </div>
+              </div>
+
+              <div id="cardUserRight" class="col">
+                <div class="row">
+                  <div class="col-12">
+
+                    <%# Price %>
+                      <p class="text-right my-0 text-truncate">
+                        <%- allSubscription[one].currency %> <strong>
+                            <%- Number(allSubscription[one].price).toFixed() %>
+                          </strong>
+                      </p>
+                  </div>
+                  <div class="col-12">
+
+                    <%# Days to payment %>
+                      <p class="text-right my-0 text-truncate">
+                        <%= calculateDate(allSubscription[one].longDate, allSubscription[one].firstPayment) %>
+                          <br>
+                          <br>
+                          <%- allSubscription[one].longDate %>
+                      </p>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <%# </a> %>
+    </li>
+    <% }; %>
+      <% }; %>

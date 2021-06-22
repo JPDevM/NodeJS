@@ -1,0 +1,43 @@
+/* ☆ （ • •）☆
+╔uu══════════════════╗☆
+      Media  
+╚══════nn════════════╝ */
+
+.bg-dark {
+  background-color: #000 !important;
+}
+
+/* Card Styles */
+.cardBox {
+  border: none;
+}
+
+.cardLogo-sm {
+  font-size: 2em;
+}
+
+.cardLogo {
+  font-size: 3em;
+}
+
+.cardLogo-lg {
+  font-size: 4em;
+}
+
+.cardStyle {
+  /* border: 1px solid rgba(128, 128, 128, 0.25); */
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(166, 173, 201, 0.15);
+}
+
+/* Background Styles */
+.bg-dark {
+  background-color: black;
+  color: white;
+}
+
+.bg-dark-light {
+  background-color: #171717;
+  color: lightgrey;
+}

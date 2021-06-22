@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../head') %>
+
+	<body id="bodySigin" class="text-center">
+		<main>
+			<!-- Logo -->
+			<section>
+				<div class="row">
+					<div class="col-12 logo">
+						<img class="img-fluid" src="/img/logo/logo_lg.png" alt="subscription app logo">
+					</div>
+				</div>
+			</section>
+
+			<!-- Form -->
+			<section class="d-flex justify-content-center">
+				<form action="/users/" method="POST">
+					<h1 class="h3 mb-3 font-weight-normal text-white">Sig in</h1>
+					<p class="text-white">Create an acount</p>
+
+
+					<!-- firstName -->
+					<label for="inputFirstName" class="sr-only">First name:</label>
+					<input type="text" name="firstName" id="inputFirstName" class="form-control"
+						placeholder="Put your first name here..." required="" autofocus="" value="Test First Name">
+
+					<!-- lastName -->
+					<label for="inputLastName" class="sr-only">Last name:</label>
+					<input type="text" name="lastName" id="inputLastName" class="form-control"
+						placeholder="Put your last name here..." autofocus="" value="Test Last Name">
+
+					<!-- email -->
+					<label for="inputEmail" class="sr-only">Last name:</label>
+					<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Put your email here..."
+						required="" autofocus="" value="jp@dev.m">
+
+					<!-- password -->
+					<label for="inputPassword" class="sr-only">Last name:</label>
+					<input type="password" name="password" id="inputPassword" class="form-control"
+						placeholder="Put your password here..." autofocus="" value="123">
+
+					<!-- gender -->
+					<label class="text-white mt-3">Gender:</label>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="gender" id="inputGenderFemale" autofocus=""
+							value="female">
+						<label class="form-check-label text-white" for="inputGenderFemale">F</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="gender" id="inputGenderMale" autofocus="" value="male">
+						<label class="form-check-label text-white" for="defaultChinputGenderMaleeck1">M</label>
+					</div>
+					<div class="form-check form-check-inline mb-3">
+						<input class="form-check-input" type="radio" name="gender" id="inputGenderOther" autofocus="" value="other">
+						<label class="form-check-label text-white" for="inputGenderOther">Other</label>
+					</div>
+
+					<!-- Submit -->
+					<button class="btn btn-lg btn-primary btn-block SigInBtn" type="submit">Create</button>
+
+					<!-- more actions -->
+					<p class="text-white mt-5">Already have an acount?</p>
+					<a href="../users/login" class="text-white">Log in</p>
+				</form>
+			</section>
+		</main>
+	</body>
+
+</html>

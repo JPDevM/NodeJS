@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../head') %>
+
+	<body>
+		<header>
+			<!-- NavBar Variables -->
+			<% let navBarLeft={btnUrl:"../subscriptions", btnIcon:"fa fa-chevron-left"}; let
+				navBarCenter={titleUrl:"../subscriptions/", titleText:"New subscription"}; let
+				navBarRight={btnUrl:"../subscriptions/create", btnIcon:""}; %>
+
+				<!-- NavBar HTML -->
+				<%- include('../subscriptions/partials/header', { navBarLeft, navBarCenter, navBarRight }) %>
+		</header>
+
+		<main>
+			<section class="my-2">
+				<div class="container-fluid">
+
+					<!-- Incluir acá -->
+					<%- include('partials/addForm') %>
+
+				</div>
+			</section>
+		</main>
+
+		<!-- Control del Submit and the validators -->
+		<script src="/public/js/addFormControl.js"></script>
+	</body>
+
+</html>

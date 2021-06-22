@@ -1,0 +1,65 @@
+<%# Tarjeta general %>
+  <div class="row bg-dark-light cardStyle ">
+    <div class="col-4 cardLogo-lg">
+      <i class="fa fa-apple"></i>
+    </div>
+    <div class="col-8">
+      <p class="my-0 text-truncate">
+        <strong>
+          $180
+        </strong>
+      </p>
+      <div class="col-12">
+        Gastos de septiembre
+      </div>
+    </div>
+  </div>
+
+  <%# Tarjeta Miñatura %>
+    <div class="row justify-content-around my-4">
+      <div class="col-3">
+        <div class="row cardStyle bg-dark-light text-center">
+          <div class="col-12 cardLogo">
+            <i class="fa fa-google" style="color: blue"></i>
+          </div>
+          <div class="row">
+            <div class="col-12 ">
+              <%- Number(allSubscription[1].price).toFixed() %>
+            </div>
+            <div class="col-12">
+              Gastos de septiembre
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="row cardStyle bg-dark-light text-center">
+          <div class="col-12 cardLogo">
+            <i class="fa fa-amazon" style="color: <%= colors[1].colorHexa %>"></i>
+          </div>
+          <div class="row">
+            <div class="col-12 ">
+              <%- Number(allSubscription[2].price).toFixed() %>
+            </div>
+            <div class="col-12">
+              Gastos de septiembre
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="row bgColor cardStyle bg-dark-light text-center">
+          <div class="col-12 cardLogo">
+            <i class="fa fa-android" style="color:greenyellow"></i>
+          </div>
+          <div class="row">
+            <div class="col-12 ">
+              <%- Number(allSubscription[3].price).toFixed() %>
+            </div>
+            <div class="col-12">
+              Gastos de septiembre
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,239 @@
+/* ☆ （ • •）☆
+╔uu══════════════════╗☆
+    Landing Page  
+╚══════nn════════════╝ */
+
+#body-landing {
+  background-color: white;
+}
+
+// Logo colors
+$colorCyan: #00f5ff;
+$colorPurplePizzazz: #f000d2;
+$colorPurple: #3200a0;
+
+.logInBtn {
+  border-width: 2px;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(
+    to left,
+    $colorCyan,
+    $colorPurplePizzazz
+  );
+
+  &:hover {
+    background-color: white;
+    color: $colorPurple;
+    border-image-source: linear-gradient(
+      to left,
+      $colorPurplePizzazz $colorCyan
+    );
+  }
+}
+
+.SigInBtn {
+  background: rgb(0, 245, 255);
+  background: linear-gradient(225deg, $colorCyan 0%, $colorPurplePizzazz 100%);
+  color: white;
+  border: none;
+
+  &:hover {
+    background: linear-gradient(
+      225deg,
+      $colorPurplePizzazz 0%,
+      $colorCyan 100%
+    );
+  }
+}
+
+.logo > img {
+  width: 15vw;
+  display: block;
+  margin: 5vw auto;
+}
+
+.carousel-Landing {
+  position: relative;
+}
+
+.carousel-Landing.pointer-event {
+  touch-action: pan-y;
+}
+
+.carousel-inner {
+  position: relative;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.carousel-item {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  backface-visibility: hidden;
+
+  img {
+    max-height: 250px;
+    max-width: 250px;
+    border-radius: 50%;
+    box-shadow: white -5px -5px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: block;
+}
+
+.carousel-item-next:not(.carousel-item-left),
+.active.carousel-item-right {
+  transform: translateX(100%);
+}
+
+.carousel-item-prev:not(.carousel-item-right),
+.active.carousel-item-left {
+  transform: translateX(-100%);
+}
+
+// Alternate transitions
+.carousel-fade {
+  .carousel-item {
+    opacity: 0;
+    transition-property: opacity;
+    transform: none;
+  }
+
+  .carousel-item.active,
+  .carousel-item-next.carousel-item-left,
+  .carousel-item-prev.carousel-item-right {
+    z-index: 1;
+    opacity: 1;
+  }
+
+  .active.carousel-item-left,
+  .active.carousel-item-right {
+    z-index: 0;
+    opacity: 0;
+  }
+}
+
+// Left/right controls for nav
+.carousel-control-prev,
+.carousel-control-next {
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  display: flex; // 1. allow flex styles
+  justify-content: center; // 3. horizontally center contents
+  align-items: flex-start; // 2. vertically center contents
+  height: 50vw;
+  width: 50vw;
+  border-radius: 50%;
+  .carousel-control-prev-text {
+    margin-top: 25%;
+    margin-left: auto;
+    margin-right: 25%;
+    &:hover {
+      color: black;
+    }
+  }
+  .carousel-control-next-text {
+    margin-top: 25%;
+    margin-right: auto;
+    margin-left: 25%;
+  }
+}
+.carousel-control-prev {
+  top: calc(100vh - 25vw);
+  left: -25vw;
+  color: $colorPurple;
+  border: 1px solid $colorPurple;
+}
+.carousel-control-next {
+  background-color: rgb(0, 0, 0, 1) !important;
+  top: calc(100vh - 25vw);
+  left: 75vw;
+  color: white;
+}
+
+// Icons for within
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: no-repeat 50% / 100% 100%;
+}
+
+// Optional indicator pips
+// Add an ordered list with the following class and add a list item for each
+// slide your carousel holds.
+.carousel-indicators {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  padding-left: 0; // override <ol> default
+  list-style: none;
+
+  li {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: 3px;
+    height: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: $colorPurplePizzazz;
+    background-clip: padding-box;
+    // Use transparent borders to increase the hit area by 10px on top and bottom.
+    // border-top: $carousel-indicator-hit-area-height solid transparent;
+    // border-bottom: $carousel-indicator-hit-area-height solid transparent;
+    opacity: 0.5;
+    // @include transition($carousel-indicator-transition);
+  }
+
+  .active {
+    opacity: 1;
+  }
+}
+
+// Texto
+.carousel-caption {
+  position: initial;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+
+  h4,
+  p {
+    color: black;
+  }
+  h4 {
+    font-family: 'Indie Flower', cursive;
+  }
+
+  p {
+    font-family: 'Raleway', sans-serif;
+  }
+}
+
+/* ☆ （ • •）☆
+╔uu══════════════════╗☆
+    Sigin & Login  
+╚══════nn════════════╝ */
+
+#bodySigin,
+#bodyLogin {
+  background-color: $colorCyan;
+  background: linear-gradient(to left, $colorPurplePizzazz 0%, $colorCyan 100%);
+}

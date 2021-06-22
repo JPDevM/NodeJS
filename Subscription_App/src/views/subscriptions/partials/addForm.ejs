@@ -1,0 +1,118 @@
+<!-- Form add subscription -->
+<form id="addCustomSubscriptionForm" class="w-100" method="POST" action="/subscriptions">
+
+  <!-- icon -->
+  <div id="divPrueba" class="form-group text-center">
+    <button type="button" class="btn btn-light btn-lg rounded-circle">
+      <p class="mb-0"><small>Choose<br>Icon</small></p>
+    </button>
+  </div>
+
+  <!-- value -->
+  <div class="form-group text-center">
+    <input id="valueNewSub" min="0" step=".01" value="" placeholder="€ 0,00" equired="" type="number"
+      class="input-dark col-3" name="number" required />
+  </div>
+
+  <!-- name ok? -->
+  <div class="form-group row my-0 border-setting-top">
+    <span for="nameNewSub" class="col-4 col-form-label">Nombre</span>
+    <div class="col">
+      <input id="nameNewSub" type="text" class="form-control text-right input-dark" placeholder="Name" name="name"
+        required>
+    </div>
+  </div>
+
+  <!-- description ok? -->
+  <div class="form-group row my-0 border-setting-top">
+    <span for="descriptionNewSub" class="col-4 col-form-label">Description</span>
+    <div class="col">
+      <input id="descriptionNewSub" type="text" class="form-control text-right input-dark" placeholder="Description"
+        name="description" required>
+    </div>
+  </div>
+
+  <!-- color ok? -->
+  <div class="form-group row my-0 border-setting-top input-dark">
+    <span for="colorNewSub" class="col-5 col-form-label">Color</span>
+    <div class="col">
+      <input id="colorNewSub" type="color" class="form-control input-dark" name="colorId" value="#000000">
+    </div>
+  </div>
+
+  <!-- firstPayment ok? -->
+  <div class="form-group row my-0 border-setting-top">
+    <span for="dateNewSub" class="col-5 col-form-label">First Invoice</span>
+    <div class="col">
+      <input id="dateNewSub" type="datetime-local" class="form-control input-dark-strong" value="" name="firstPayment"
+        required>
+    </div>
+  </div>
+
+  <!-- recurrency ok? -->
+  <div class="form-group row my-0 border-setting-top ">
+    <span for="frecuencyNewSub" class="col-5 col-form-label">Ciclo</span>
+    <div class="col">
+      <select id="frecuencyNewSub" class="custom-select input-dark-strong" name="recurrency">
+        <option value="2">Weekly</option>
+        <option value="1" selected>Monthly</option>
+        <option value="2">bi-Monthly</option>
+        <option value="3">annual</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- notification -->
+  <div class="form-group row my-0 border-setting-top ">
+    <span for="notificationNewSub" class="col-5 col-form-label">Duración</span>
+    <div class="col">
+      <select id="notificationNewSub" class="custom-select input-dark-strong">
+        <option selected>Select</option>
+        <option value="1">1 day before</option>
+        <option value="2">3 days before</option>
+        <option value="3">1 week before</option>
+        <option value="4">1 month before</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- currency ok? -->
+  <div class="form-group row my-0 border-setting-top border-setting-bottom">
+    <span for="currencyNewSub" class="col-5 col-form-label">recuerdame</span>
+    <div class="col">
+      <select id="currencyNewSub" class="custom-select input-dark-strong" name="currency">
+        <option value="1">importar values</option>
+        <option selected value="2">€</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <!-- Todo:
+  - Buscar como manipular la info que envía el submit.. (el profe lo tiene en alguna clase)
+  - Hcaer ue conincida con el model.
+  - Hacer los cálculos restantes.
+
+  isActive: INTEGER
+  isPopular: INTEGER
+  name: STRING
+  logo: STRING
+  description: STRING
+  price: DECIMAL
+  firstPayment: DATE
+  recurrency: STRING
+  longDate: DATE
+  notification: INTEGER
+  currency: STRING
+  style: ENUM
+  userId: INTEGER
+  colorId: INTEGER
+  (`id`,`isActive`,`isPopular`,`name`,`logo`,`description`,`price`,`firstPayment`,`recurrency`,`longDate`,`notification`,`currency`,`style`,`userId`,`colorId`,`createdAt`,`updatedAt`) -->
+
+  <div class="row my-4">
+    <div class="col">
+      <button class="btn btn-primary w-100" type="submit">Crear</button>
+    </div>
+  </div>
+
+</form>
