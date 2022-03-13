@@ -1,0 +1,13 @@
+{
+  "name": "jp-gateway",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "puppeteer": "^13.5.1"
+  }
+}
